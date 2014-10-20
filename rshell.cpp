@@ -22,6 +22,13 @@ int main(int arc, char *argv[])
 			arg[i] = cmptoken;
 			
 		}
+		int forkvar = fork();
+		if(forkvar == 0)
+		{
+			if(execvp(argv[], arg) == -1)
+			{
+				perror("execvp did not run");
+			}
 			
 	}
 
