@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 		{
 			exit(1);//if user typed exit, it exits the program.
 		}	
-		unsigned l;	
+		unsigned l = 0;	
 		while(token[l] != '\0')
 		{
 			if(token[l] == '#');
@@ -36,21 +36,20 @@ int main(int argc, char *argv[])
 		char **argument;
 		argument = new char *[128];//creates array of pointers
 
-		int i = 0;//counts when it gets to end of line using strtok;
+		unsigned position = 0;//counts when it gets to end of line using cstring;
 						
+	         
 		char *cmptoken = strtok(token, " ");
-	
 		while( cmptoken != NULL)
 		{
-			argument[i] = cmptoken;
-			for(;i< 128;i++);
-			cmptoken = strtok(NULL," ");
+			argument[position] = cmptoken;
+			for(;position< 128;position++);//cycles through the cstring
+			cmptoken = strtok(NULL," ");//continues parsing the line
 		}
-		argument[i] = NULL;//ends the strtok with a null to make sure its finished
+		argument[position] = NULL;//ends the strtok with a null to make sure it doesn't seg fault
 			
 		
 		int forkvar = fork();//uses pid to identify processes
-		
 		if(forkvar)//parent process which runs 
 		{
 			wait(0);
