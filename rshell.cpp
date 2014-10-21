@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 		{	
 			exit(0);//if user typed exit, it exits the program.
 		}	
-		unsigned l = 0;	
+		unsigned l;	
 		while(token[l] != '\0')
 		{
 			if(token[l] == '#');
