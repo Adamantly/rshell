@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 {
 	while(1)
 	{
-		char token[128] = {0};
+		char token[1024] = {0};
 		char username[128];
 		char hostname[128];
 		getlogin_r(username,128);	
@@ -24,29 +24,30 @@ int main(int argc, char *argv[])
 		{	
 			exit(0);//if user typed exit, it exits the program.
 		}	
-		unsigned l;	
-		while(token[l] != '\0')
-		{
-			if(token[l] == '#');
-			{
-				token[l] = '\0';
-			}	
-		    l++;
-		}
-		char **arg;
-		arg = new char *[128];//creates array of pointers
+	//	unsigned l = 0; //attempt at comments
+	//	while(token[l] != '\0')
+	//	{
+	//		if(token[l] == '#');
+	//		{
+	//			token[l] = '\0';
+	//		//	cout << "hello" << endl;
+	//		}	
+	//	   ++l;
+	//	}
+		char **argument;
+		argument = new char *[1024];//creates array of pointers
 
-		int position = 0;//counts when it gets to end of line using cstring;
+		unsigned position = 0;//counts when it gets to end of line using cstring;
 						
 	         
 		char *cmptoken = strtok(token, " ");
 		while( cmptoken != NULL)
 		{
-			arg[position] = cmptoken;
-			for(;position < 128;position++);//cycles through the cstring
+			argument[position] = cmptoken;
+			position = position + 1;
 			cmptoken = strtok(NULL," ");//continues parsing the line
 		}
-		arg[position] = NULL;//ends the strtok with a null to make sure it doesn't seg fault
+		argument[position] = NULL;//ends the strtok with a null to make sure it doesn't seg fault
 			
 		
 		int forkvar = fork();//uses pid to identify processes
@@ -57,7 +58,7 @@ int main(int argc, char *argv[])
 		else if(forkvar == 0)//child process which lets us run exec
 		{
 		//	wait(0);
-			if(execvp(arg[0], arg) == -1)//takes in the argument from array.
+			if(execvp(argument[0], argument) == -1)//takes in the argument from array.
 			{
 				perror("execvp did not run");
 			}
@@ -69,7 +70,7 @@ int main(int argc, char *argv[])
 			perror("Fork failed");//error flag when forking fails
 			return 0;
 		}
-		delete[] arg;	
+		delete[] argument;	
 	}
 	return 0;
 
