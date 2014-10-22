@@ -14,8 +14,14 @@ void login()
 {
 		char username[128];
 		char hostname[128];
-		getlogin_r(username,128);	
-		gethostname(hostname,128);
+		if(getlogin_r(username,128) != 0)
+		{
+			perror("Could not get username");
+		}	
+		if(gethostname(hostname,128) != 0)
+		{
+			perror("Could not get hostname");
+		}
 		cout << username << "@" << hostname << "$";
 
 
