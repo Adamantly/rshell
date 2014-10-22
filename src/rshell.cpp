@@ -24,15 +24,15 @@ int main(int argc, char *argv[])
 		{
 			exit(1);//if user typed exit, it exits the program.
 		}	
-		unsigned l = 0;	
-		while(token[l] != '\0')
-		{
-			if(token[l] == '#');
-			{
-				token[l] = '\0';
-			}	
-		    l++;
-		}
+	//	unsigned l = 0;	
+	//	while(token[l] != '\0')
+	//	{
+	//		if(token[l] == '#');
+	//		{
+	//			token[l] = '\0';
+	//		}	
+	//	    l++;
+	//	}
 		char **argument;
 		argument = new char *[128];//creates array of pointers
 
