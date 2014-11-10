@@ -1,4 +1,6 @@
 #include<iostream>
+#include<sstream>
+#include<string>
 #include<dirent.h>
 #include<errno.h>
 #include<sys/types.h>
@@ -10,19 +12,164 @@
 #include<vector>
 #include<stdio.h>
 using namespace std;
+void printL(struct stat &buf)
+{ //prints the permissions and mode
+	if(buf.st_mode & S_IFREG)
+	{
+		cout << '-';
+	}
+	if(buf.st_mode & S_IFDIR)
+	{
+		cout << 'd';
+	}
+	if(buf.st_mode & S_IFLNK)
+	{
+		cout << 'l';
+	}
+	if(buf.st_mode & S_IFSOCK)
+	{
+		cout << 's';
+	}
+	if(buf.st_mode & S_IFBLK)
+	{
+		cout << 'b';
+	}
+	if(buf.st_mode & S_IFIFO)
+	{
+		cout << 'f';
+	}
+	if(buf.st_mode & S_IFCHR)
+	{
+		cout << 'c';
+	}
+	cout << '-';
 
-int noflags(string dirName)
+//user permissions
+	if(buf.st_mode & S_IRUSR)
+	{
+		cout << 'r';
+	}
+	else
+	{
+		cout << '-';
+	}
+	
+	if(buf.st_mode & S_IWUSR)
+	{
+		cout << 'w';
+	}
+	else
+	{
+		cout << '-';
+	}
+	if(buf.st_mode & S_IXUSR)
+	{
+		cout << 'x';
+	}
+	else
+	{
+		cout << '-';
+	}
+
+
+//group permissions
+
+	if(buf.st_mode & S_IRGRP)
+	{
+		cout << 'r';
+	}
+	else
+	{
+		cout << '-';
+	}
+	if(buf.st_mode & S_IWGRP)
+	{
+		cout << 'w';
+	}
+	else
+	{
+		cout << '-';
+	}
+	if(buf.st_mode & S_IXGRP)
+	{
+		cout << 'x';
+	}
+	else
+	{
+		cout << '-';
+	}
+
+	//other permissions
+	if(buf.st_mode & S_IROTH)
+	{
+		cout << 'r'; 
+	}
+	else
+	{
+		cout << '-';
+	}
+	if(buf.st_mode & S_IWOTH)
+	{
+		cout << 'w';
+	}
+	else
+	{
+		cout << '-';
+	}
+	if(buf.st_mode & S_IXOTH) 
+	{
+		cout << 'x';
+	}
+	else
+	{
+		cout << '-';
+	}
+}
+
+void print(struct stat buf, dirent *direntp)
 {
+
+	cout << direntp->d_name << " ";
+
+}
+int noflags(string dirName)
+{	if((strcmp(dirName.c_str(),"")) == 0)
+	{
+		dirName = ".";
+	}
 	DIR *dirp;
 	dirent *direntp;
+	cout << "line 140" << endl;
 	if(!(dirp = opendir(dirName.c_str())))
 	{
-		perror("opendir error ln19");
+		perror("opendir error line 141");
 	}
-	while((direntp = readdir(dirp))
+	while((direntp = readdir(dirp)))
 	{
-		struct stat buf
+		if(errno != 0)
+		{
+			perror("readdir failed");
+		}
+		struct stat buf;
+		char *path = new char[dirName.length()+1];
+		strcpy(path,dirName.c_str());
+		if(stat(path, &buf) == -1)
+		{
+			perror("stat did not work ln 32");
+		}
+		if(direntp->d_name[0] == '.')
+		{
+			continue;
+		}
+	cout << direntp->d_name << " ";
 	}	
+	cout << endl;
+	if(closedir(dirp) == -1)
+	{
+		perror("closedir failed line 36");
+	}
+	return 0;
+
 
 }
 
@@ -38,13 +185,16 @@ int main(int argc, char *argv[])
 	bool lflag = false;
 	bool rflag = false;
 	bool aflag = false;
+	char *h;
 	vector<char*>v;
-	struct stat buffer;
+	string directoryName = "";
+	vector<string> files;
 
-	for(int i = 0; i < argc;i++) //pushes user input into vector
+	for(int i = 1; i < argc;i++) //pushes user input into vector
 	{
 		v.push_back(argv[i]);
 	}
+
 	int size = v.size();
 	for (int a = 0; a < size;a++)
 	{
@@ -60,11 +210,35 @@ int main(int argc, char *argv[])
 		{
 			rflag = true;
 		}
-	
+		else
+		{
+			directoryName = string(h);
+		}
+			
 	
 	}
+
+	int fsize = files.size();
 	if(!aflag && !rflag && !lflag)
 	{
+			if( fsize > 1)
+			{
+				for(int c = 0; c < fsize;c++)
+				{
+					cout << files.at(c) << ":" << endl;
+					noflags(v.at(c));
+					cout << endl;
+				}
+			}
+		
 		//function for no flags;
+//		strcpy(path,dirName.c_str());
+		else
+		{
+		     noflags(directoryName);
+		}
 	}
+
+return 0;
 }
+
