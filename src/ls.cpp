@@ -1,5 +1,8 @@
 #include<iostream>
 #include<sstream>
+#include<pwd.h>
+#include<grp.h>
+#include<time.h>
 #include<string>
 #include<dirent.h>
 #include<errno.h>
@@ -7,41 +10,44 @@
 #include<fcntl.h>
 #include<cstdlib>
 #include<sys/stat.h>
+#include<sys/types.h>
 #include<unistd.h>
 #include<string.h>
 #include<vector>
 #include<stdio.h>
 using namespace std;
-void printL(struct stat &buf)
-{ //prints the permissions and mode
+void printL( struct stat &buf)
+{
+	cout << endl;
 	if(buf.st_mode & S_IFREG)
 	{
 		cout << '-';
 	}
-	if(buf.st_mode & S_IFDIR)
+	else if(buf.st_mode & S_IFDIR)
 	{
 		cout << 'd';
 	}
-	if(buf.st_mode & S_IFLNK)
+	else if(buf.st_mode & S_IFLNK)
 	{
 		cout << 'l';
 	}
-	if(buf.st_mode & S_IFSOCK)
+	else if(buf.st_mode & S_IFSOCK)
 	{
 		cout << 's';
 	}
-	if(buf.st_mode & S_IFBLK)
+	else if(buf.st_mode & S_IFBLK)
 	{
 		cout << 'b';
 	}
-	if(buf.st_mode & S_IFIFO)
+	else if(buf.st_mode & S_IFIFO)
 	{
 		cout << 'f';
 	}
-	if(buf.st_mode & S_IFCHR)
+	else if(buf.st_mode & S_IFCHR)
 	{
 		cout << 'c';
 	}
+	else
 	cout << '-';
 
 //user permissions
@@ -70,7 +76,6 @@ void printL(struct stat &buf)
 	{
 		cout << '-';
 	}
-
 
 //group permissions
 
@@ -124,6 +129,7 @@ void printL(struct stat &buf)
 	{
 		cout << '-';
 	}
+
 }
 
 void print(struct stat buf, dirent *direntp)
@@ -134,10 +140,10 @@ void print(struct stat buf, dirent *direntp)
 }
 int aflags(string dirName)
 {
-if((strcmp(dirName.c_str(),"")) == 0)
-	{
-		dirName = ".";
-	}
+//if((strcmp(dirName.c_str(),"")) == 0)
+//	{
+//		dirName = ".";
+//	}
 	DIR *dirp;
 	dirent *direntp;
 	cout << "line 140" << endl;
@@ -153,6 +159,7 @@ if((strcmp(dirName.c_str(),"")) == 0)
 		}
 		struct stat buf;
 		char *path = new char[dirName.length()+1];
+		cout << "line 160" << endl;
 		strcpy(path,dirName.c_str());
 		if(stat(path, &buf) == -1)
 		{
@@ -160,6 +167,9 @@ if((strcmp(dirName.c_str(),"")) == 0)
 		}
 	cout << direntp->d_name << " ";
 	}	
+
+	cout << "line 168" << endl;
+
 	cout << endl;
 	if(closedir(dirp) == -1)
 	{
@@ -167,7 +177,81 @@ if((strcmp(dirName.c_str(),"")) == 0)
 	}
 	return 0;
 }
+int lflags(string dirName)
+{
+	if((strcmp(dirName.c_str(),"")) == 0)
+	{
+		dirName = ".";
+	}
+	DIR *dirp;
+	dirent *direntp;
 
+	if(!(dirp = opendir(dirName.c_str())))
+	{
+		perror("opendir error line 141");
+	}
+	while((direntp = readdir(dirp)))
+	{
+		if(errno != 0)
+		{
+			perror("readdir failed");
+		}
+		struct stat buf;
+		char *path = new char[dirName.length()+100];
+
+		strcpy(path,dirName.c_str());
+		if(stat(path, &buf) == -1)
+		{
+			perror("stat did not work ln 32");
+		}
+		if(direntp->d_name[0] == '.')
+		{
+			continue;
+		}
+		printL(buf);//prints file permissions
+		cout << buf.st_nlink << " ";
+
+		struct passwd *pawd;
+		string user;
+		if(!(pawd = getpwuid(buf.st_uid)))
+		{
+			perror("did not get id");
+		}
+
+
+		user = pawd->pw_name;
+		cout << user << " ";
+		struct group *gid;//gid
+		string getID;//groupid
+		if(!(gid = getgrgid(buf.st_gid)))
+		{
+			perror("Error with getgrid");
+		}
+
+		getID = gid->gr_name;
+		cout << getID << " ";
+		
+		int bytesize = buf.st_size;
+		cout << bytesize << " ";
+		 //printing out time
+		 time_t t = buf.st_mtime;
+		 tm *tminfo = localtime(&t);
+		 char string[100];
+
+		 strftime(string, 100, "%b %d %R", tminfo);
+		 cout << string  << " ";
+		print(buf,direntp);
+	}
+	cout << endl;
+	if(closedir(dirp) == -1)
+	{
+		perror("closedir failed line 36");
+	}
+	return 0;
+
+
+
+}
 int noflags(string dirName)
 {	if((strcmp(dirName.c_str(),"")) == 0)
 	{
@@ -208,6 +292,145 @@ int noflags(string dirName)
 
 
 }
+int rflags(string dirName)
+{
+	vector<char*>directory;
+	if((strcmp(dirName.c_str(),"")) == 0)
+	{
+		dirName = ".";
+	}
+	DIR *dirp;
+	dirent *direntp;
+//	cout << "line 140" << endl;
+	if(!(dirp = opendir(dirName.c_str())))
+	{
+		perror("opendir error line 141");
+	}
+	if((strcmp(dirName.c_str(),".")))
+	{
+		cout << ".:" << endl;
+	}
+	else
+	{
+		cout << dirName  <<":" << endl;
+	}
+	while((direntp = readdir(dirp)))
+	{
+		if(errno != 0)
+		{
+			perror("readdir failed");
+		}
+		struct stat buf;
+		char *path = new char[dirName.length()+1];
+//		cout << "line 160" << endl;
+		strcpy(path,dirName.c_str());
+		strcat(path,"/");
+		strcat(path, direntp->d_name);
+		if(stat(path, &buf) == -1)
+		{
+			perror("stat did not work ln 32");
+		}
+		if(direntp->d_name[0] == '.')
+		{
+			continue;
+		}
+
+	cout << direntp->d_name << " ";
+
+		if(S_ISDIR(buf.st_mode))
+		{
+			directory.push_back(direntp->d_name);
+		}
+	}	
+
+//	cout << "line 168" << endl;
+	for(int p = 0; p < directory.size();p++)
+	{
+		rflags(dirName + "/" + directory.at(p));
+	}
+	cout << endl;
+	if(closedir(dirp) == -1)
+	{
+		perror("closedir failed line 36");
+	}
+	return 0;
+
+}
+int alflag(string dirName)
+{
+	if((strcmp(dirName.c_str(),"")) == 0)
+	{
+		dirName = ".";
+	}
+	DIR *dirp;
+	dirent *direntp;
+
+	if(!(dirp = opendir(dirName.c_str())))
+	{
+		perror("opendir error line 141");
+	}
+	while((direntp = readdir(dirp)))
+	{
+		if(errno != 0)
+		{
+			perror("readdir failed");
+		}
+		struct stat buf;
+		char *path = new char[dirName.length()+100];
+
+		strcpy(path,dirName.c_str());
+		if(stat(path, &buf) == -1)
+		{
+			perror("stat did not work ln 32");
+		}
+		printL(buf);//prints file permissions
+		cout << buf.st_nlink << " ";
+
+		struct passwd *pawd;
+		string user;
+		if(!(pawd = getpwuid(buf.st_uid)))
+		{
+			perror("did not get id");
+		}
+
+
+		user = pawd->pw_name;
+		cout << user << " ";
+		struct group *gid;//gid
+		string getID;//groupid
+		if(!(gid = getgrgid(buf.st_gid)))
+		{
+			perror("Error with getgrid");
+		}
+
+		getID = gid->gr_name;
+		cout << getID << " ";
+		
+		int bytesize = buf.st_size;
+		cout << bytesize << " ";
+		 //printing out time
+		 time_t t = buf.st_mtime;
+		 tm *tminfo = localtime(&t);
+		 char string[100];
+
+		 strftime(string, 100, "%b %d %R", tminfo);
+		 cout << string  << " ";
+		print(buf,direntp);
+	}
+	cout << endl;
+	if(closedir(dirp) == -1)
+	{
+		perror("closedir failed line 36");
+	}
+	return 0;
+
+
+
+}
+aRflag(string dirName)
+{
+
+}
 
 int main(int argc, char *argv[])
 {
@@ -246,6 +469,17 @@ int main(int argc, char *argv[])
 		{
 			rflag = true;
 		}
+		else if(strcmp(v.at(a), "-al") == 0 || (strcmp(v.at(a),"-la") == 0))
+		{
+			aflag = true;
+			lflag = true;
+		}
+		else if(strcmp(v.at(a), "-aR") == 0 || (strcmp(v.at(a), "-Ra") == 0)
+		{
+			rflag = true;
+			aflag = true;
+		}
+
 		else
 		{
 			directoryName = string(h);
@@ -261,15 +495,20 @@ int main(int argc, char *argv[])
 	}
 	if(lflag && !aflag && !rflag)
 	{
-		//lflag function
+		lflags(directoryName);
 	}
 	if(aflag && !lflag && !rflag)
 	{
 		aflags(directoryName);
 	}
+	if(!aflag && !lflag && rflag)
+	{
+		rflags(directoryName);
+	}
 	if(lflag && aflag && !rflag)
 	{
-		//alflag function
+		cout << "494" << endl;
+		alflag(directoryName);
 	}
 	if(aflag && rflag && !lflag)
 	{
