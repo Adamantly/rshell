@@ -132,6 +132,42 @@ void print(struct stat buf, dirent *direntp)
 	cout << direntp->d_name << " ";
 
 }
+int aflags(string dirName)
+{
+if((strcmp(dirName.c_str(),"")) == 0)
+	{
+		dirName = ".";
+	}
+	DIR *dirp;
+	dirent *direntp;
+	cout << "line 140" << endl;
+	if(!(dirp = opendir(dirName.c_str())))
+	{
+		perror("opendir error line 141");
+	}
+	while((direntp = readdir(dirp)))
+	{
+		if(errno != 0)
+		{
+			perror("readdir failed");
+		}
+		struct stat buf;
+		char *path = new char[dirName.length()+1];
+		strcpy(path,dirName.c_str());
+		if(stat(path, &buf) == -1)
+		{
+			perror("stat did not work ln 32");
+		}
+	cout << direntp->d_name << " ";
+	}	
+	cout << endl;
+	if(closedir(dirp) == -1)
+	{
+		perror("closedir failed line 36");
+	}
+	return 0;
+}
+
 int noflags(string dirName)
 {	if((strcmp(dirName.c_str(),"")) == 0)
 	{
@@ -221,24 +257,32 @@ int main(int argc, char *argv[])
 	int fsize = files.size();
 	if(!aflag && !rflag && !lflag)
 	{
-			if( fsize > 1)
-			{
-				for(int c = 0; c < fsize;c++)
-				{
-					cout << files.at(c) << ":" << endl;
-					noflags(v.at(c));
-					cout << endl;
-				}
-			}
-		
-		//function for no flags;
-//		strcpy(path,dirName.c_str());
-		else
-		{
-		     noflags(directoryName);
-		}
+		noflags(directoryName);
 	}
-
+	if(lflag && !aflag && !rflag)
+	{
+		//lflag function
+	}
+	if(aflag && !lflag && !rflag)
+	{
+		aflags(directoryName);
+	}
+	if(lflag && aflag && !rflag)
+	{
+		//alflag function
+	}
+	if(aflag && rflag && !lflag)
+	{
+		//arflag function
+	}
+	if(rflag && lflag && !aflag)
+	{
+		//rlflag function
+	}
+	if(rflag && lflag && aflag)
+	{
+		//allflagfunction
+	}
 return 0;
 }
 
