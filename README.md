@@ -19,3 +19,4 @@ Bugs with LS:
 2.Not correctly printed.
 3.does not work with user defined directories, and paths.
 4. Not alphabetical.
+5. Invalid flags runs ls with no flags.
