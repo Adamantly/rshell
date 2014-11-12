@@ -158,10 +158,10 @@ void print(struct stat buf, dirent *direntp)
 }
 int aflags(string dirName)
 {
-	if((strcmp(dirName.c_str(),"")) == 0)
-	{
+//	if((strcmp(dirName.c_str(),"")) == 0)
+//	{
 		dirName = ".";
-	}
+//	}
 	DIR *dirp;
 	dirent *direntp;
 //	cout << "line 140" << endl;
