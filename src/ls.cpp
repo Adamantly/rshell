@@ -145,7 +145,11 @@ void print(struct stat buf, dirent *direntp)
 	}
 	else if(direntp->d_name[0] == '.' && (buf.st_mode & S_IFDIR))
 	{
-		cout << "]033[47m\033[38;5;32m" << direntp->d_name << "\033[0;00m" << " ";		
+		cout << "\033[47m\033[38;5;32m" << direntp->d_name << "\033[0;00m" << " ";		
+	}
+	else if(direntp->d_name[0] == '.' && (buf.st_mode & S_IXUSR))
+	{
+		cout << "\033[47m\033[38;5;32m" << direntp->d_name << "\033[0;00m" << " ";
 	}
 	else if(direntp->d_name[0] == '.')//gray background
 	{
@@ -183,7 +187,7 @@ int aflags(string dirName)
 		{
 			perror("stat did not work ln 32");
 		}
-	cout << direntp->d_name << " ";
+	print(buf,direntp);
 	}	
 
 //	cout << "line 168" << endl;
@@ -298,7 +302,8 @@ int noflags(string dirName)
 		{
 			continue;
 		}
-	cout << direntp->d_name << " ";
+         print(buf,direntp);
+
 	}	
 	cout << endl;
 	if(closedir(dirp) == -1)
@@ -351,8 +356,8 @@ int rflags(string dirName)
 		{
 			continue;
 		}
+		print(buf,direntp);
 
-	cout << direntp->d_name << " ";
 
 		if(S_ISDIR(buf.st_mode))
 		{
@@ -480,8 +485,7 @@ int aRflags(string dirName)
 			continue;
 		}
 
-	cout << direntp->d_name << " ";
-
+		print(buf,direntp);
 		if(S_ISDIR(buf.st_mode))
 		{
 			directory.push_back(direntp->d_name);
