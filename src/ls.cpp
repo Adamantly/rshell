@@ -135,8 +135,14 @@ void printL( struct stat &buf)
 void print(struct stat buf, dirent *direntp)
 {
 
-	cout << direntp->d_name << " ";
-
+	if(buf.st_mode & S_IXUSR)
+	{
+		cout << "\033[38;5;34m" << direntp->d_name << "\033[0;00m" << " ";
+	}
+	else
+	{
+		cout << direntp->d_name << " ";
+	}
 }
 int aflags(string dirName)
 {
@@ -339,7 +345,7 @@ int rflags(string dirName)
 	}	
 
 //	cout << "line 168" << endl;
-	for(int p = 0; p < directory.size();p++)
+	for(unsigned p = 0; p < directory.size();p++)
 	{
 		rflags(dirName + "/" + directory.at(p));
 	}
@@ -353,10 +359,7 @@ int rflags(string dirName)
 }
 int alflag(string dirName)
 {
-	if((strcmp(dirName.c_str(),"")) == 0)
-	{
 		dirName = ".";
-	}
 	DIR *dirp;
 	dirent *direntp;
 
@@ -425,10 +428,7 @@ int alflag(string dirName)
 int aRflags(string dirName)
 {
 	vector<char*>directory;
-	if((strcmp(dirName.c_str(),"")) == 0)
-	{
 		dirName = ".";
-	}
 	DIR *dirp;
 	dirent *direntp;
 //	cout << "line 140" << endl;
@@ -474,7 +474,7 @@ int aRflags(string dirName)
 	}	
 
 //	cout << "line 168" << endl;
-	for(int p = 0; p < directory.size();p++)
+	for(unsigned p = 0; p < directory.size();p++)
 	{
 		rflags(dirName + "/" + directory.at(p));
 	}
@@ -562,7 +562,7 @@ int rlflags(string dirName)
 
 	}
 	cout << endl;
-	for(int p = 0; p < directory.size();p++)
+	for(unsigned p = 0; p < directory.size();p++)
 	{
 		rflags(dirName + "/" + directory.at(p));
 	}
@@ -642,7 +642,7 @@ int allflags(string dirName)
 
 	}
 	cout << endl;
-	for(int p = 0; p < directory.size();p++)
+	for(unsigned p = 0; p < directory.size();p++)
 	{
 		rlflags(dirName + "/" + directory.at(p));
 	}
@@ -668,7 +668,6 @@ int main(int argc, char *argv[])
 	bool lflag = false;
 	bool rflag = false;
 	bool aflag = false;
-	char *h;
 	vector<char*>v;
 	string directoryName = "";
 	vector<string> files;
@@ -715,15 +714,10 @@ int main(int argc, char *argv[])
 			lflag = true;
 			aflag = true;
 		}
-		else
-		{
-			directoryName = string(h);
-		}
 			
 	
 	}
 
-	int fsize = files.size();
 	if(!aflag && !rflag && !lflag)
 	{
 		noflags(directoryName);
