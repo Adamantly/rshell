@@ -1,0 +1,3169 @@
+Script started on Tue 11 Nov 2014 11:15:56 PM PST
+~
+afan004@hammer $ cd cs100/rshell
+~/cs100/rshell
+afan004@hammer $ ls
+[0m[01;34mbin[0m/  LICENSE  Makefile  README.md  [01;34msrc[0m/  [01;34mtests[0m/
+[m~/cs100/rshell
+afan004@hammer $ make
+g++ -Wall -Werror -ansi -pedantic src/rshell.cpp -o ./bin/rshell
+g++ -Wall -Werror -ansi -pedantic src/cp.cpp -o ./bin/cp
+g++ -Wall -Werror -ansi -pedantic src/ls.cpp -o ./bin/ls
+~/cs100/rshell
+afan004@hammer $ /bin/cp Makefile src
+~/cs100/rshell
+afan004@hammer $ cd src
+~/cs100/rshell/src
+afan004@hammer $ ls
+[0m[01;32ma.out[0m*  cp.cpp  ls.cpp  Makefile  rshell.cpp  Timer.h
+[m~/cs100/rshell/src
+afan004@hammer $ cd ..
+~/cs100/rshell
+afan004@hammer $ /bin/ls 
+bin  LICENSE  Makefile	README.md  src	tests
+~/cs100/rshell
+afan004@hammer $ /bin/ls  [K-a
+.  ..  bin  .git  LICENSE  Makefile  README.md	src  tests
+~/cs100/rshell
+afan004@hammer $ /bin/ls -a[Kl
+total 56
+drwx------ 2 afan004 csmajs  4096 Nov 11 23:15 bin
+-rw------- 1 afan004 csmajs 34593 Oct 21 23:42 LICENSE
+-rw------- 1 afan004 csmajs   241 Nov 11 23:04 Makefile
+-rw------- 1 afan004 csmajs   630 Nov 11 23:09 README.md
+drwx------ 3 afan004 csmajs  4096 Nov 11 23:15 src
+drwx------ 2 afan004 csmajs  4096 Nov 11 23:15 tests
+~/cs100/rshell
+afan004@hammer $ /bin/ls -l[KR
+.:
+bin  LICENSE  Makefile	README.md  src	tests
+
+./bin:
+cp  ls	rshell
+
+./src:
+a.out  cp.cpp  ls.cpp  Makefile  rshell.cpp  Timer.h
+
+./tests:
+ls.script  rshell.script
+~/cs100/rshell
+afan004@hammer $ /bin/ls -R[K[K
+bin  LICENSE  Makefile	README.md  src	tests
+~/cs100/rshell
+afan004@hammer $ /bin/ls -al
+total 68
+drwx------ 6 afan004 csmajs  4096 Nov 11 23:09 .
+drwx------ 7 afan004 csmajs  4096 Nov 11 20:08 ..
+drwx------ 2 afan004 csmajs  4096 Nov 11 23:15 bin
+drwx------ 8 afan004 csmajs  4096 Nov 11 23:10 .git
+-rw------- 1 afan004 csmajs 34593 Oct 21 23:42 LICENSE
+-rw------- 1 afan004 csmajs   241 Nov 11 23:04 Makefile
+-rw------- 1 afan004 csmajs   630 Nov 11 23:09 README.md
+drwx------ 3 afan004 csmajs  4096 Nov 11 23:15 src
+drwx------ 2 afan004 csmajs  4096 Nov 11 23:15 tests
+~/cs100/rshell
+afan004@hammer $ /bin/ls -al[K[Kla
+total 68
+drwx------ 6 afan004 csmajs  4096 Nov 11 23:09 .
+drwx------ 7 afan004 csmajs  4096 Nov 11 20:08 ..
+drwx------ 2 afan004 csmajs  4096 Nov 11 23:15 bin
+drwx------ 8 afan004 csmajs  4096 Nov 11 23:10 .git
+-rw------- 1 afan004 csmajs 34593 Oct 21 23:42 LICENSE
+-rw------- 1 afan004 csmajs   241 Nov 11 23:04 Makefile
+-rw------- 1 afan004 csmajs   630 Nov 11 23:09 README.md
+drwx------ 3 afan004 csmajs  4096 Nov 11 23:15 src
+drwx------ 2 afan004 csmajs  4096 Nov 11 23:15 tests
+~/cs100/rshell
+afan004@hammer $ /bin/ls -la[K[KaR
+.:
+.  ..  bin  .git  LICENSE  Makefile  README.md	src  tests
+
+./bin:
+.  ..  cp  ls  rshell
+
+./.git:
+.  ..  branches  COMMIT_EDITMSG  COMMIT_EDITMSG~  config  description  FETCH_HEAD  HEAD  hooks	index  info  logs  #MERGE_MSG#	MERGE_MSG~  objects  ORIG_HEAD	refs
+
+./.git/branches:
+.  ..
+
+./.git/hooks:
+.   applypatch-msg.sample  post-update.sample	  pre-commit.sample	     pre-push.sample	update.sample
+..  commit-msg.sample	   pre-applypatch.sample  prepare-commit-msg.sample  pre-rebase.sample
+
+./.git/info:
+.  ..  exclude
+
+./.git/logs:
+.  ..  HEAD  refs
+
+./.git/logs/refs:
+.  ..  heads  remotes  stash
+
+./.git/logs/refs/heads:
+.  ..  ls  master
+
+./.git/logs/refs/remotes:
+.  ..  origin
+
+./.git/logs/refs/remotes/origin:
+.  ..  exec  ls  master
+
+./.git/objects:
+^[[A.   08	0c  13	19  1e	25  29	2d  35	3a  42	47  4c	52  5d	63  67	6d  73	77  7b	85  8e	99  9f	a4  a9	ad  b4	bb  be	c5  d1	df  e6	ee  f4	f8  fe
+..  0a	10  15	1a  1f	26  2a	2e  37	3f  43	48  4f	53  5f	65  6b	70  75	79  7d	86  97	9a  a2	a6  ab	b0  b5	bc  c0	c8  d5	e4  e9	f1  f5	f9  info
+06  0b	12  18	1d  22	28  2c	34  38	41  45	4a  50	57  60	66  6c	72  76	7a  83	8b  98	9e  a3	a8  ac	b3  ba	bd  c4	cb  d9	e5  eb	f3  f6	fd  pack
+
+./.git/objects/06:
+.  ..  3c6e6d513d28577fa97adf0dd26b61f915cfff
+
+./.git/objects/08:
+.  ..  7f3ccdc88f1a804e7bd23e1617b3663dbe9327
+
+./.git/objects/0a:
+.  ..  474f95d088508617e871c9c64d7f9cc5e10f1e
+
+./.git/objects/0b:
+.  ..  a477cde0e40b9392f95bbe3c69bd38c694284c
+
+./.git/objects/0c:
+.  ..  07b13cd9e5f69d63159d14c60fa80cd2c4d1b6  7f57d7f63e99b12c4b8a2a7797fcdf6a92a146
+
+./.git/objects/10:
+.  ..  ff4588cd80b0cfdf89150bb7176289d34fbdc6
+
+./.git/objects/12:
+.  ..  d6f3505c7429c63997a956fedc90c29f2d7476
+
+./.git/objects/13:
+.  ..  349ed154a21a8a1ceb780974c7c96fe6f40708
+
+./.git/objects/15:
+.  ..  90b28f8a874aacff20348026a1eada0ab855de
+
+./.git/objects/18:
+.  ..  de32580605526b1678414d4f8f5d0f6e7773a6
+
+./.git/objects/19:
+.  ..  b4604a0680d61a42bad3202b22dab367821308
+
+./.git/objects/1a:
+.  ..  40f1b324f94294d78fae99edd6c9fc25d3f8b7  45429442c872c74fad20af69ca7b97d63795eb  cffc675e8ce8fd80286be645a555b3d09d1c97
+
+./.git/objects/1d:
+.  ..  e1281461ed7ef27c6b37af4d39e8752514880a
+
+./.git/objects/1e:
+.  ..  56c69d5e0bb5439680b5b922438fdc2eef0ab3  760d5c97e7fd519a69541c54b91c9b27627c90  9815bbef22c9fbfadeef709f1a93dd73d80544
+
+./.git/objects/1f:
+.  ..  12e97f7026e543f1769c0060b14bc2bbd4e667
+
+./.git/objects/22:
+.  ..  00b1a6f8f23238d1557f0aed204acedc7093b6
+
+./.git/objects/25:
+.  ..  95deaf021adb7cd015833cb908992a982697be  b3f12b93b4f15fec970ce82d42269d996fea6d
+
+./.git/objects/26:
+.   0fa4963353efa12bd2cd47a92745543cf814c5  4fc06b5a88a286a5dff6158cfd047836cdf49b  cf37214993a7966ca859dcbbd14a1b97efd946
+..  4af4085030732dd33485f4bf595004de43c208  76dd3bf3133b0cc3bc622e123125ba29316914
+
+./.git/objects/28:
+.  ..  f4b45012c3050141d27b608569039059339f4b
+
+./.git/objects/29:
+.  ..  13d2725b7e0feddb104bf97b8054dc66bbb101
+
+./.git/objects/2a:
+.  ..  3777babc4d42d9c1e75fe8b814ae2771bd1614
+
+./.git/objects/2c:
+.  ..  686741918cd291ea7a29b0cc40556134abde1b  ea51e41d8028ff02c0e85aba9042e4329bd245  fe45571ff78fcca4c89d29afc1bf29312ef668
+
+./.git/objects/2d:
+.  ..  0db05c3d912d84bb849baea678cc19ca28d401
+
+./.git/objects/2e:
+.  ..  471dbe40e9a41b9dc0e7ebfa071fa6c5ba98bb
+
+./.git/objects/34:
+.  ..  aeb6719d4c7c8ccf207511b1ca46714336a5cb
+
+./.git/objects/35:
+.  ..  d92db755f7b688ba41b8bfcdedd000aaed8923
+
+./.git/objects/37:
+.  ..  9b7e366df38f924ff19f6db403e41a2c856eb6
+
+./.git/objects/38:
+.  ..  3ed5bb328ef0b75edaf4e2d7feaf9a09ba35fa  4e053074ecc6d25a480f4f6ad165e861832385
+
+./.git/objects/3a:
+.  ..  00fbe76a899de8ff0b48b50adf348c0c5c2675
+
+./.git/objects/3f:
+.  ..  a214c6758761b93b92d896961c220095fe5dc2
+
+./.git/objects/41:
+.  ..  7fac781d9bf72029af8b9df2eea21955dddd24
+
+./.git/objects/42:
+.  ..  81baa0a3646e4d8d3e070bd2c60183abf57569
+
+./.git/objects/43:
+.  ..  59841bd047d974e46c2a8038f26455b3eccb5d
+
+./.git/objects/45:
+.  ..  5e5586d928210ea6d994e3b8f64cca91324e7c  c95e575d34f6846fbb7dfba0ad9aa5bb2afc82
+
+./.git/objects/47:
+.  ..  3506a0f6672bf00bf7fde6742044e86e4d7ef7
+
+./.git/objects/48:
+.  ..  3790ef8ba97c189e648b5bb08ab51f6502189d  9322876cc85ca0b8b5794801ce84760720d2b1
+
+./.git/objects/4a:
+.  ..  085e5687ed1565f60a9cb6ae5d4ce0448c6f14  6844014a7569cbec6cd501e5b6e8fa565118ca  e795270dba157bac0487afface3097114a6c33
+
+./.git/objects/4c:
+.  ..  443bd7d01adeaacee4c6f6bc2422abfe68e7ea
+
+./.git/objects/4f:
+.  ..  613ec39df98224d19eef90ef3867a27c608a97
+
+./.git/objects/50:
+.  ..  01446489e4d042f62aa41ae51ad31c978686ab
+
+./.git/objects/52:
+.  ..  ce1a7a5cb76e305249f166b831db11ab5c1540
+
+./.git/objects/53:
+.  ..  f74a55baf5d4c3d0fc86c45260d52f0afedb48
+
+./.git/objects/57:
+.  ..  b7adbeabe9086d1d929299723dd1b05d64b2da  bbed7f06e9ee75d3a12335da61742e1ada846b
+
+./.git/objects/5d:
+.  ..  5de226c61de36409eb733d9987e8c4a5437396
+
+./.git/objects/5f:
+.  ..  a325903c5fea99816ab5cbd0254b79e61271c4
+
+./.git/objects/60:
+.  ..  65de5d295ef224d2ad5c909f92b4eac719c4a0
+
+./.git/objects/63:
+.  ..  0fc4931b33741d475fdad1ccb25bb9966abbba
+
+./.git/objects/65:
+.  ..  19cd811106a08ccd75a28b83bbfe54fa119aad  969ed64573338e86cc8431790d6de4a015058c
+
+./.git/objects/66:
+.  ..  e1be6b13c2c4b3b2ac762445a89fa422939238
+
+./.git/objects/67:
+.  ..  50b98bc33371e35218f1bfdb78ee64779e4881  9e712a50b5fecf4e0577d0450d30e381987c6b  a90d67a1d0ae8dc5b66a24b8a2dd26ca88fc2e
+
+./.git/objects/6b:
+.  ..  8ef0e57713e21651490523474dcc5299ca2a3d
+
+./.git/objects/6c:
+.  ..  c8571047e9218ecd73c8004b6c50761ac9ac61
+
+./.git/objects/6d:
+.  ..  4fe33484a3d17aeb4216c4c8c0377414882b0b
+
+./.git/objects/70:
+.  ..  edc98e14d37f885d6799e209c1574e039e34cb
+
+./.git/objects/72:
+.  ..  03a7db0412b0b6a6f1f48dbb594498de6e073f  08069ca18199c13167a79709f21dee6b039d94  ba01f57e497c2d2f28d53d0c1d1ce6b6edab69
+
+./.git/objects/73:
+.  ..  2f89fd91ce3e89a838019f6d0510cd22f2fee4  5f5ccfd414a555fb01836e576651914fa5c62a  93cc457af20a5d5b0f081f5847c02ac8d51c7e
+
+./.git/objects/75:
+.  ..  419cab6a32528d151dd39195ed4ddc24b25814  82e54172a7384ab4521ecb221d51a0844cba45  8e0dade01e5f57ff6edfa877f61d492e38bb37  bffa82538828962e451c8f09267ca82d6d93cc
+
+./.git/objects/76:
+.  ..  601cbc7230618ef5b5e0d750b19fd0744e782b
+
+./.git/objects/77:
+.  ..  d7d381a1424ac629d213fb9ca0dd776e0b1cb5
+
+./.git/objects/79:
+.  ..  2ba4c6584a965ff6342ee2faa6837032c0888a  437410ab1cb7f88827ef2aa8ce228bd3929d6e
+
+./.git/objects/7a:
+.  ..  6196b68386a991ac1f6948f7eb69e66d25a0bd  c5374584f9b3d9b7075cba8c05183b3f7ff9b1
+
+./.git/objects/7b:
+.  ..  702b8c79cb9ff003670d985e40eb1032636467
+
+./.git/objects/7d:
+.  ..  bb9ef4551d2f4109cc727e95ae1ddcfe45b215
+
+./.git/objects/83:
+.  ..  eb471e87499e511d0863a96faf1d5f91b987df
+
+./.git/objects/85:
+.  ..  20b6540ccaf189839678118d7ac0d734f9d25b  38998d6c0ff43d37c2bcb8dab83c620b812535  395216cd93e586263fa3f01d251fa378448c58
+
+./.git/objects/86:
+.  ..  4b66150066b723b68cc119e413c4e063638c3d
+
+./.git/objects/8b:
+.  ..  fe915b6dd4ab9c2c5b7eee9bfb0bd976097ec5
+
+./.git/objects/8e:
+.  ..  a5387984a69e51cd431f19e0e0f3a7d0b388cd
+
+./.git/objects/97:
+.  ..  69c3afbf632d21802e67d60b263dd1f6295abf
+
+./.git/objects/98:
+.  ..  1733d302072f397b4a3c6f2b6e52439baaa996
+
+./.git/objects/99:
+.  ..  69a060b372656217eaa69bb96d10085d115b1c  fd3bc6f3396ff17db085fdb29c0e297796f322
+
+./.git/objects/9a:
+.  ..  41568f1d9fcb06ff0efdb92d9425af52927c92
+
+./.git/objects/9e:
+.  ..  e1ec1aa6c65a176bf0ffafc73a9f6bcdd8428c
+
+./.git/objects/9f:
+.  ..  ddb39b9e1a5bd691349573581cc86579f061b7
+
+./.git/objects/a2:
+.  ..  aaab818d32571c1ba8ab170c4ac1998027dc13
+
+./.git/objects/a3:
+.  ..  e71bf05421d622a638c004f6e880252f4db8c5  e86b1ff78097dcbc2cf3b4583529a435a2e664
+
+./.git/objects/a4:
+.  ..  463022cd7348ee5be32a5505342e08653d626f  9b21e1e9d5184a1476d134d230ca20a3f32478
+
+./.git/objects/a6:
+.  ..  9376168ca7eb5db41ed4a565b94cd2272640be  e7fb7a69a408c11159625ef486dbb2036b14a0
+
+./.git/objects/a8:
+.  ..  35e62b4a0dd564cf59c6259ccdafc47e5d77d5  3a0085f0701d6675cdeadbae9843bfa57e96df  8efbb268103115a231dbebc27e0e142ff9fb55  fc0acb593157a8ad918f77576b19bf5a755f88
+
+./.git/objects/a9:
+.  ..  f04ba3e3f40f704fefeb86fc3664c1eb5795b8
+
+./.git/objects/ab:
+.  ..  909bafcbd1dfbe6497916dfe8c389821523197
+
+./.git/objects/ac:
+.  ..  8ae509b4a6b02c667966d60af849698ca630ba  ab9f99a19d7125fe4de1f0194243d4edc0681b
+
+./.git/objects/ad:
+.  ..  dabdb5abe96c1d3edb9492c5f15311e3590f9c
+
+./.git/objects/b0:
+.  ..  47ccef89d4eaf30b6792283919c081f2cdeefd  b37a2ee4846ca70b9d0c96900b3ee1d01a3473  f379b8e77c148c14ff260ad296ec686dfa85ff
+
+./.git/objects/b3:
+.  ..  5f10843303ec00b65f5054a507c43043f1b1eb  d61003e41684513b65aa9ada50f4abc174f426
+
+./.git/objects/b4:
+.  ..  d206b5a01bb521379a38ecd081ba540b2adb3f
+
+./.git/objects/b5:
+.  ..  8bf6947a46a25f576ee87cd921b0ef97c8884c  dbf0971ca2404f261948c9f2ae7fc0e2b4c1de
+
+./.git/objects/ba:
+.  ..  a73020b81563829dff622216541eb4fd6d2cc0  bc8b10fd692076d1c29d3c64b131ecb25b9c1c
+
+./.git/objects/bb:
+.  ..  18cc32d7588e9f8fe05635536b04ca5360b759
+
+./.git/objects/bc:
+.  ..  d63f2dfdfebfe318501359e38221a361b190d6  eb790812013225ef508aeb009e250933c23885
+
+./.git/objects/bd:
+.  ..  7128afaf4f19f7a351cfee8fd66b6de1eff693
+
+./.git/objects/be:
+.  ..  e640f160a986d9e03bb45b909947eba8d2a17f
+
+./.git/objects/c0:
+.  ..  b41e23edd0e4eb342122ac5c36652ab3a09384
+
+./.git/objects/c4:
+.  ..  0da848fcd42331022ca061098146968dbeb86a  861e2045daa8250b480389f08da2cdb29685f3
+
+./.git/objects/c5:
+.   24bbaba450b03d3aef315a41b8210b30dd5e44  8292f7c57c8fdc4bbd56ce0c4f6a7978840bbf  fd51657da74960cf428e1303217217753f520f
+..  623d221db69550d2a4c5901291bc7e24ed88c3  91574ef399d684453b1239065d84f383c9b6d1
+
+./.git/objects/c8:
+.  ..  02c264907d43955ee41602c346aeb10d7b6076
+
+./.git/objects/cb:
+.  ..  0897fe9844d33a7806ba9fc1248eec8f1e3760
+
+./.git/objects/d1:
+.  ..  9fe5290a89e7ae9e5dca26913bcb80621d3742
+
+./.git/objects/d5:
+.  ..  29106e2918264f35ef5ef9a5294b0007870ce3  d0d1ca0cab2268bf7e233468d7f616b487e0f5
+
+./.git/objects/d9:
+.  ..  8aaa5e4d6c3382d9c5870ee0c4a20d4b14f979
+
+./.git/objects/df:
+.  ..  f90a7d03b6f4953ae211128836c66068442317
+
+./.git/objects/e4:
+.  ..  b8508e255166bd3bc093c9ddfa57a8f183388c  f0b2e934ade6aea74fabcef23f1843b9a8ef5a
+
+./.git/objects/e5:
+.  ..  114975716325db4a1abc77629d9e9d9c5cb422  d770bc70c4ad0c4be4fdbf6a63a90100225934
+
+./.git/objects/e6:
+.  ..  1dd37d9660c8902f117dd172fe85ab42c3eec4  4789883ee38a859db3f352c616673aec7e9a9d  8ae8fb99e588aa5fd8ca838b5f6a061632519e
+
+./.git/objects/e9:
+.  ..  e5754906ba0bd74e558cbeb7f4ca40a56676e8
+
+./.git/objects/eb:
+.  ..  e5a43e965f47d8b8d0c090dcb279f53ae179a8  f13fefad650606c9f5ed0784deb4051b3fb2b6
+
+./.git/objects/ee:
+.  ..  428be94e3ed98d8dc68ac8fbb4e5700b3b6d07
+
+./.git/objects/f1:
+.  ..  38f6abd21f8b9b09fd7d73ba7bd4e08b71cce3
+
+./.git/objects/f3:
+.  ..  f9909960e9f42ba9aa355c82b85124b7f12a85
+
+./.git/objects/f4:
+.  ..  09f6f3c8e9153989242f2ddf776cc7f8ccfd24  4e28bf3f39fd3d9edc708514581c819d7ceaf0
+
+./.git/objects/f5:
+.  ..  80c9425a89a104504c44a18bec69789c93fa83
+
+./.git/objects/f6:
+.  ..  34d867d836b51f01b6ead63788eb765a1f27cc
+
+./.git/objects/f8:
+.  ..  77cb0153ad72d9112cf92a71e0233d03f64451  dd239ed218981da31f4f6bc1409db2d801eb32
+
+./.git/objects/f9:
+.  ..  8df697bb41e13b52f122334e207c7e8dc1ceb7
+
+./.git/objects/fd:
+.  ..  503d017a9e5dd99affbcfb33d44630df71294a
+
+./.git/objects/fe:
+.  ..  3bce28932817ebc5a4c6ad80f7e5386b8f20ab
+
+./.git/objects/info:
+.  ..
+
+./.git/objects/pack:
+.  ..
+
+./.git/refs:
+.  ..  heads  remotes  stash  tags
+
+./.git/refs/heads:
+.  ..  ls  master
+
+./.git/refs/remotes:
+.  ..  origin
+
+./.git/refs/remotes/origin:
+.  ..  exec  ls  master
+
+./.git/refs/tags:
+.  ..  hw0
+
+./src:
+.  ..  a.out  cp.cpp  .git  ls.cpp  Makefile  rshell.cpp  Timer.h
+
+./src/.git:
+.  ..  objects
+
+./src/.git/objects:
+.  ..  0c  34  f3
+
+./src/.git/objects/0c:
+.  ..  7f57d7f63e99b12c4b8a2a7797fcdf6a92a146
+
+./src/.git/objects/34:
+.  ..  aeb6719d4c7c8ccf207511b1ca46714336a5cb
+
+./src/.git/objects/f3:
+.  ..  f9909960e9f42ba9aa355c82b85124b7f12a85
+
+./tests:
+.  ..  ls.script  rshell.script
+~/cs100/rshell
+afan004@hammer $ /bin/ls -aR[K[KRa
+.:
+.  ..  bin  .git  LICENSE  Makefile  README.md	src  tests
+
+./bin:
+.  ..  cp  ls  rshell
+
+./.git:
+.  ..  branches  COMMIT_EDITMSG  COMMIT_EDITMSG~  config  description  FETCH_HEAD  HEAD  hooks	index  info  logs  #MERGE_MSG#	MERGE_MSG~  objects  ORIG_HEAD	refs
+
+./.git/branches:
+.  ..
+
+./.git/hooks:
+.   applypatch-msg.sample  post-update.sample	  pre-commit.sample	     pre-push.sample	update.sample
+..  commit-msg.sample	   pre-applypatch.sample  prepare-commit-msg.sample  pre-rebase.sample
+
+./.git/info:
+.  ..  exclude
+
+./.git/logs:
+.  ..  HEAD  refs
+
+./.git/logs/refs:
+.  ..  heads  remotes  stash
+
+./.git/logs/refs/heads:
+.  ..  ls  master
+
+./.git/logs/refs/remotes:
+.  ..  origin
+
+./.git/logs/refs/remotes/origin:
+.  ..  exec  ls  master
+
+./.git/objects:
+.   08	0c  13	19  1e	25  29	2d  35	3a  42	47  4c	52  5d	63  67	6d  73	77  7b	85  8e	99  9f	a4  a9	ad  b4	bb  be	c5  d1	df  e6	ee  f4	f8  fe
+..  0a	10  15	1a  1f	26  2a	2e  37	3f  43	48  4f	53  5f	65  6b	70  75	79  7d	86  97	9a  a2	a6  ab	b0  b5	bc  c0	c8  d5	e4  e9	f1  f5	f9  info
+06  0b	12  18	1d  22	28  2c	34  38	41  45	4a  50	57  60	66  6c	72  76	7a  83	8b  98	9e  a3	a8  ac	b3  ba	bd  c4	cb  d9	e5  eb	f3  f6	fd  pack
+
+./.git/objects/06:
+.  ..  3c6e6d513d28577fa97adf0dd26b61f915cfff
+
+./.git/objects/08:
+.  ..  7f3ccdc88f1a804e7bd23e1617b3663dbe9327
+
+./.git/objects/0a:
+.  ..  474f95d088508617e871c9c64d7f9cc5e10f1e
+
+./.git/objects/0b:
+.  ..  a477cde0e40b9392f95bbe3c69bd38c694284c
+
+./.git/objects/0c:
+.  ..  07b13cd9e5f69d63159d14c60fa80cd2c4d1b6  7f57d7f63e99b12c4b8a2a7797fcdf6a92a146
+
+./.git/objects/10:
+.  ..  ff4588cd80b0cfdf89150bb7176289d34fbdc6
+
+./.git/objects/12:
+.  ..  d6f3505c7429c63997a956fedc90c29f2d7476
+
+./.git/objects/13:
+.  ..  349ed154a21a8a1ceb780974c7c96fe6f40708
+
+./.git/objects/15:
+.  ..  90b28f8a874aacff20348026a1eada0ab855de
+
+./.git/objects/18:
+.  ..  de32580605526b1678414d4f8f5d0f6e7773a6
+
+./.git/objects/19:
+.  ..  b4604a0680d61a42bad3202b22dab367821308
+
+./.git/objects/1a:
+.  ..  40f1b324f94294d78fae99edd6c9fc25d3f8b7  45429442c872c74fad20af69ca7b97d63795eb  cffc675e8ce8fd80286be645a555b3d09d1c97
+
+./.git/objects/1d:
+.  ..  e1281461ed7ef27c6b37af4d39e8752514880a
+
+./.git/objects/1e:
+.  ..  56c69d5e0bb5439680b5b922438fdc2eef0ab3  760d5c97e7fd519a69541c54b91c9b27627c90  9815bbef22c9fbfadeef709f1a93dd73d80544
+
+./.git/objects/1f:
+.  ..  12e97f7026e543f1769c0060b14bc2bbd4e667
+
+./.git/objects/22:
+.  ..  00b1a6f8f23238d1557f0aed204acedc7093b6
+
+./.git/objects/25:
+.  ..  95deaf021adb7cd015833cb908992a982697be  b3f12b93b4f15fec970ce82d42269d996fea6d
+
+./.git/objects/26:
+.   0fa4963353efa12bd2cd47a92745543cf814c5  4fc06b5a88a286a5dff6158cfd047836cdf49b  cf37214993a7966ca859dcbbd14a1b97efd946
+..  4af4085030732dd33485f4bf595004de43c208  76dd3bf3133b0cc3bc622e123125ba29316914
+
+./.git/objects/28:
+.  ..  f4b45012c3050141d27b608569039059339f4b
+
+./.git/objects/29:
+.  ..  13d2725b7e0feddb104bf97b8054dc66bbb101
+
+./.git/objects/2a:
+.  ..  3777babc4d42d9c1e75fe8b814ae2771bd1614
+
+./.git/objects/2c:
+.  ..  686741918cd291ea7a29b0cc40556134abde1b  ea51e41d8028ff02c0e85aba9042e4329bd245  fe45571ff78fcca4c89d29afc1bf29312ef668
+
+./.git/objects/2d:
+.  ..  0db05c3d912d84bb849baea678cc19ca28d401
+
+./.git/objects/2e:
+.  ..  471dbe40e9a41b9dc0e7ebfa071fa6c5ba98bb
+
+./.git/objects/34:
+.  ..  aeb6719d4c7c8ccf207511b1ca46714336a5cb
+
+./.git/objects/35:
+.  ..  d92db755f7b688ba41b8bfcdedd000aaed8923
+
+./.git/objects/37:
+.  ..  9b7e366df38f924ff19f6db403e41a2c856eb6
+
+./.git/objects/38:
+.  ..  3ed5bb328ef0b75edaf4e2d7feaf9a09ba35fa  4e053074ecc6d25a480f4f6ad165e861832385
+
+./.git/objects/3a:
+.  ..  00fbe76a899de8ff0b48b50adf348c0c5c2675
+
+./.git/objects/3f:
+.  ..  a214c6758761b93b92d896961c220095fe5dc2
+
+./.git/objects/41:
+.  ..  7fac781d9bf72029af8b9df2eea21955dddd24
+
+./.git/objects/42:
+.  ..  81baa0a3646e4d8d3e070bd2c60183abf57569
+
+./.git/objects/43:
+.  ..  59841bd047d974e46c2a8038f26455b3eccb5d
+
+./.git/objects/45:
+.  ..  5e5586d928210ea6d994e3b8f64cca91324e7c  c95e575d34f6846fbb7dfba0ad9aa5bb2afc82
+
+./.git/objects/47:
+.  ..  3506a0f6672bf00bf7fde6742044e86e4d7ef7
+
+./.git/objects/48:
+.  ..  3790ef8ba97c189e648b5bb08ab51f6502189d  9322876cc85ca0b8b5794801ce84760720d2b1
+
+./.git/objects/4a:
+.  ..  085e5687ed1565f60a9cb6ae5d4ce0448c6f14  6844014a7569cbec6cd501e5b6e8fa565118ca  e795270dba157bac0487afface3097114a6c33
+
+./.git/objects/4c:
+.  ..  443bd7d01adeaacee4c6f6bc2422abfe68e7ea
+
+./.git/objects/4f:
+.  ..  613ec39df98224d19eef90ef3867a27c608a97
+
+./.git/objects/50:
+.  ..  01446489e4d042f62aa41ae51ad31c978686ab
+
+./.git/objects/52:
+.  ..  ce1a7a5cb76e305249f166b831db11ab5c1540
+
+./.git/objects/53:
+.  ..  f74a55baf5d4c3d0fc86c45260d52f0afedb48
+
+./.git/objects/57:
+.  ..  b7adbeabe9086d1d929299723dd1b05d64b2da  bbed7f06e9ee75d3a12335da61742e1ada846b
+
+./.git/objects/5d:
+.  ..  5de226c61de36409eb733d9987e8c4a5437396
+
+./.git/objects/5f:
+.  ..  a325903c5fea99816ab5cbd0254b79e61271c4
+
+./.git/objects/60:
+.  ..  65de5d295ef224d2ad5c909f92b4eac719c4a0
+
+./.git/objects/63:
+.  ..  0fc4931b33741d475fdad1ccb25bb9966abbba
+
+./.git/objects/65:
+.  ..  19cd811106a08ccd75a28b83bbfe54fa119aad  969ed64573338e86cc8431790d6de4a015058c
+
+./.git/objects/66:
+.  ..  e1be6b13c2c4b3b2ac762445a89fa422939238
+
+./.git/objects/67:
+.  ..  50b98bc33371e35218f1bfdb78ee64779e4881  9e712a50b5fecf4e0577d0450d30e381987c6b  a90d67a1d0ae8dc5b66a24b8a2dd26ca88fc2e
+
+./.git/objects/6b:
+.  ..  8ef0e57713e21651490523474dcc5299ca2a3d
+
+./.git/objects/6c:
+.  ..  c8571047e9218ecd73c8004b6c50761ac9ac61
+
+./.git/objects/6d:
+.  ..  4fe33484a3d17aeb4216c4c8c0377414882b0b
+
+./.git/objects/70:
+.  ..  edc98e14d37f885d6799e209c1574e039e34cb
+
+./.git/objects/72:
+.  ..  03a7db0412b0b6a6f1f48dbb594498de6e073f  08069ca18199c13167a79709f21dee6b039d94  ba01f57e497c2d2f28d53d0c1d1ce6b6edab69
+
+./.git/objects/73:
+.  ..  2f89fd91ce3e89a838019f6d0510cd22f2fee4  5f5ccfd414a555fb01836e576651914fa5c62a  93cc457af20a5d5b0f081f5847c02ac8d51c7e
+
+./.git/objects/75:
+.  ..  419cab6a32528d151dd39195ed4ddc24b25814  82e54172a7384ab4521ecb221d51a0844cba45  8e0dade01e5f57ff6edfa877f61d492e38bb37  bffa82538828962e451c8f09267ca82d6d93cc
+
+./.git/objects/76:
+.  ..  601cbc7230618ef5b5e0d750b19fd0744e782b
+
+./.git/objects/77:
+.  ..  d7d381a1424ac629d213fb9ca0dd776e0b1cb5
+
+./.git/objects/79:
+.  ..  2ba4c6584a965ff6342ee2faa6837032c0888a  437410ab1cb7f88827ef2aa8ce228bd3929d6e
+
+./.git/objects/7a:
+.  ..  6196b68386a991ac1f6948f7eb69e66d25a0bd  c5374584f9b3d9b7075cba8c05183b3f7ff9b1
+
+./.git/objects/7b:
+.  ..  702b8c79cb9ff003670d985e40eb1032636467
+
+./.git/objects/7d:
+.  ..  bb9ef4551d2f4109cc727e95ae1ddcfe45b215
+
+./.git/objects/83:
+.  ..  eb471e87499e511d0863a96faf1d5f91b987df
+
+./.git/objects/85:
+.  ..  20b6540ccaf189839678118d7ac0d734f9d25b  38998d6c0ff43d37c2bcb8dab83c620b812535  395216cd93e586263fa3f01d251fa378448c58
+
+./.git/objects/86:
+.  ..  4b66150066b723b68cc119e413c4e063638c3d
+
+./.git/objects/8b:
+.  ..  fe915b6dd4ab9c2c5b7eee9bfb0bd976097ec5
+
+./.git/objects/8e:
+.  ..  a5387984a69e51cd431f19e0e0f3a7d0b388cd
+
+./.git/objects/97:
+.  ..  69c3afbf632d21802e67d60b263dd1f6295abf
+
+./.git/objects/98:
+.  ..  1733d302072f397b4a3c6f2b6e52439baaa996
+
+./.git/objects/99:
+.  ..  69a060b372656217eaa69bb96d10085d115b1c  fd3bc6f3396ff17db085fdb29c0e297796f322
+
+./.git/objects/9a:
+.  ..  41568f1d9fcb06ff0efdb92d9425af52927c92
+
+./.git/objects/9e:
+.  ..  e1ec1aa6c65a176bf0ffafc73a9f6bcdd8428c
+
+./.git/objects/9f:
+.  ..  ddb39b9e1a5bd691349573581cc86579f061b7
+
+./.git/objects/a2:
+.  ..  aaab818d32571c1ba8ab170c4ac1998027dc13
+
+./.git/objects/a3:
+.  ..  e71bf05421d622a638c004f6e880252f4db8c5  e86b1ff78097dcbc2cf3b4583529a435a2e664
+
+./.git/objects/a4:
+.  ..  463022cd7348ee5be32a5505342e08653d626f  9b21e1e9d5184a1476d134d230ca20a3f32478
+
+./.git/objects/a6:
+.  ..  9376168ca7eb5db41ed4a565b94cd2272640be  e7fb7a69a408c11159625ef486dbb2036b14a0
+
+./.git/objects/a8:
+.  ..  35e62b4a0dd564cf59c6259ccdafc47e5d77d5  3a0085f0701d6675cdeadbae9843bfa57e96df  8efbb268103115a231dbebc27e0e142ff9fb55  fc0acb593157a8ad918f77576b19bf5a755f88
+
+./.git/objects/a9:
+.  ..  f04ba3e3f40f704fefeb86fc3664c1eb5795b8
+
+./.git/objects/ab:
+.  ..  909bafcbd1dfbe6497916dfe8c389821523197
+
+./.git/objects/ac:
+.  ..  8ae509b4a6b02c667966d60af849698ca630ba  ab9f99a19d7125fe4de1f0194243d4edc0681b
+
+./.git/objects/ad:
+.  ..  dabdb5abe96c1d3edb9492c5f15311e3590f9c
+
+./.git/objects/b0:
+.  ..  47ccef89d4eaf30b6792283919c081f2cdeefd  b37a2ee4846ca70b9d0c96900b3ee1d01a3473  f379b8e77c148c14ff260ad296ec686dfa85ff
+
+./.git/objects/b3:
+.  ..  5f10843303ec00b65f5054a507c43043f1b1eb  d61003e41684513b65aa9ada50f4abc174f426
+
+./.git/objects/b4:
+.  ..  d206b5a01bb521379a38ecd081ba540b2adb3f
+
+./.git/objects/b5:
+.  ..  8bf6947a46a25f576ee87cd921b0ef97c8884c  dbf0971ca2404f261948c9f2ae7fc0e2b4c1de
+
+./.git/objects/ba:
+.  ..  a73020b81563829dff622216541eb4fd6d2cc0  bc8b10fd692076d1c29d3c64b131ecb25b9c1c
+
+./.git/objects/bb:
+.  ..  18cc32d7588e9f8fe05635536b04ca5360b759
+
+./.git/objects/bc:
+.  ..  d63f2dfdfebfe318501359e38221a361b190d6  eb790812013225ef508aeb009e250933c23885
+
+./.git/objects/bd:
+.  ..  7128afaf4f19f7a351cfee8fd66b6de1eff693
+
+./.git/objects/be:
+.  ..  e640f160a986d9e03bb45b909947eba8d2a17f
+
+./.git/objects/c0:
+.  ..  b41e23edd0e4eb342122ac5c36652ab3a09384
+
+./.git/objects/c4:
+.  ..  0da848fcd42331022ca061098146968dbeb86a  861e2045daa8250b480389f08da2cdb29685f3
+
+./.git/objects/c5:
+.   24bbaba450b03d3aef315a41b8210b30dd5e44  8292f7c57c8fdc4bbd56ce0c4f6a7978840bbf  fd51657da74960cf428e1303217217753f520f
+..  623d221db69550d2a4c5901291bc7e24ed88c3  91574ef399d684453b1239065d84f383c9b6d1
+
+./.git/objects/c8:
+.  ..  02c264907d43955ee41602c346aeb10d7b6076
+
+./.git/objects/cb:
+.  ..  0897fe9844d33a7806ba9fc1248eec8f1e3760
+
+./.git/objects/d1:
+.  ..  9fe5290a89e7ae9e5dca26913bcb80621d3742
+
+./.git/objects/d5:
+.  ..  29106e2918264f35ef5ef9a5294b0007870ce3  d0d1ca0cab2268bf7e233468d7f616b487e0f5
+
+./.git/objects/d9:
+.  ..  8aaa5e4d6c3382d9c5870ee0c4a20d4b14f979
+
+./.git/objects/df:
+.  ..  f90a7d03b6f4953ae211128836c66068442317
+
+./.git/objects/e4:
+.  ..  b8508e255166bd3bc093c9ddfa57a8f183388c  f0b2e934ade6aea74fabcef23f1843b9a8ef5a
+
+./.git/objects/e5:
+.  ..  114975716325db4a1abc77629d9e9d9c5cb422  d770bc70c4ad0c4be4fdbf6a63a90100225934
+
+./.git/objects/e6:
+.  ..  1dd37d9660c8902f117dd172fe85ab42c3eec4  4789883ee38a859db3f352c616673aec7e9a9d  8ae8fb99e588aa5fd8ca838b5f6a061632519e
+
+./.git/objects/e9:
+.  ..  e5754906ba0bd74e558cbeb7f4ca40a56676e8
+
+./.git/objects/eb:
+.  ..  e5a43e965f47d8b8d0c090dcb279f53ae179a8  f13fefad650606c9f5ed0784deb4051b3fb2b6
+
+./.git/objects/ee:
+.  ..  428be94e3ed98d8dc68ac8fbb4e5700b3b6d07
+
+./.git/objects/f1:
+.  ..  38f6abd21f8b9b09fd7d73ba7bd4e08b71cce3
+
+./.git/objects/f3:
+.  ..  f9909960e9f42ba9aa355c82b85124b7f12a85
+
+./.git/objects/f4:
+.  ..  09f6f3c8e9153989242f2ddf776cc7f8ccfd24  4e28bf3f39fd3d9edc708514581c819d7ceaf0
+
+./.git/objects/f5:
+.  ..  80c9425a89a104504c44a18bec69789c93fa83
+
+./.git/objects/f6:
+.  ..  34d867d836b51f01b6ead63788eb765a1f27cc
+
+./.git/objects/f8:
+.  ..  77cb0153ad72d9112cf92a71e0233d03f64451  dd239ed218981da31f4f6bc1409db2d801eb32
+
+./.git/objects/f9:
+.  ..  8df697bb41e13b52f122334e207c7e8dc1ceb7
+
+./.git/objects/fd:
+.  ..  503d017a9e5dd99affbcfb33d44630df71294a
+
+./.git/objects/fe:
+.  ..  3bce28932817ebc5a4c6ad80f7e5386b8f20ab
+
+./.git/objects/info:
+.  ..
+
+./.git/objects/pack:
+.  ..
+
+./.git/refs:
+.  ..  heads  remotes  stash  tags
+
+./.git/refs/heads:
+.  ..  ls  master
+
+./.git/refs/remotes:
+.  ..  origin
+
+./.git/refs/remotes/origin:
+.  ..  exec  ls  master
+
+./.git/refs/tags:
+.  ..  hw0
+
+./src:
+.  ..  a.out  cp.cpp  .git  ls.cpp  Makefile  rshell.cpp  Timer.h
+
+./src/.git:
+.  ..  objects
+
+./src/.git/objects:
+.  ..  0c  34  f3
+
+./src/.git/objects/0c:
+.  ..  7f57d7f63e99b12c4b8a2a7797fcdf6a92a146
+
+./src/.git/objects/34:
+.  ..  aeb6719d4c7c8ccf207511b1ca46714336a5cb
+
+./src/.git/objects/f3:
+.  ..  f9909960e9f42ba9aa355c82b85124b7f12a85
+
+./tests:
+.  ..  ls.script  rshell.script
+~/cs100/rshell
+afan004@hammer $ /bin/ls -Ra[K[KrL[K[KRl
+.:
+total 56
+drwx------ 2 afan004 csmajs  4096 Nov 11 23:15 bin
+-rw------- 1 afan004 csmajs 34593 Oct 21 23:42 LICENSE
+-rw------- 1 afan004 csmajs   241 Nov 11 23:04 Makefile
+-rw------- 1 afan004 csmajs   630 Nov 11 23:09 README.md
+drwx------ 3 afan004 csmajs  4096 Nov 11 23:15 src
+drwx------ 2 afan004 csmajs  4096 Nov 11 23:15 tests
+
+./bin:
+total 68
+-rwx------ 1 afan004 csmajs 15300 Nov 11 23:15 cp
+-rwx------ 1 afan004 csmajs 38934 Nov 11 23:15 ls
+-rwx------ 1 afan004 csmajs 10140 Nov 11 23:15 rshell
+
+./src:
+total 80
+-rwx------ 1 afan004 csmajs 39749 Nov 11 23:08 a.out
+-rw------- 1 afan004 csmajs  3182 Nov 11 18:31 cp.cpp
+-rw------- 1 afan004 csmajs 13546 Nov 11 22:57 ls.cpp
+-rw------- 1 afan004 csmajs   241 Nov 11 23:15 Makefile
+-rw------- 1 afan004 csmajs  1853 Nov  8 16:03 rshell.cpp
+-rw------- 1 afan004 csmajs 11587 Nov 11 19:28 Timer.h
+
+./tests:
+total 72
+-rw------- 1 afan004 csmajs     0 Nov 11 23:15 ls.script
+-rw------- 1 afan004 csmajs 69319 Oct 21 23:42 rshell.script
+~/cs100/rshell
+afan004@hammer $ /bin/ls -Rl[K[KlR
+.:
+total 56
+drwx------ 2 afan004 csmajs  4096 Nov 11 23:15 bin
+-rw------- 1 afan004 csmajs 34593 Oct 21 23:42 LICENSE
+-rw------- 1 afan004 csmajs   241 Nov 11 23:04 Makefile
+-rw------- 1 afan004 csmajs   630 Nov 11 23:09 README.md
+drwx------ 3 afan004 csmajs  4096 Nov 11 23:15 src
+drwx------ 2 afan004 csmajs  4096 Nov 11 23:15 tests
+
+./bin:
+total 68
+-rwx------ 1 afan004 csmajs 15300 Nov 11 23:15 cp
+-rwx------ 1 afan004 csmajs 38934 Nov 11 23:15 ls
+-rwx------ 1 afan004 csmajs 10140 Nov 11 23:15 rshell
+
+./src:
+total 80
+-rwx------ 1 afan004 csmajs 39749 Nov 11 23:08 a.out
+-rw------- 1 afan004 csmajs  3182 Nov 11 18:31 cp.cpp
+-rw------- 1 afan004 csmajs 13546 Nov 11 22:57 ls.cpp
+-rw------- 1 afan004 csmajs   241 Nov 11 23:15 Makefile
+-rw------- 1 afan004 csmajs  1853 Nov  8 16:03 rshell.cpp
+-rw------- 1 afan004 csmajs 11587 Nov 11 19:28 Timer.h
+
+./tests:
+total 72
+-rw------- 1 afan004 csmajs     0 Nov 11 23:15 ls.script
+-rw------- 1 afan004 csmajs 69319 Oct 21 23:42 rshell.script
+~/cs100/rshell
+afan004@hammer $ /bin/ls -lR[K[KlaR
+.:
+total 68
+drwx------ 6 afan004 csmajs  4096 Nov 11 23:09 .
+drwx------ 7 afan004 csmajs  4096 Nov 11 20:08 ..
+drwx------ 2 afan004 csmajs  4096 Nov 11 23:15 bin
+drwx------ 8 afan004 csmajs  4096 Nov 11 23:10 .git
+-rw------- 1 afan004 csmajs 34593 Oct 21 23:42 LICENSE
+-rw------- 1 afan004 csmajs   241 Nov 11 23:04 Makefile
+-rw------- 1 afan004 csmajs   630 Nov 11 23:09 README.md
+drwx------ 3 afan004 csmajs  4096 Nov 11 23:15 src
+drwx------ 2 afan004 csmajs  4096 Nov 11 23:15 tests
+
+./bin:
+total 76
+drwx------ 2 afan004 csmajs  4096 Nov 11 23:15 .
+drwx------ 6 afan004 csmajs  4096 Nov 11 23:09 ..
+-rwx------ 1 afan004 csmajs 15300 Nov 11 23:15 cp
+-rwx------ 1 afan004 csmajs 38934 Nov 11 23:15 ls
+-rwx------ 1 afan004 csmajs 10140 Nov 11 23:15 rshell
+
+./.git:
+total 60
+drwx------   8 afan004 csmajs 4096 Nov 11 23:10 .
+drwx------   6 afan004 csmajs 4096 Nov 11 23:09 ..
+drwx------   2 afan004 csmajs 4096 Oct 19 16:18 branches
+-rw-------   1 afan004 csmajs   15 Nov 11 23:10 COMMIT_EDITMSG
+-rw-------   1 afan004 csmajs  313 Nov  8 16:06 COMMIT_EDITMSG~
+-rw-------   1 afan004 csmajs  262 Nov  8 15:47 config
+-rw-------   1 afan004 csmajs   73 Oct 19 16:18 description
+-rw-------   1 afan004 csmajs  305 Nov 11 18:31 FETCH_HEAD
+-rw-------   1 afan004 csmajs   23 Nov 11 19:29 HEAD
+drwx------   2 afan004 csmajs 4096 Oct 19 16:18 hooks
+-rw-------   1 afan004 csmajs  709 Nov 11 23:10 index
+drwx------   2 afan004 csmajs 4096 Oct 19 16:18 info
+drwx------   3 afan004 csmajs 4096 Oct 19 16:19 logs
+-rw-------   1 afan004 csmajs  246 Nov 11 19:30 #MERGE_MSG#
+-rw-------   1 afan004 csmajs  286 Nov  8 15:52 MERGE_MSG~
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 objects
+-rw-------   1 afan004 csmajs   41 Nov 11 19:34 ORIG_HEAD
+drwx------   5 afan004 csmajs 4096 Nov  8 15:50 refs
+
+./.git/branches:
+total 8
+drwx------ 2 afan004 csmajs 4096 Oct 19 16:18 .
+drwx------ 8 afan004 csmajs 4096 Nov 11 23:10 ..
+
+./.git/hooks:
+total 48
+drwx------ 2 afan004 csmajs 4096 Oct 19 16:18 .
+drwx------ 8 afan004 csmajs 4096 Nov 11 23:10 ..
+-rwx------ 1 afan004 csmajs  452 Oct 19 16:18 applypatch-msg.sample
+-rwx------ 1 afan004 csmajs  896 Oct 19 16:18 commit-msg.sample
+-rwx------ 1 afan004 csmajs  189 Oct 19 16:18 post-update.sample
+-rwx------ 1 afan004 csmajs  398 Oct 19 16:18 pre-applypatch.sample
+-rwx------ 1 afan004 csmajs 1704 Oct 19 16:18 pre-commit.sample
+-rwx------ 1 afan004 csmajs 1239 Oct 19 16:18 prepare-commit-msg.sample
+-rw------- 1 afan004 csmajs 1348 Oct 19 16:18 pre-push.sample
+-rwx------ 1 afan004 csmajs 4951 Oct 19 16:18 pre-rebase.sample
+-rwx------ 1 afan004 csmajs 3611 Oct 19 16:18 update.sample
+
+./.git/info:
+total 12
+drwx------ 2 afan004 csmajs 4096 Oct 19 16:18 .
+drwx------ 8 afan004 csmajs 4096 Nov 11 23:10 ..
+-rw------- 1 afan004 csmajs  240 Oct 19 16:18 exclude
+
+./.git/logs:
+total 20
+drwx------ 3 afan004 csmajs 4096 Oct 19 16:19 .
+drwx------ 8 afan004 csmajs 4096 Nov 11 23:10 ..
+-rw------- 1 afan004 csmajs 7226 Nov 11 23:10 HEAD
+drwx------ 4 afan004 csmajs 4096 Nov  8 15:37 refs
+
+./.git/logs/refs:
+total 20
+drwx------ 4 afan004 csmajs 4096 Nov  8 15:37 .
+drwx------ 3 afan004 csmajs 4096 Oct 19 16:19 ..
+drwx------ 2 afan004 csmajs 4096 Nov  8 18:11 heads
+drwx------ 3 afan004 csmajs 4096 Oct 19 16:31 remotes
+-rw------- 1 afan004 csmajs  338 Nov  8 15:50 stash
+
+./.git/logs/refs/heads:
+total 16
+drwx------ 2 afan004 csmajs 4096 Nov  8 18:11 .
+drwx------ 4 afan004 csmajs 4096 Nov  8 15:37 ..
+-rw------- 1 afan004 csmajs 1579 Nov 11 19:28 ls
+-rw------- 1 afan004 csmajs 2558 Nov 11 23:10 master
+
+./.git/logs/refs/remotes:
+total 12
+drwx------ 3 afan004 csmajs 4096 Oct 19 16:31 .
+drwx------ 4 afan004 csmajs 4096 Nov  8 15:37 ..
+drwx------ 2 afan004 csmajs 4096 Nov  8 20:33 origin
+
+./.git/logs/refs/remotes/origin:
+total 20
+drwx------ 2 afan004 csmajs 4096 Nov  8 20:33 .
+drwx------ 3 afan004 csmajs 4096 Oct 19 16:31 ..
+-rw------- 1 afan004 csmajs 1066 Oct 21 23:49 exec
+-rw------- 1 afan004 csmajs 1359 Nov 11 19:28 ls
+-rw------- 1 afan004 csmajs 3047 Nov 11 23:10 master
+
+./.git/objects:
+total 480
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 .
+drwx------   8 afan004 csmajs 4096 Nov 11 23:10 ..
+drwx------   2 afan004 csmajs 4096 Oct 21 20:35 06
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 08
+drwx------   2 afan004 csmajs 4096 Nov 11 19:28 0a
+drwx------   2 afan004 csmajs 4096 Oct 19 16:19 0b
+drwx------   2 afan004 csmajs 4096 Nov 11 19:28 0c
+drwx------   2 afan004 csmajs 4096 Nov 11 18:29 10
+drwx------   2 afan004 csmajs 4096 Nov 10 22:23 12
+drwx------   2 afan004 csmajs 4096 Nov 11 19:11 13
+drwx------   2 afan004 csmajs 4096 Oct 21 14:56 15
+drwx------   2 afan004 csmajs 4096 Oct 19 16:19 18
+drwx------   2 afan004 csmajs 4096 Nov 11 01:44 19
+drwx------   2 afan004 csmajs 4096 Nov 11 18:29 1a
+drwx------   2 afan004 csmajs 4096 Nov 11 22:34 1d
+drwx------   2 afan004 csmajs 4096 Nov  8 15:29 1e
+drwx------   2 afan004 csmajs 4096 Nov  8 16:01 1f
+drwx------   2 afan004 csmajs 4096 Nov 11 19:11 22
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 25
+drwx------   2 afan004 csmajs 4096 Nov 11 19:33 26
+drwx------   2 afan004 csmajs 4096 Oct 20 00:08 28
+drwx------   2 afan004 csmajs 4096 Nov 11 18:30 29
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 2a
+drwx------   2 afan004 csmajs 4096 Nov 11 23:06 2c
+drwx------   2 afan004 csmajs 4096 Nov  8 15:50 2d
+drwx------   2 afan004 csmajs 4096 Oct 21 23:46 2e
+drwx------   2 afan004 csmajs 4096 Nov  8 15:37 34
+drwx------   2 afan004 csmajs 4096 Oct 21 20:39 35
+drwx------   2 afan004 csmajs 4096 Nov  8 15:37 37
+drwx------   2 afan004 csmajs 4096 Nov 11 19:14 38
+drwx------   2 afan004 csmajs 4096 Oct 19 16:19 3a
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 3f
+drwx------   2 afan004 csmajs 4096 Nov 11 18:30 41
+drwx------   2 afan004 csmajs 4096 Nov 10 00:41 42
+drwx------   2 afan004 csmajs 4096 Nov  8 16:04 43
+drwx------   2 afan004 csmajs 4096 Nov  8 16:04 45
+drwx------   2 afan004 csmajs 4096 Nov  8 20:32 47
+drwx------   2 afan004 csmajs 4096 Nov 11 00:38 48
+drwx------   2 afan004 csmajs 4096 Nov 11 00:39 4a
+drwx------   2 afan004 csmajs 4096 Nov 11 19:28 4c
+drwx------   2 afan004 csmajs 4096 Nov  8 15:53 4f
+drwx------   2 afan004 csmajs 4096 Nov 11 19:14 50
+drwx------   2 afan004 csmajs 4096 Nov  8 15:37 52
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 53
+drwx------   2 afan004 csmajs 4096 Nov 11 18:29 57
+drwx------   2 afan004 csmajs 4096 Nov  8 15:52 5d
+drwx------   2 afan004 csmajs 4096 Nov 11 18:29 5f
+drwx------   2 afan004 csmajs 4096 Nov 10 00:41 60
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 63
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 65
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 66
+drwx------   2 afan004 csmajs 4096 Nov 11 23:07 67
+drwx------   2 afan004 csmajs 4096 Oct 20 00:08 6b
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 6c
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 6d
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 70
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 72
+drwx------   2 afan004 csmajs 4096 Nov 11 23:07 73
+drwx------   2 afan004 csmajs 4096 Nov 11 22:33 75
+drwx------   2 afan004 csmajs 4096 Nov 11 23:10 76
+drwx------   2 afan004 csmajs 4096 Nov 11 22:30 77
+drwx------   2 afan004 csmajs 4096 Nov 11 23:10 79
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 7a
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 7b
+drwx------   2 afan004 csmajs 4096 Oct 21 14:56 7d
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 83
+drwx------   2 afan004 csmajs 4096 Nov 11 19:28 85
+drwx------   2 afan004 csmajs 4096 Nov 10 22:23 86
+drwx------   2 afan004 csmajs 4096 Nov  8 20:32 8b
+drwx------   2 afan004 csmajs 4096 Oct 20 00:08 8e
+drwx------   2 afan004 csmajs 4096 Nov 11 23:07 97
+drwx------   2 afan004 csmajs 4096 Nov 11 01:43 98
+drwx------   2 afan004 csmajs 4096 Nov 11 22:29 99
+drwx------   2 afan004 csmajs 4096 Nov  8 15:37 9a
+drwx------   2 afan004 csmajs 4096 Oct 21 23:23 9e
+drwx------   2 afan004 csmajs 4096 Nov 11 18:30 9f
+drwx------   2 afan004 csmajs 4096 Nov  8 20:32 a2
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 a3
+drwx------   2 afan004 csmajs 4096 Nov  8 15:37 a4
+drwx------   2 afan004 csmajs 4096 Nov 11 01:44 a6
+drwx------   2 afan004 csmajs 4096 Nov 11 22:34 a8
+drwx------   2 afan004 csmajs 4096 Nov 11 19:14 a9
+drwx------   2 afan004 csmajs 4096 Oct 21 23:45 ab
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 ac
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 ad
+drwx------   2 afan004 csmajs 4096 Oct 21 23:48 b0
+drwx------   2 afan004 csmajs 4096 Nov 11 18:29 b3
+drwx------   2 afan004 csmajs 4096 Nov 11 19:11 b4
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 b5
+drwx------   2 afan004 csmajs 4096 Nov 11 23:10 ba
+drwx------   2 afan004 csmajs 4096 Nov  8 15:52 bb
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 bc
+drwx------   2 afan004 csmajs 4096 Oct 21 23:48 bd
+drwx------   2 afan004 csmajs 4096 Nov 11 23:07 be
+drwx------   2 afan004 csmajs 4096 Nov  8 16:06 c0
+drwx------   2 afan004 csmajs 4096 Nov 11 17:42 c4
+drwx------   2 afan004 csmajs 4096 Nov 11 22:30 c5
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 c8
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 cb
+drwx------   2 afan004 csmajs 4096 Nov 11 18:30 d1
+drwx------   2 afan004 csmajs 4096 Oct 21 14:56 d5
+drwx------   2 afan004 csmajs 4096 Nov 11 00:39 d9
+drwx------   2 afan004 csmajs 4096 Nov  8 15:50 df
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 e4
+drwx------   2 afan004 csmajs 4096 Nov 11 19:14 e5
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 e6
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 e9
+drwx------   2 afan004 csmajs 4096 Nov 10 00:41 eb
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 ee
+drwx------   2 afan004 csmajs 4096 Nov 10 00:41 f1
+drwx------   2 afan004 csmajs 4096 Nov  8 15:51 f3
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 f4
+drwx------   2 afan004 csmajs 4096 Nov 11 23:07 f5
+drwx------   2 afan004 csmajs 4096 Nov 11 19:28 f6
+drwx------   2 afan004 csmajs 4096 Oct 21 23:55 f8
+drwx------   2 afan004 csmajs 4096 Oct 20 00:08 f9
+drwx------   2 afan004 csmajs 4096 Nov  8 15:50 fd
+drwx------   2 afan004 csmajs 4096 Nov  8 16:09 fe
+drwx------   2 afan004 csmajs 4096 Oct 19 16:18 info
+drwx------   2 afan004 csmajs 4096 Oct 19 16:18 pack
+
+./.git/objects/06:
+total 24
+drwx------   2 afan004 csmajs  4096 Oct 21 20:35 .
+drwx------ 120 afan004 csmajs  4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 13638 Oct 21 20:35 3c6e6d513d28577fa97adf0dd26b61f915cfff
+
+./.git/objects/08:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  800 Oct 21 23:24 7f3ccdc88f1a804e7bd23e1617b3663dbe9327
+
+./.git/objects/0a:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 19:28 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  176 Nov 11 19:28 474f95d088508617e871c9c64d7f9cc5e10f1e
+
+./.git/objects/0b:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 19 16:19 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  131 Oct 19 16:19 a477cde0e40b9392f95bbe3c69bd38c694284c
+
+./.git/objects/0c:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 19:28 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  159 Nov 11 19:28 07b13cd9e5f69d63159d14c60fa80cd2c4d1b6
+-r--------   1 afan004 csmajs  177 Oct 21 23:23 7f57d7f63e99b12c4b8a2a7797fcdf6a92a146
+
+./.git/objects/10:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 18:29 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  979 Nov 11 18:29 ff4588cd80b0cfdf89150bb7176289d34fbdc6
+
+./.git/objects/12:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 10 22:23 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   81 Nov 10 22:23 d6f3505c7429c63997a956fedc90c29f2d7476
+
+./.git/objects/13:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 19:11 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  176 Nov 11 19:11 349ed154a21a8a1ceb780974c7c96fe6f40708
+
+./.git/objects/15:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 14:56 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  794 Oct 21 14:56 90b28f8a874aacff20348026a1eada0ab855de
+
+./.git/objects/18:
+total 8
+drwx------   2 afan004 csmajs 4096 Oct 19 16:19 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   54 Oct 19 16:19 de32580605526b1678414d4f8f5d0f6e7773a6
+
+./.git/objects/19:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 01:44 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   81 Nov 11 01:44 b4604a0680d61a42bad3202b22dab367821308
+
+./.git/objects/1a:
+total 20
+drwx------   2 afan004 csmajs 4096 Nov 11 18:29 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   87 Oct 21 23:24 40f1b324f94294d78fae99edd6c9fc25d3f8b7
+-r--------   1 afan004 csmajs  114 Nov 11 18:29 45429442c872c74fad20af69ca7b97d63795eb
+-r--------   1 afan004 csmajs  154 Nov  8 15:52 cffc675e8ce8fd80286be645a555b3d09d1c97
+
+./.git/objects/1d:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 22:34 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  175 Nov 11 22:34 e1281461ed7ef27c6b37af4d39e8752514880a
+
+./.git/objects/1e:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov  8 15:29 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  211 Nov  8 15:29 56c69d5e0bb5439680b5b922438fdc2eef0ab3
+-r--------   1 afan004 csmajs   58 Oct 21 23:23 760d5c97e7fd519a69541c54b91c9b27627c90
+-r--------   1 afan004 csmajs   88 Oct 21 23:24 9815bbef22c9fbfadeef709f1a93dd73d80544
+
+./.git/objects/1f:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 16:01 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  184 Nov  8 16:01 12e97f7026e543f1769c0060b14bc2bbd4e667
+
+./.git/objects/22:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 19:11 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  110 Nov 11 19:11 00b1a6f8f23238d1557f0aed204acedc7093b6
+
+./.git/objects/25:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  150 Nov  8 15:09 95deaf021adb7cd015833cb908992a982697be
+-r--------   1 afan004 csmajs  806 Nov  8 15:09 b3f12b93b4f15fec970ce82d42269d996fea6d
+
+./.git/objects/26:
+total 28
+drwx------   2 afan004 csmajs 4096 Nov 11 19:33 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  162 Oct 21 23:46 0fa4963353efa12bd2cd47a92745543cf814c5
+-r--------   1 afan004 csmajs  115 Oct 21 20:36 4af4085030732dd33485f4bf595004de43c208
+-r--------   1 afan004 csmajs  183 Nov 11 19:33 4fc06b5a88a286a5dff6158cfd047836cdf49b
+-r--------   1 afan004 csmajs  148 Nov 11 18:29 76dd3bf3133b0cc3bc622e123125ba29316914
+-r--------   1 afan004 csmajs  113 Oct 20 00:08 cf37214993a7966ca859dcbbd14a1b97efd946
+
+./.git/objects/28:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 20 00:08 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  164 Oct 20 00:08 f4b45012c3050141d27b608569039059339f4b
+
+./.git/objects/29:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 18:30 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  110 Nov 11 18:30 13d2725b7e0feddb104bf97b8054dc66bbb101
+
+./.git/objects/2a:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  236 Nov 11 17:41 3777babc4d42d9c1e75fe8b814ae2771bd1614
+
+./.git/objects/2c:
+total 20
+drwx------   2 afan004 csmajs 4096 Nov 11 23:06 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  160 Oct 21 23:24 686741918cd291ea7a29b0cc40556134abde1b
+-r--------   1 afan004 csmajs  177 Nov 10 22:23 ea51e41d8028ff02c0e85aba9042e4329bd245
+-r--------   1 afan004 csmajs  123 Nov 11 23:06 fe45571ff78fcca4c89d29afc1bf29312ef668
+
+./.git/objects/2d:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:50 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  170 Nov  8 15:50 0db05c3d912d84bb849baea678cc19ca28d401
+
+./.git/objects/2e:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:46 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  177 Oct 21 23:46 471dbe40e9a41b9dc0e7ebfa071fa6c5ba98bb
+
+./.git/objects/34:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:37 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  274 Nov  8 15:37 aeb6719d4c7c8ccf207511b1ca46714336a5cb
+
+./.git/objects/35:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 20:39 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  148 Oct 21 20:39 d92db755f7b688ba41b8bfcdedd000aaed8923
+
+./.git/objects/37:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:37 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  241 Nov  8 15:37 9b7e366df38f924ff19f6db403e41a2c856eb6
+
+./.git/objects/38:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 19:14 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   83 Oct 21 23:24 3ed5bb328ef0b75edaf4e2d7feaf9a09ba35fa
+-r--------   1 afan004 csmajs  176 Nov 11 19:14 4e053074ecc6d25a480f4f6ad165e861832385
+
+./.git/objects/3a:
+total 8
+drwx------   2 afan004 csmajs 4096 Oct 19 16:19 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   45 Oct 19 16:19 00fbe76a899de8ff0b48b50adf348c0c5c2675
+
+./.git/objects/3f:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  165 Oct 21 23:24 a214c6758761b93b92d896961c220095fe5dc2
+
+./.git/objects/41:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 18:30 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  176 Nov 11 18:30 7fac781d9bf72029af8b9df2eea21955dddd24
+
+./.git/objects/42:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 10 00:41 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  157 Nov 10 00:41 81baa0a3646e4d8d3e070bd2c60183abf57569
+
+./.git/objects/43:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 16:04 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  157 Nov  8 16:04 59841bd047d974e46c2a8038f26455b3eccb5d
+
+./.git/objects/45:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 16:04 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  164 Oct 21 20:39 5e5586d928210ea6d994e3b8f64cca91324e7c
+-r--------   1 afan004 csmajs   54 Nov  8 16:04 c95e575d34f6846fbb7dfba0ad9aa5bb2afc82
+
+./.git/objects/47:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 20:32 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  539 Nov  8 20:32 3506a0f6672bf00bf7fde6742044e86e4d7ef7
+
+./.git/objects/48:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 00:38 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 1808 Nov 11 00:38 3790ef8ba97c189e648b5bb08ab51f6502189d
+-r--------   1 afan004 csmajs  222 Nov  8 15:18 9322876cc85ca0b8b5794801ce84760720d2b1
+
+./.git/objects/4a:
+total 20
+drwx------   2 afan004 csmajs 4096 Nov 11 00:39 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  162 Nov 11 00:39 085e5687ed1565f60a9cb6ae5d4ce0448c6f14
+-r--------   1 afan004 csmajs   87 Oct 21 23:24 6844014a7569cbec6cd501e5b6e8fa565118ca
+-r--------   1 afan004 csmajs   83 Oct 21 23:24 e795270dba157bac0487afface3097114a6c33
+
+./.git/objects/4c:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 19:28 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  176 Nov 11 19:28 443bd7d01adeaacee4c6f6bc2422abfe68e7ea
+
+./.git/objects/4f:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:53 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  230 Nov  8 15:53 613ec39df98224d19eef90ef3867a27c608a97
+
+./.git/objects/50:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 19:14 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  165 Nov 11 19:14 01446489e4d042f62aa41ae51ad31c978686ab
+
+./.git/objects/52:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:37 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  205 Nov  8 15:37 ce1a7a5cb76e305249f166b831db11ab5c1540
+
+./.git/objects/53:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   87 Oct 21 23:24 f74a55baf5d4c3d0fc86c45260d52f0afedb48
+
+./.git/objects/57:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 18:29 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  199 Nov  8 15:50 b7adbeabe9086d1d929299723dd1b05d64b2da
+-r--------   1 afan004 csmajs  237 Nov 11 18:29 bbed7f06e9ee75d3a12335da61742e1ada846b
+
+./.git/objects/5d:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:52 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  211 Nov  8 15:52 5de226c61de36409eb733d9987e8c4a5437396
+
+./.git/objects/5f:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 18:29 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  176 Nov 11 18:29 a325903c5fea99816ab5cbd0254b79e61271c4
+
+./.git/objects/60:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 10 00:41 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   82 Nov 10 00:41 65de5d295ef224d2ad5c909f92b4eac719c4a0
+
+./.git/objects/63:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   88 Nov  8 15:09 0fc4931b33741d475fdad1ccb25bb9966abbba
+
+./.git/objects/65:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  121 Nov  8 15:09 19cd811106a08ccd75a28b83bbfe54fa119aad
+-r--------   1 afan004 csmajs  801 Oct 21 23:24 969ed64573338e86cc8431790d6de4a015058c
+
+./.git/objects/66:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  227 Oct 21 23:24 e1be6b13c2c4b3b2ac762445a89fa422939238
+
+./.git/objects/67:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 23:07 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   46 Oct 19 16:26 50b98bc33371e35218f1bfdb78ee64779e4881
+-r--------   1 afan004 csmajs  354 Nov 11 23:07 9e712a50b5fecf4e0577d0450d30e381987c6b
+-r--------   1 afan004 csmajs  164 Nov 11 19:11 a90d67a1d0ae8dc5b66a24b8a2dd26ca88fc2e
+
+./.git/objects/6b:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 20 00:08 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  304 Oct 20 00:08 8ef0e57713e21651490523474dcc5299ca2a3d
+
+./.git/objects/6c:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  115 Nov 11 17:41 c8571047e9218ecd73c8004b6c50761ac9ac61
+
+./.git/objects/6d:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   88 Oct 21 23:24 4fe33484a3d17aeb4216c4c8c0377414882b0b
+
+./.git/objects/70:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   88 Oct 21 23:24 edc98e14d37f885d6799e209c1574e039e34cb
+
+./.git/objects/72:
+total 20
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  157 Nov  8 15:49 03a7db0412b0b6a6f1f48dbb594498de6e073f
+-r--------   1 afan004 csmajs   82 Oct 20 00:08 08069ca18199c13167a79709f21dee6b039d94
+-r--------   1 afan004 csmajs  117 Nov 11 17:41 ba01f57e497c2d2f28d53d0c1d1ce6b6edab69
+
+./.git/objects/73:
+total 20
+drwx------   2 afan004 csmajs 4096 Nov 11 23:07 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  141 Nov 11 23:07 2f89fd91ce3e89a838019f6d0510cd22f2fee4
+-r--------   1 afan004 csmajs  165 Nov 11 01:44 5f5ccfd414a555fb01836e576651914fa5c62a
+-r--------   1 afan004 csmajs  211 Nov  8 16:04 93cc457af20a5d5b0f081f5847c02ac8d51c7e
+
+./.git/objects/75:
+total 24
+drwx------   2 afan004 csmajs 4096 Nov 11 22:33 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  177 Nov 11 00:39 419cab6a32528d151dd39195ed4ddc24b25814
+-r--------   1 afan004 csmajs  345 Nov 11 22:33 82e54172a7384ab4521ecb221d51a0844cba45
+-r--------   1 afan004 csmajs  176 Nov 11 18:29 8e0dade01e5f57ff6edfa877f61d492e38bb37
+-r--------   1 afan004 csmajs  177 Nov  8 15:37 bffa82538828962e451c8f09267ca82d6d93cc
+
+./.git/objects/76:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 23:10 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  376 Nov 11 23:10 601cbc7230618ef5b5e0d750b19fd0744e782b
+
+./.git/objects/77:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 22:30 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  176 Nov 11 22:30 d7d381a1424ac629d213fb9ca0dd776e0b1cb5
+
+./.git/objects/79:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 23:10 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  153 Nov  8 15:29 2ba4c6584a965ff6342ee2faa6837032c0888a
+-r--------   1 afan004 csmajs  176 Nov 11 23:10 437410ab1cb7f88827ef2aa8ce228bd3929d6e
+
+./.git/objects/7a:
+total 16
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   88 Oct 21 23:24 6196b68386a991ac1f6948f7eb69e66d25a0bd
+-r--------   1 afan004 csmajs  150 Oct 21 23:24 c5374584f9b3d9b7075cba8c05183b3f7ff9b1
+
+./.git/objects/7b:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  856 Oct 21 23:24 702b8c79cb9ff003670d985e40eb1032636467
+
+./.git/objects/7d:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 14:56 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   80 Oct 21 14:56 bb9ef4551d2f4109cc727e95ae1ddcfe45b215
+
+./.git/objects/83:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   87 Oct 21 23:24 eb471e87499e511d0863a96faf1d5f91b987df
+
+./.git/objects/85:
+total 20
+drwx------   2 afan004 csmajs 4096 Nov 11 19:28 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  177 Nov  8 15:50 20b6540ccaf189839678118d7ac0d734f9d25b
+-r--------   1 afan004 csmajs  141 Nov 11 19:28 38998d6c0ff43d37c2bcb8dab83c620b812535
+-r--------   1 afan004 csmajs  892 Nov  8 15:50 395216cd93e586263fa3f01d251fa378448c58
+
+./.git/objects/86:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 10 22:23 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 1154 Nov 10 22:23 4b66150066b723b68cc119e413c4e063638c3d
+
+./.git/objects/8b:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 20:32 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   81 Nov  8 20:32 fe915b6dd4ab9c2c5b7eee9bfb0bd976097ec5
+
+./.git/objects/8e:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 20 00:08 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   84 Oct 20 00:08 a5387984a69e51cd431f19e0e0f3a7d0b388cd
+
+./.git/objects/97:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 23:07 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  176 Nov 11 23:07 69c3afbf632d21802e67d60b263dd1f6295abf
+
+./.git/objects/98:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 01:43 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 2048 Nov 11 01:43 1733d302072f397b4a3c6f2b6e52439baaa996
+
+./.git/objects/99:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 22:29 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  110 Nov 11 19:28 69a060b372656217eaa69bb96d10085d115b1c
+-r--------   1 afan004 csmajs  343 Nov 11 22:29 fd3bc6f3396ff17db085fdb29c0e297796f322
+
+./.git/objects/9a:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:37 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  177 Nov  8 15:37 41568f1d9fcb06ff0efdb92d9425af52927c92
+
+./.git/objects/9e:
+total 20
+drwx------   2 afan004 csmajs 4096 Oct 21 23:23 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 9482 Oct 21 23:23 e1ec1aa6c65a176bf0ffafc73a9f6bcdd8428c
+
+./.git/objects/9f:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 18:30 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  161 Nov 11 18:30 ddb39b9e1a5bd691349573581cc86579f061b7
+
+./.git/objects/a2:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 20:32 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  177 Nov  8 20:32 aaab818d32571c1ba8ab170c4ac1998027dc13
+
+./.git/objects/a3:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  165 Oct 21 14:56 e71bf05421d622a638c004f6e880252f4db8c5
+-r--------   1 afan004 csmajs  177 Nov  8 15:09 e86b1ff78097dcbc2cf3b4583529a435a2e664
+
+./.git/objects/a4:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov  8 15:37 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   93 Oct 20 00:08 463022cd7348ee5be32a5505342e08653d626f
+-r--------   1 afan004 csmajs  179 Nov  8 15:37 9b21e1e9d5184a1476d134d230ca20a3f32478
+
+./.git/objects/a6:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 01:44 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  177 Nov 11 01:44 9376168ca7eb5db41ed4a565b94cd2272640be
+-r--------   1 afan004 csmajs  177 Nov  8 15:09 e7fb7a69a408c11159625ef486dbb2036b14a0
+
+./.git/objects/a8:
+total 24
+drwx------   2 afan004 csmajs 4096 Nov 11 22:34 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  222 Nov  8 15:52 35e62b4a0dd564cf59c6259ccdafc47e5d77d5
+-r--------   1 afan004 csmajs  159 Nov  8 20:32 3a0085f0701d6675cdeadbae9843bfa57e96df
+-r--------   1 afan004 csmajs  162 Oct 20 00:08 8efbb268103115a231dbebc27e0e142ff9fb55
+-r--------   1 afan004 csmajs  160 Nov 11 22:34 fc0acb593157a8ad918f77576b19bf5a755f88
+
+./.git/objects/a9:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 19:14 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 2142 Nov 11 19:14 f04ba3e3f40f704fefeb86fc3664c1eb5795b8
+
+./.git/objects/ab:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:45 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  268 Oct 21 23:45 909bafcbd1dfbe6497916dfe8c389821523197
+
+./.git/objects/ac:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  176 Nov 11 17:41 8ae509b4a6b02c667966d60af849698ca630ba
+-r--------   1 afan004 csmajs  212 Nov  8 15:18 ab9f99a19d7125fe4de1f0194243d4edc0681b
+
+./.git/objects/ad:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  897 Nov 11 17:41 dabdb5abe96c1d3edb9492c5f15311e3590f9c
+
+./.git/objects/b0:
+total 20
+drwx------   2 afan004 csmajs 4096 Oct 21 23:48 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  160 Oct 21 23:48 47ccef89d4eaf30b6792283919c081f2cdeefd
+-r--------   1 afan004 csmajs  163 Oct 21 23:24 b37a2ee4846ca70b9d0c96900b3ee1d01a3473
+-r--------   1 afan004 csmajs   84 Oct 21 14:56 f379b8e77c148c14ff260ad296ec686dfa85ff
+
+./.git/objects/b3:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 18:29 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  176 Nov 11 17:41 5f10843303ec00b65f5054a507c43043f1b1eb
+-r--------   1 afan004 csmajs  187 Nov 11 18:29 d61003e41684513b65aa9ada50f4abc174f426
+
+./.git/objects/b4:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 19:11 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 2124 Nov 11 19:11 d206b5a01bb521379a38ecd081ba540b2adb3f
+
+./.git/objects/b5:
+total 16
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  148 Oct 21 23:24 8bf6947a46a25f576ee87cd921b0ef97c8884c
+-r--------   1 afan004 csmajs  100 Oct 21 20:39 dbf0971ca2404f261948c9f2ae7fc0e2b4c1de
+
+./.git/objects/ba:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 23:10 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  156 Nov 10 22:23 a73020b81563829dff622216541eb4fd6d2cc0
+-r--------   1 afan004 csmajs  166 Nov 11 23:10 bc8b10fd692076d1c29d3c64b131ecb25b9c1c
+
+./.git/objects/bb:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:52 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  211 Nov  8 15:52 18cc32d7588e9f8fe05635536b04ca5360b759
+
+./.git/objects/bc:
+total 16
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  167 Oct 21 23:24 d63f2dfdfebfe318501359e38221a361b190d6
+-r--------   1 afan004 csmajs   87 Oct 21 23:24 eb790812013225ef508aeb009e250933c23885
+
+./.git/objects/bd:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:48 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  887 Oct 21 23:48 7128afaf4f19f7a351cfee8fd66b6de1eff693
+
+./.git/objects/be:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 23:07 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  165 Nov 11 23:07 e640f160a986d9e03bb45b909947eba8d2a17f
+
+./.git/objects/c0:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 16:06 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  177 Nov  8 16:06 b41e23edd0e4eb342122ac5c36652ab3a09384
+
+./.git/objects/c4:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 17:42 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  176 Nov 11 17:42 0da848fcd42331022ca061098146968dbeb86a
+-r--------   1 afan004 csmajs  119 Oct 21 23:24 861e2045daa8250b480389f08da2cdb29685f3
+
+./.git/objects/c5:
+total 28
+drwx------   2 afan004 csmajs 4096 Nov 11 22:30 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  110 Nov 11 17:42 24bbaba450b03d3aef315a41b8210b30dd5e44
+-r--------   1 afan004 csmajs  166 Nov 11 22:30 623d221db69550d2a4c5901291bc7e24ed88c3
+-r--------   1 afan004 csmajs  177 Nov  8 15:09 8292f7c57c8fdc4bbd56ce0c4f6a7978840bbf
+-r--------   1 afan004 csmajs  210 Nov  8 15:52 91574ef399d684453b1239065d84f383c9b6d1
+-r--------   1 afan004 csmajs   88 Oct 21 23:48 fd51657da74960cf428e1303217217753f520f
+
+./.git/objects/c8:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  163 Oct 21 23:24 02c264907d43955ee41602c346aeb10d7b6076
+
+./.git/objects/cb:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  151 Nov  8 15:09 0897fe9844d33a7806ba9fc1248eec8f1e3760
+
+./.git/objects/d1:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 18:30 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 2078 Nov 11 18:30 9fe5290a89e7ae9e5dca26913bcb80621d3742
+
+./.git/objects/d5:
+total 16
+drwx------   2 afan004 csmajs 4096 Oct 21 14:56 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 4033 Oct 21 14:56 29106e2918264f35ef5ef9a5294b0007870ce3
+-r--------   1 afan004 csmajs  152 Oct 21 14:56 d0d1ca0cab2268bf7e233468d7f616b487e0f5
+
+./.git/objects/d9:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 00:39 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   81 Nov 11 00:39 8aaa5e4d6c3382d9c5870ee0c4a20d4b14f979
+
+./.git/objects/df:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:50 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  211 Nov  8 15:50 f90a7d03b6f4953ae211128836c66068442317
+
+./.git/objects/e4:
+total 16
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  743 Oct 21 23:24 b8508e255166bd3bc093c9ddfa57a8f183388c
+-r--------   1 afan004 csmajs  165 Oct 21 23:24 f0b2e934ade6aea74fabcef23f1843b9a8ef5a
+
+./.git/objects/e5:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 19:14 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  156 Nov  8 16:01 114975716325db4a1abc77629d9e9d9c5cb422
+-r--------   1 afan004 csmajs  111 Nov 11 19:14 d770bc70c4ad0c4be4fdbf6a63a90100225934
+
+./.git/objects/e6:
+total 20
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  151 Oct 21 23:24 1dd37d9660c8902f117dd172fe85ab42c3eec4
+-r--------   1 afan004 csmajs  152 Nov  8 15:09 4789883ee38a859db3f352c616673aec7e9a9d
+-r--------   1 afan004 csmajs  173 Oct 21 20:36 8ae8fb99e588aa5fd8ca838b5f6a061632519e
+
+./.git/objects/e9:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   82 Nov 11 17:41 e5754906ba0bd74e558cbeb7f4ca40a56676e8
+
+./.git/objects/eb:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 10 00:41 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 1138 Nov 10 00:41 e5a43e965f47d8b8d0c090dcb279f53ae179a8
+-r--------   1 afan004 csmajs  161 Oct 21 23:24 f13fefad650606c9f5ed0784deb4051b3fb2b6
+
+./.git/objects/ee:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  188 Nov 11 17:41 428be94e3ed98d8dc68ac8fbb4e5700b3b6d07
+
+./.git/objects/f1:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 10 00:41 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  177 Nov 10 00:41 38f6abd21f8b9b09fd7d73ba7bd4e08b71cce3
+
+./.git/objects/f3:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:51 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  226 Nov  8 15:51 f9909960e9f42ba9aa355c82b85124b7f12a85
+
+./.git/objects/f4:
+total 16
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  359 Oct 21 23:24 09f6f3c8e9153989242f2ddf776cc7f8ccfd24
+-r--------   1 afan004 csmajs  164 Oct 21 23:23 4e28bf3f39fd3d9edc708514581c819d7ceaf0
+
+./.git/objects/f5:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 23:07 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 2338 Nov 11 23:07 80c9425a89a104504c44a18bec69789c93fa83
+
+./.git/objects/f6:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 19:28 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 2153 Nov 11 19:28 34d867d836b51f01b6ead63788eb765a1f27cc
+
+./.git/objects/f8:
+total 16
+drwx------   2 afan004 csmajs 4096 Oct 21 23:55 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  831 Oct 21 23:24 77cb0153ad72d9112cf92a71e0233d03f64451
+-r--------   1 afan004 csmajs  151 Oct 21 23:55 dd239ed218981da31f4f6bc1409db2d801eb32
+
+./.git/objects/f9:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 20 00:08 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  163 Oct 20 00:08 8df697bb41e13b52f122334e207c7e8dc1ceb7
+
+./.git/objects/fd:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:50 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  272 Nov  8 15:50 503d017a9e5dd99affbcfb33d44630df71294a
+
+./.git/objects/fe:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 16:09 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  156 Nov  8 16:09 3bce28932817ebc5a4c6ad80f7e5386b8f20ab
+
+./.git/objects/info:
+total 8
+drwx------   2 afan004 csmajs 4096 Oct 19 16:18 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+
+./.git/objects/pack:
+total 8
+drwx------   2 afan004 csmajs 4096 Oct 19 16:18 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+
+./.git/refs:
+total 20
+drwx------ 5 afan004 csmajs 4096 Nov  8 15:50 .
+drwx------ 8 afan004 csmajs 4096 Nov 11 23:10 ..
+drwx------ 2 afan004 csmajs 4096 Nov 11 23:10 heads
+drwx------ 3 afan004 csmajs 4096 Oct 19 16:31 remotes
+-rw------- 1 afan004 csmajs   41 Nov  8 15:50 stash
+drwx------ 2 afan004 csmajs 4096 Oct 21 23:55 tags
+
+./.git/refs/heads:
+total 8
+drwx------ 2 afan004 csmajs 4096 Nov 11 23:10 .
+drwx------ 5 afan004 csmajs 4096 Nov  8 15:50 ..
+-rw------- 1 afan004 csmajs   41 Nov 11 19:28 ls
+-rw------- 1 afan004 csmajs   41 Nov 11 23:10 master
+
+./.git/refs/remotes:
+total 12
+drwx------ 3 afan004 csmajs 4096 Oct 19 16:31 .
+drwx------ 5 afan004 csmajs 4096 Nov  8 15:50 ..
+drwx------ 2 afan004 csmajs 4096 Nov 11 23:10 origin
+
+./.git/refs/remotes/origin:
+total 8
+drwx------ 2 afan004 csmajs 4096 Nov 11 23:10 .
+drwx------ 3 afan004 csmajs 4096 Oct 19 16:31 ..
+-rw------- 1 afan004 csmajs   41 Oct 21 23:49 exec
+-rw------- 1 afan004 csmajs   41 Nov 11 19:28 ls
+-rw------- 1 afan004 csmajs   41 Nov 11 23:10 master
+
+./.git/refs/tags:
+total 8
+drwx------ 2 afan004 csmajs 4096 Oct 21 23:55 .
+drwx------ 5 afan004 csmajs 4096 Nov  8 15:50 ..
+-rw------- 1 afan004 csmajs   41 Oct 21 23:55 hw0
+
+./src:
+total 92
+drwx------ 3 afan004 csmajs  4096 Nov 11 23:15 .
+drwx------ 6 afan004 csmajs  4096 Nov 11 23:09 ..
+-rwx------ 1 afan004 csmajs 39749 Nov 11 23:08 a.out
+-rw------- 1 afan004 csmajs  3182 Nov 11 18:31 cp.cpp
+drwx------ 3 afan004 csmajs  4096 Nov  8 16:00 .git
+-rw------- 1 afan004 csmajs 13546 Nov 11 22:57 ls.cpp
+-rw------- 1 afan004 csmajs   241 Nov 11 23:15 Makefile
+-rw------- 1 afan004 csmajs  1853 Nov  8 16:03 rshell.cpp
+-rw------- 1 afan004 csmajs 11587 Nov 11 19:28 Timer.h
+
+./src/.git:
+total 12
+drwx------ 3 afan004 csmajs 4096 Nov  8 16:00 .
+drwx------ 3 afan004 csmajs 4096 Nov 11 23:15 ..
+drwx------ 5 afan004 csmajs 4096 Nov  8 16:00 objects
+
+./src/.git/objects:
+total 20
+drwx------ 5 afan004 csmajs 4096 Nov  8 16:00 .
+drwx------ 3 afan004 csmajs 4096 Nov  8 16:00 ..
+drwx------ 2 afan004 csmajs 4096 Nov  8 15:12 0c
+drwx------ 2 afan004 csmajs 4096 Nov  8 15:58 34
+drwx------ 2 afan004 csmajs 4096 Nov  8 15:58 f3
+
+./src/.git/objects/0c:
+total 12
+drwx------ 2 afan004 csmajs 4096 Nov  8 15:12 .
+drwx------ 5 afan004 csmajs 4096 Nov  8 16:00 ..
+-r-------- 1 afan004 csmajs  177 Nov  8 15:12 7f57d7f63e99b12c4b8a2a7797fcdf6a92a146
+
+./src/.git/objects/34:
+total 12
+drwx------ 2 afan004 csmajs 4096 Nov  8 15:58 .
+drwx------ 5 afan004 csmajs 4096 Nov  8 16:00 ..
+-r-------- 1 afan004 csmajs  274 Nov  8 15:58 aeb6719d4c7c8ccf207511b1ca46714336a5cb
+
+./src/.git/objects/f3:
+total 12
+drwx------ 2 afan004 csmajs 4096 Nov  8 15:58 .
+drwx------ 5 afan004 csmajs 4096 Nov  8 16:00 ..
+-r-------- 1 afan004 csmajs  226 Nov  8 15:58 f9909960e9f42ba9aa355c82b85124b7f12a85
+
+./tests:
+total 144
+drwx------ 2 afan004 csmajs  4096 Nov 11 23:15 .
+drwx------ 6 afan004 csmajs  4096 Nov 11 23:09 ..
+-rw------- 1 afan004 csmajs 65536 Nov 11 23:15 ls.script
+-rw------- 1 afan004 csmajs 69319 Oct 21 23:42 rshell.script
+~/cs100/rshell
+afan004@hammer $ /bin/ls -laR[K[K[KalR
+.:
+total 68
+drwx------ 6 afan004 csmajs  4096 Nov 11 23:09 .
+drwx------ 7 afan004 csmajs  4096 Nov 11 20:08 ..
+drwx------ 2 afan004 csmajs  4096 Nov 11 23:15 bin
+drwx------ 8 afan004 csmajs  4096 Nov 11 23:10 .git
+-rw------- 1 afan004 csmajs 34593 Oct 21 23:42 LICENSE
+-rw------- 1 afan004 csmajs   241 Nov 11 23:04 Makefile
+-rw------- 1 afan004 csmajs   630 Nov 11 23:09 README.md
+drwx------ 3 afan004 csmajs  4096 Nov 11 23:15 src
+drwx------ 2 afan004 csmajs  4096 Nov 11 23:15 tests
+
+./bin:
+total 76
+drwx------ 2 afan004 csmajs  4096 Nov 11 23:15 .
+drwx------ 6 afan004 csmajs  4096 Nov 11 23:09 ..
+-rwx------ 1 afan004 csmajs 15300 Nov 11 23:15 cp
+-rwx------ 1 afan004 csmajs 38934 Nov 11 23:15 ls
+-rwx------ 1 afan004 csmajs 10140 Nov 11 23:15 rshell
+
+./.git:
+total 60
+drwx------   8 afan004 csmajs 4096 Nov 11 23:10 .
+drwx------   6 afan004 csmajs 4096 Nov 11 23:09 ..
+drwx------   2 afan004 csmajs 4096 Oct 19 16:18 branches
+-rw-------   1 afan004 csmajs   15 Nov 11 23:10 COMMIT_EDITMSG
+-rw-------   1 afan004 csmajs  313 Nov  8 16:06 COMMIT_EDITMSG~
+-rw-------   1 afan004 csmajs  262 Nov  8 15:47 config
+-rw-------   1 afan004 csmajs   73 Oct 19 16:18 description
+-rw-------   1 afan004 csmajs  305 Nov 11 18:31 FETCH_HEAD
+-rw-------   1 afan004 csmajs   23 Nov 11 19:29 HEAD
+drwx------   2 afan004 csmajs 4096 Oct 19 16:18 hooks
+-rw-------   1 afan004 csmajs  709 Nov 11 23:10 index
+drwx------   2 afan004 csmajs 4096 Oct 19 16:18 info
+drwx------   3 afan004 csmajs 4096 Oct 19 16:19 logs
+-rw-------   1 afan004 csmajs  246 Nov 11 19:30 #MERGE_MSG#
+-rw-------   1 afan004 csmajs  286 Nov  8 15:52 MERGE_MSG~
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 objects
+-rw-------   1 afan004 csmajs   41 Nov 11 19:34 ORIG_HEAD
+drwx------   5 afan004 csmajs 4096 Nov  8 15:50 refs
+
+./.git/branches:
+total 8
+drwx------ 2 afan004 csmajs 4096 Oct 19 16:18 .
+drwx------ 8 afan004 csmajs 4096 Nov 11 23:10 ..
+
+./.git/hooks:
+total 48
+drwx------ 2 afan004 csmajs 4096 Oct 19 16:18 .
+drwx------ 8 afan004 csmajs 4096 Nov 11 23:10 ..
+-rwx------ 1 afan004 csmajs  452 Oct 19 16:18 applypatch-msg.sample
+-rwx------ 1 afan004 csmajs  896 Oct 19 16:18 commit-msg.sample
+-rwx------ 1 afan004 csmajs  189 Oct 19 16:18 post-update.sample
+-rwx------ 1 afan004 csmajs  398 Oct 19 16:18 pre-applypatch.sample
+-rwx------ 1 afan004 csmajs 1704 Oct 19 16:18 pre-commit.sample
+-rwx------ 1 afan004 csmajs 1239 Oct 19 16:18 prepare-commit-msg.sample
+-rw------- 1 afan004 csmajs 1348 Oct 19 16:18 pre-push.sample
+-rwx------ 1 afan004 csmajs 4951 Oct 19 16:18 pre-rebase.sample
+-rwx------ 1 afan004 csmajs 3611 Oct 19 16:18 update.sample
+
+./.git/info:
+total 12
+drwx------ 2 afan004 csmajs 4096 Oct 19 16:18 .
+drwx------ 8 afan004 csmajs 4096 Nov 11 23:10 ..
+-rw------- 1 afan004 csmajs  240 Oct 19 16:18 exclude
+
+./.git/logs:
+total 20
+drwx------ 3 afan004 csmajs 4096 Oct 19 16:19 .
+drwx------ 8 afan004 csmajs 4096 Nov 11 23:10 ..
+-rw------- 1 afan004 csmajs 7226 Nov 11 23:10 HEAD
+drwx------ 4 afan004 csmajs 4096 Nov  8 15:37 refs
+
+./.git/logs/refs:
+total 20
+drwx------ 4 afan004 csmajs 4096 Nov  8 15:37 .
+drwx------ 3 afan004 csmajs 4096 Oct 19 16:19 ..
+drwx------ 2 afan004 csmajs 4096 Nov  8 18:11 heads
+drwx------ 3 afan004 csmajs 4096 Oct 19 16:31 remotes
+-rw------- 1 afan004 csmajs  338 Nov  8 15:50 stash
+
+./.git/logs/refs/heads:
+total 16
+drwx------ 2 afan004 csmajs 4096 Nov  8 18:11 .
+drwx------ 4 afan004 csmajs 4096 Nov  8 15:37 ..
+-rw------- 1 afan004 csmajs 1579 Nov 11 19:28 ls
+-rw------- 1 afan004 csmajs 2558 Nov 11 23:10 master
+
+./.git/logs/refs/remotes:
+total 12
+drwx------ 3 afan004 csmajs 4096 Oct 19 16:31 .
+drwx------ 4 afan004 csmajs 4096 Nov  8 15:37 ..
+drwx------ 2 afan004 csmajs 4096 Nov  8 20:33 origin
+
+./.git/logs/refs/remotes/origin:
+total 20
+drwx------ 2 afan004 csmajs 4096 Nov  8 20:33 .
+drwx------ 3 afan004 csmajs 4096 Oct 19 16:31 ..
+-rw------- 1 afan004 csmajs 1066 Oct 21 23:49 exec
+-rw------- 1 afan004 csmajs 1359 Nov 11 19:28 ls
+-rw------- 1 afan004 csmajs 3047 Nov 11 23:10 master
+
+./.git/objects:
+total 480
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 .
+drwx------   8 afan004 csmajs 4096 Nov 11 23:10 ..
+drwx------   2 afan004 csmajs 4096 Oct 21 20:35 06
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 08
+drwx------   2 afan004 csmajs 4096 Nov 11 19:28 0a
+drwx------   2 afan004 csmajs 4096 Oct 19 16:19 0b
+drwx------   2 afan004 csmajs 4096 Nov 11 19:28 0c
+drwx------   2 afan004 csmajs 4096 Nov 11 18:29 10
+drwx------   2 afan004 csmajs 4096 Nov 10 22:23 12
+drwx------   2 afan004 csmajs 4096 Nov 11 19:11 13
+drwx------   2 afan004 csmajs 4096 Oct 21 14:56 15
+drwx------   2 afan004 csmajs 4096 Oct 19 16:19 18
+drwx------   2 afan004 csmajs 4096 Nov 11 01:44 19
+drwx------   2 afan004 csmajs 4096 Nov 11 18:29 1a
+drwx------   2 afan004 csmajs 4096 Nov 11 22:34 1d
+drwx------   2 afan004 csmajs 4096 Nov  8 15:29 1e
+drwx------   2 afan004 csmajs 4096 Nov  8 16:01 1f
+drwx------   2 afan004 csmajs 4096 Nov 11 19:11 22
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 25
+drwx------   2 afan004 csmajs 4096 Nov 11 19:33 26
+drwx------   2 afan004 csmajs 4096 Oct 20 00:08 28
+drwx------   2 afan004 csmajs 4096 Nov 11 18:30 29
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 2a
+drwx------   2 afan004 csmajs 4096 Nov 11 23:06 2c
+drwx------   2 afan004 csmajs 4096 Nov  8 15:50 2d
+drwx------   2 afan004 csmajs 4096 Oct 21 23:46 2e
+drwx------   2 afan004 csmajs 4096 Nov  8 15:37 34
+drwx------   2 afan004 csmajs 4096 Oct 21 20:39 35
+drwx------   2 afan004 csmajs 4096 Nov  8 15:37 37
+drwx------   2 afan004 csmajs 4096 Nov 11 19:14 38
+drwx------   2 afan004 csmajs 4096 Oct 19 16:19 3a
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 3f
+drwx------   2 afan004 csmajs 4096 Nov 11 18:30 41
+drwx------   2 afan004 csmajs 4096 Nov 10 00:41 42
+drwx------   2 afan004 csmajs 4096 Nov  8 16:04 43
+drwx------   2 afan004 csmajs 4096 Nov  8 16:04 45
+drwx------   2 afan004 csmajs 4096 Nov  8 20:32 47
+drwx------   2 afan004 csmajs 4096 Nov 11 00:38 48
+drwx------   2 afan004 csmajs 4096 Nov 11 00:39 4a
+drwx------   2 afan004 csmajs 4096 Nov 11 19:28 4c
+drwx------   2 afan004 csmajs 4096 Nov  8 15:53 4f
+drwx------   2 afan004 csmajs 4096 Nov 11 19:14 50
+drwx------   2 afan004 csmajs 4096 Nov  8 15:37 52
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 53
+drwx------   2 afan004 csmajs 4096 Nov 11 18:29 57
+drwx------   2 afan004 csmajs 4096 Nov  8 15:52 5d
+drwx------   2 afan004 csmajs 4096 Nov 11 18:29 5f
+drwx------   2 afan004 csmajs 4096 Nov 10 00:41 60
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 63
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 65
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 66
+drwx------   2 afan004 csmajs 4096 Nov 11 23:07 67
+drwx------   2 afan004 csmajs 4096 Oct 20 00:08 6b
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 6c
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 6d
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 70
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 72
+drwx------   2 afan004 csmajs 4096 Nov 11 23:07 73
+drwx------   2 afan004 csmajs 4096 Nov 11 22:33 75
+drwx------   2 afan004 csmajs 4096 Nov 11 23:10 76
+drwx------   2 afan004 csmajs 4096 Nov 11 22:30 77
+drwx------   2 afan004 csmajs 4096 Nov 11 23:10 79
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 7a
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 7b
+drwx------   2 afan004 csmajs 4096 Oct 21 14:56 7d
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 83
+drwx------   2 afan004 csmajs 4096 Nov 11 19:28 85
+drwx------   2 afan004 csmajs 4096 Nov 10 22:23 86
+drwx------   2 afan004 csmajs 4096 Nov  8 20:32 8b
+drwx------   2 afan004 csmajs 4096 Oct 20 00:08 8e
+drwx------   2 afan004 csmajs 4096 Nov 11 23:07 97
+drwx------   2 afan004 csmajs 4096 Nov 11 01:43 98
+drwx------   2 afan004 csmajs 4096 Nov 11 22:29 99
+drwx------   2 afan004 csmajs 4096 Nov  8 15:37 9a
+drwx------   2 afan004 csmajs 4096 Oct 21 23:23 9e
+drwx------   2 afan004 csmajs 4096 Nov 11 18:30 9f
+drwx------   2 afan004 csmajs 4096 Nov  8 20:32 a2
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 a3
+drwx------   2 afan004 csmajs 4096 Nov  8 15:37 a4
+drwx------   2 afan004 csmajs 4096 Nov 11 01:44 a6
+drwx------   2 afan004 csmajs 4096 Nov 11 22:34 a8
+drwx------   2 afan004 csmajs 4096 Nov 11 19:14 a9
+drwx------   2 afan004 csmajs 4096 Oct 21 23:45 ab
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 ac
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 ad
+drwx------   2 afan004 csmajs 4096 Oct 21 23:48 b0
+drwx------   2 afan004 csmajs 4096 Nov 11 18:29 b3
+drwx------   2 afan004 csmajs 4096 Nov 11 19:11 b4
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 b5
+drwx------   2 afan004 csmajs 4096 Nov 11 23:10 ba
+drwx------   2 afan004 csmajs 4096 Nov  8 15:52 bb
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 bc
+drwx------   2 afan004 csmajs 4096 Oct 21 23:48 bd
+drwx------   2 afan004 csmajs 4096 Nov 11 23:07 be
+drwx------   2 afan004 csmajs 4096 Nov  8 16:06 c0
+drwx------   2 afan004 csmajs 4096 Nov 11 17:42 c4
+drwx------   2 afan004 csmajs 4096 Nov 11 22:30 c5
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 c8
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 cb
+drwx------   2 afan004 csmajs 4096 Nov 11 18:30 d1
+drwx------   2 afan004 csmajs 4096 Oct 21 14:56 d5
+drwx------   2 afan004 csmajs 4096 Nov 11 00:39 d9
+drwx------   2 afan004 csmajs 4096 Nov  8 15:50 df
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 e4
+drwx------   2 afan004 csmajs 4096 Nov 11 19:14 e5
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 e6
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 e9
+drwx------   2 afan004 csmajs 4096 Nov 10 00:41 eb
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 ee
+drwx------   2 afan004 csmajs 4096 Nov 10 00:41 f1
+drwx------   2 afan004 csmajs 4096 Nov  8 15:51 f3
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 f4
+drwx------   2 afan004 csmajs 4096 Nov 11 23:07 f5
+drwx------   2 afan004 csmajs 4096 Nov 11 19:28 f6
+drwx------   2 afan004 csmajs 4096 Oct 21 23:55 f8
+drwx------   2 afan004 csmajs 4096 Oct 20 00:08 f9
+drwx------   2 afan004 csmajs 4096 Nov  8 15:50 fd
+drwx------   2 afan004 csmajs 4096 Nov  8 16:09 fe
+drwx------   2 afan004 csmajs 4096 Oct 19 16:18 info
+drwx------   2 afan004 csmajs 4096 Oct 19 16:18 pack
+
+./.git/objects/06:
+total 24
+drwx------   2 afan004 csmajs  4096 Oct 21 20:35 .
+drwx------ 120 afan004 csmajs  4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 13638 Oct 21 20:35 3c6e6d513d28577fa97adf0dd26b61f915cfff
+
+./.git/objects/08:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  800 Oct 21 23:24 7f3ccdc88f1a804e7bd23e1617b3663dbe9327
+
+./.git/objects/0a:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 19:28 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  176 Nov 11 19:28 474f95d088508617e871c9c64d7f9cc5e10f1e
+
+./.git/objects/0b:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 19 16:19 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  131 Oct 19 16:19 a477cde0e40b9392f95bbe3c69bd38c694284c
+
+./.git/objects/0c:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 19:28 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  159 Nov 11 19:28 07b13cd9e5f69d63159d14c60fa80cd2c4d1b6
+-r--------   1 afan004 csmajs  177 Oct 21 23:23 7f57d7f63e99b12c4b8a2a7797fcdf6a92a146
+
+./.git/objects/10:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 18:29 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  979 Nov 11 18:29 ff4588cd80b0cfdf89150bb7176289d34fbdc6
+
+./.git/objects/12:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 10 22:23 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   81 Nov 10 22:23 d6f3505c7429c63997a956fedc90c29f2d7476
+
+./.git/objects/13:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 19:11 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  176 Nov 11 19:11 349ed154a21a8a1ceb780974c7c96fe6f40708
+
+./.git/objects/15:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 14:56 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  794 Oct 21 14:56 90b28f8a874aacff20348026a1eada0ab855de
+
+./.git/objects/18:
+total 8
+drwx------   2 afan004 csmajs 4096 Oct 19 16:19 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   54 Oct 19 16:19 de32580605526b1678414d4f8f5d0f6e7773a6
+
+./.git/objects/19:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 01:44 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   81 Nov 11 01:44 b4604a0680d61a42bad3202b22dab367821308
+
+./.git/objects/1a:
+total 20
+drwx------   2 afan004 csmajs 4096 Nov 11 18:29 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   87 Oct 21 23:24 40f1b324f94294d78fae99edd6c9fc25d3f8b7
+-r--------   1 afan004 csmajs  114 Nov 11 18:29 45429442c872c74fad20af69ca7b97d63795eb
+-r--------   1 afan004 csmajs  154 Nov  8 15:52 cffc675e8ce8fd80286be645a555b3d09d1c97
+
+./.git/objects/1d:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 22:34 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  175 Nov 11 22:34 e1281461ed7ef27c6b37af4d39e8752514880a
+
+./.git/objects/1e:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov  8 15:29 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  211 Nov  8 15:29 56c69d5e0bb5439680b5b922438fdc2eef0ab3
+-r--------   1 afan004 csmajs   58 Oct 21 23:23 760d5c97e7fd519a69541c54b91c9b27627c90
+-r--------   1 afan004 csmajs   88 Oct 21 23:24 9815bbef22c9fbfadeef709f1a93dd73d80544
+
+./.git/objects/1f:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 16:01 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  184 Nov  8 16:01 12e97f7026e543f1769c0060b14bc2bbd4e667
+
+./.git/objects/22:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 19:11 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  110 Nov 11 19:11 00b1a6f8f23238d1557f0aed204acedc7093b6
+
+./.git/objects/25:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  150 Nov  8 15:09 95deaf021adb7cd015833cb908992a982697be
+-r--------   1 afan004 csmajs  806 Nov  8 15:09 b3f12b93b4f15fec970ce82d42269d996fea6d
+
+./.git/objects/26:
+total 28
+drwx------   2 afan004 csmajs 4096 Nov 11 19:33 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  162 Oct 21 23:46 0fa4963353efa12bd2cd47a92745543cf814c5
+-r--------   1 afan004 csmajs  115 Oct 21 20:36 4af4085030732dd33485f4bf595004de43c208
+-r--------   1 afan004 csmajs  183 Nov 11 19:33 4fc06b5a88a286a5dff6158cfd047836cdf49b
+-r--------   1 afan004 csmajs  148 Nov 11 18:29 76dd3bf3133b0cc3bc622e123125ba29316914
+-r--------   1 afan004 csmajs  113 Oct 20 00:08 cf37214993a7966ca859dcbbd14a1b97efd946
+
+./.git/objects/28:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 20 00:08 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  164 Oct 20 00:08 f4b45012c3050141d27b608569039059339f4b
+
+./.git/objects/29:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 18:30 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  110 Nov 11 18:30 13d2725b7e0feddb104bf97b8054dc66bbb101
+
+./.git/objects/2a:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  236 Nov 11 17:41 3777babc4d42d9c1e75fe8b814ae2771bd1614
+
+./.git/objects/2c:
+total 20
+drwx------   2 afan004 csmajs 4096 Nov 11 23:06 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  160 Oct 21 23:24 686741918cd291ea7a29b0cc40556134abde1b
+-r--------   1 afan004 csmajs  177 Nov 10 22:23 ea51e41d8028ff02c0e85aba9042e4329bd245
+-r--------   1 afan004 csmajs  123 Nov 11 23:06 fe45571ff78fcca4c89d29afc1bf29312ef668
+
+./.git/objects/2d:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:50 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  170 Nov  8 15:50 0db05c3d912d84bb849baea678cc19ca28d401
+
+./.git/objects/2e:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:46 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  177 Oct 21 23:46 471dbe40e9a41b9dc0e7ebfa071fa6c5ba98bb
+
+./.git/objects/34:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:37 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  274 Nov  8 15:37 aeb6719d4c7c8ccf207511b1ca46714336a5cb
+
+./.git/objects/35:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 20:39 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  148 Oct 21 20:39 d92db755f7b688ba41b8bfcdedd000aaed8923
+
+./.git/objects/37:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:37 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  241 Nov  8 15:37 9b7e366df38f924ff19f6db403e41a2c856eb6
+
+./.git/objects/38:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 19:14 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   83 Oct 21 23:24 3ed5bb328ef0b75edaf4e2d7feaf9a09ba35fa
+-r--------   1 afan004 csmajs  176 Nov 11 19:14 4e053074ecc6d25a480f4f6ad165e861832385
+
+./.git/objects/3a:
+total 8
+drwx------   2 afan004 csmajs 4096 Oct 19 16:19 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   45 Oct 19 16:19 00fbe76a899de8ff0b48b50adf348c0c5c2675
+
+./.git/objects/3f:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  165 Oct 21 23:24 a214c6758761b93b92d896961c220095fe5dc2
+
+./.git/objects/41:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 18:30 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  176 Nov 11 18:30 7fac781d9bf72029af8b9df2eea21955dddd24
+
+./.git/objects/42:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 10 00:41 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  157 Nov 10 00:41 81baa0a3646e4d8d3e070bd2c60183abf57569
+
+./.git/objects/43:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 16:04 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  157 Nov  8 16:04 59841bd047d974e46c2a8038f26455b3eccb5d
+
+./.git/objects/45:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 16:04 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  164 Oct 21 20:39 5e5586d928210ea6d994e3b8f64cca91324e7c
+-r--------   1 afan004 csmajs   54 Nov  8 16:04 c95e575d34f6846fbb7dfba0ad9aa5bb2afc82
+
+./.git/objects/47:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 20:32 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  539 Nov  8 20:32 3506a0f6672bf00bf7fde6742044e86e4d7ef7
+
+./.git/objects/48:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 00:38 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 1808 Nov 11 00:38 3790ef8ba97c189e648b5bb08ab51f6502189d
+-r--------   1 afan004 csmajs  222 Nov  8 15:18 9322876cc85ca0b8b5794801ce84760720d2b1
+
+./.git/objects/4a:
+total 20
+drwx------   2 afan004 csmajs 4096 Nov 11 00:39 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  162 Nov 11 00:39 085e5687ed1565f60a9cb6ae5d4ce0448c6f14
+-r--------   1 afan004 csmajs   87 Oct 21 23:24 6844014a7569cbec6cd501e5b6e8fa565118ca
+-r--------   1 afan004 csmajs   83 Oct 21 23:24 e795270dba157bac0487afface3097114a6c33
+
+./.git/objects/4c:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 19:28 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  176 Nov 11 19:28 443bd7d01adeaacee4c6f6bc2422abfe68e7ea
+
+./.git/objects/4f:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:53 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  230 Nov  8 15:53 613ec39df98224d19eef90ef3867a27c608a97
+
+./.git/objects/50:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 19:14 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  165 Nov 11 19:14 01446489e4d042f62aa41ae51ad31c978686ab
+
+./.git/objects/52:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:37 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  205 Nov  8 15:37 ce1a7a5cb76e305249f166b831db11ab5c1540
+
+./.git/objects/53:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   87 Oct 21 23:24 f74a55baf5d4c3d0fc86c45260d52f0afedb48
+
+./.git/objects/57:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 18:29 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  199 Nov  8 15:50 b7adbeabe9086d1d929299723dd1b05d64b2da
+-r--------   1 afan004 csmajs  237 Nov 11 18:29 bbed7f06e9ee75d3a12335da61742e1ada846b
+
+./.git/objects/5d:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:52 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  211 Nov  8 15:52 5de226c61de36409eb733d9987e8c4a5437396
+
+./.git/objects/5f:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 18:29 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  176 Nov 11 18:29 a325903c5fea99816ab5cbd0254b79e61271c4
+
+./.git/objects/60:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 10 00:41 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   82 Nov 10 00:41 65de5d295ef224d2ad5c909f92b4eac719c4a0
+
+./.git/objects/63:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   88 Nov  8 15:09 0fc4931b33741d475fdad1ccb25bb9966abbba
+
+./.git/objects/65:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  121 Nov  8 15:09 19cd811106a08ccd75a28b83bbfe54fa119aad
+-r--------   1 afan004 csmajs  801 Oct 21 23:24 969ed64573338e86cc8431790d6de4a015058c
+
+./.git/objects/66:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  227 Oct 21 23:24 e1be6b13c2c4b3b2ac762445a89fa422939238
+
+./.git/objects/67:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 23:07 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   46 Oct 19 16:26 50b98bc33371e35218f1bfdb78ee64779e4881
+-r--------   1 afan004 csmajs  354 Nov 11 23:07 9e712a50b5fecf4e0577d0450d30e381987c6b
+-r--------   1 afan004 csmajs  164 Nov 11 19:11 a90d67a1d0ae8dc5b66a24b8a2dd26ca88fc2e
+
+./.git/objects/6b:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 20 00:08 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  304 Oct 20 00:08 8ef0e57713e21651490523474dcc5299ca2a3d
+
+./.git/objects/6c:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  115 Nov 11 17:41 c8571047e9218ecd73c8004b6c50761ac9ac61
+
+./.git/objects/6d:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   88 Oct 21 23:24 4fe33484a3d17aeb4216c4c8c0377414882b0b
+
+./.git/objects/70:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   88 Oct 21 23:24 edc98e14d37f885d6799e209c1574e039e34cb
+
+./.git/objects/72:
+total 20
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  157 Nov  8 15:49 03a7db0412b0b6a6f1f48dbb594498de6e073f
+-r--------   1 afan004 csmajs   82 Oct 20 00:08 08069ca18199c13167a79709f21dee6b039d94
+-r--------   1 afan004 csmajs  117 Nov 11 17:41 ba01f57e497c2d2f28d53d0c1d1ce6b6edab69
+
+./.git/objects/73:
+total 20
+drwx------   2 afan004 csmajs 4096 Nov 11 23:07 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  141 Nov 11 23:07 2f89fd91ce3e89a838019f6d0510cd22f2fee4
+-r--------   1 afan004 csmajs  165 Nov 11 01:44 5f5ccfd414a555fb01836e576651914fa5c62a
+-r--------   1 afan004 csmajs  211 Nov  8 16:04 93cc457af20a5d5b0f081f5847c02ac8d51c7e
+
+./.git/objects/75:
+total 24
+drwx------   2 afan004 csmajs 4096 Nov 11 22:33 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  177 Nov 11 00:39 419cab6a32528d151dd39195ed4ddc24b25814
+-r--------   1 afan004 csmajs  345 Nov 11 22:33 82e54172a7384ab4521ecb221d51a0844cba45
+-r--------   1 afan004 csmajs  176 Nov 11 18:29 8e0dade01e5f57ff6edfa877f61d492e38bb37
+-r--------   1 afan004 csmajs  177 Nov  8 15:37 bffa82538828962e451c8f09267ca82d6d93cc
+
+./.git/objects/76:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 23:10 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  376 Nov 11 23:10 601cbc7230618ef5b5e0d750b19fd0744e782b
+
+./.git/objects/77:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 22:30 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  176 Nov 11 22:30 d7d381a1424ac629d213fb9ca0dd776e0b1cb5
+
+./.git/objects/79:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 23:10 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  153 Nov  8 15:29 2ba4c6584a965ff6342ee2faa6837032c0888a
+-r--------   1 afan004 csmajs  176 Nov 11 23:10 437410ab1cb7f88827ef2aa8ce228bd3929d6e
+
+./.git/objects/7a:
+total 16
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   88 Oct 21 23:24 6196b68386a991ac1f6948f7eb69e66d25a0bd
+-r--------   1 afan004 csmajs  150 Oct 21 23:24 c5374584f9b3d9b7075cba8c05183b3f7ff9b1
+
+./.git/objects/7b:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  856 Oct 21 23:24 702b8c79cb9ff003670d985e40eb1032636467
+
+./.git/objects/7d:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 14:56 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   80 Oct 21 14:56 bb9ef4551d2f4109cc727e95ae1ddcfe45b215
+
+./.git/objects/83:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   87 Oct 21 23:24 eb471e87499e511d0863a96faf1d5f91b987df
+
+./.git/objects/85:
+total 20
+drwx------   2 afan004 csmajs 4096 Nov 11 19:28 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  177 Nov  8 15:50 20b6540ccaf189839678118d7ac0d734f9d25b
+-r--------   1 afan004 csmajs  141 Nov 11 19:28 38998d6c0ff43d37c2bcb8dab83c620b812535
+-r--------   1 afan004 csmajs  892 Nov  8 15:50 395216cd93e586263fa3f01d251fa378448c58
+
+./.git/objects/86:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 10 22:23 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 1154 Nov 10 22:23 4b66150066b723b68cc119e413c4e063638c3d
+
+./.git/objects/8b:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 20:32 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   81 Nov  8 20:32 fe915b6dd4ab9c2c5b7eee9bfb0bd976097ec5
+
+./.git/objects/8e:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 20 00:08 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   84 Oct 20 00:08 a5387984a69e51cd431f19e0e0f3a7d0b388cd
+
+./.git/objects/97:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 23:07 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  176 Nov 11 23:07 69c3afbf632d21802e67d60b263dd1f6295abf
+
+./.git/objects/98:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 01:43 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 2048 Nov 11 01:43 1733d302072f397b4a3c6f2b6e52439baaa996
+
+./.git/objects/99:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 22:29 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  110 Nov 11 19:28 69a060b372656217eaa69bb96d10085d115b1c
+-r--------   1 afan004 csmajs  343 Nov 11 22:29 fd3bc6f3396ff17db085fdb29c0e297796f322
+
+./.git/objects/9a:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:37 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  177 Nov  8 15:37 41568f1d9fcb06ff0efdb92d9425af52927c92
+
+./.git/objects/9e:
+total 20
+drwx------   2 afan004 csmajs 4096 Oct 21 23:23 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 9482 Oct 21 23:23 e1ec1aa6c65a176bf0ffafc73a9f6bcdd8428c
+
+./.git/objects/9f:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 18:30 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  161 Nov 11 18:30 ddb39b9e1a5bd691349573581cc86579f061b7
+
+./.git/objects/a2:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 20:32 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  177 Nov  8 20:32 aaab818d32571c1ba8ab170c4ac1998027dc13
+
+./.git/objects/a3:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  165 Oct 21 14:56 e71bf05421d622a638c004f6e880252f4db8c5
+-r--------   1 afan004 csmajs  177 Nov  8 15:09 e86b1ff78097dcbc2cf3b4583529a435a2e664
+
+./.git/objects/a4:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov  8 15:37 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   93 Oct 20 00:08 463022cd7348ee5be32a5505342e08653d626f
+-r--------   1 afan004 csmajs  179 Nov  8 15:37 9b21e1e9d5184a1476d134d230ca20a3f32478
+
+./.git/objects/a6:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 01:44 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  177 Nov 11 01:44 9376168ca7eb5db41ed4a565b94cd2272640be
+-r--------   1 afan004 csmajs  177 Nov  8 15:09 e7fb7a69a408c11159625ef486dbb2036b14a0
+
+./.git/objects/a8:
+total 24
+drwx------   2 afan004 csmajs 4096 Nov 11 22:34 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  222 Nov  8 15:52 35e62b4a0dd564cf59c6259ccdafc47e5d77d5
+-r--------   1 afan004 csmajs  159 Nov  8 20:32 3a0085f0701d6675cdeadbae9843bfa57e96df
+-r--------   1 afan004 csmajs  162 Oct 20 00:08 8efbb268103115a231dbebc27e0e142ff9fb55
+-r--------   1 afan004 csmajs  160 Nov 11 22:34 fc0acb593157a8ad918f77576b19bf5a755f88
+
+./.git/objects/a9:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 19:14 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 2142 Nov 11 19:14 f04ba3e3f40f704fefeb86fc3664c1eb5795b8
+
+./.git/objects/ab:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:45 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  268 Oct 21 23:45 909bafcbd1dfbe6497916dfe8c389821523197
+
+./.git/objects/ac:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  176 Nov 11 17:41 8ae509b4a6b02c667966d60af849698ca630ba
+-r--------   1 afan004 csmajs  212 Nov  8 15:18 ab9f99a19d7125fe4de1f0194243d4edc0681b
+
+./.git/objects/ad:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  897 Nov 11 17:41 dabdb5abe96c1d3edb9492c5f15311e3590f9c
+
+./.git/objects/b0:
+total 20
+drwx------   2 afan004 csmajs 4096 Oct 21 23:48 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  160 Oct 21 23:48 47ccef89d4eaf30b6792283919c081f2cdeefd
+-r--------   1 afan004 csmajs  163 Oct 21 23:24 b37a2ee4846ca70b9d0c96900b3ee1d01a3473
+-r--------   1 afan004 csmajs   84 Oct 21 14:56 f379b8e77c148c14ff260ad296ec686dfa85ff
+
+./.git/objects/b3:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 18:29 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  176 Nov 11 17:41 5f10843303ec00b65f5054a507c43043f1b1eb
+-r--------   1 afan004 csmajs  187 Nov 11 18:29 d61003e41684513b65aa9ada50f4abc174f426
+
+./.git/objects/b4:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 19:11 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 2124 Nov 11 19:11 d206b5a01bb521379a38ecd081ba540b2adb3f
+
+./.git/objects/b5:
+total 16
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  148 Oct 21 23:24 8bf6947a46a25f576ee87cd921b0ef97c8884c
+-r--------   1 afan004 csmajs  100 Oct 21 20:39 dbf0971ca2404f261948c9f2ae7fc0e2b4c1de
+
+./.git/objects/ba:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 23:10 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  156 Nov 10 22:23 a73020b81563829dff622216541eb4fd6d2cc0
+-r--------   1 afan004 csmajs  166 Nov 11 23:10 bc8b10fd692076d1c29d3c64b131ecb25b9c1c
+
+./.git/objects/bb:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:52 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  211 Nov  8 15:52 18cc32d7588e9f8fe05635536b04ca5360b759
+
+./.git/objects/bc:
+total 16
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  167 Oct 21 23:24 d63f2dfdfebfe318501359e38221a361b190d6
+-r--------   1 afan004 csmajs   87 Oct 21 23:24 eb790812013225ef508aeb009e250933c23885
+
+./.git/objects/bd:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:48 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  887 Oct 21 23:48 7128afaf4f19f7a351cfee8fd66b6de1eff693
+
+./.git/objects/be:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 23:07 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  165 Nov 11 23:07 e640f160a986d9e03bb45b909947eba8d2a17f
+
+./.git/objects/c0:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 16:06 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  177 Nov  8 16:06 b41e23edd0e4eb342122ac5c36652ab3a09384
+
+./.git/objects/c4:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 17:42 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  176 Nov 11 17:42 0da848fcd42331022ca061098146968dbeb86a
+-r--------   1 afan004 csmajs  119 Oct 21 23:24 861e2045daa8250b480389f08da2cdb29685f3
+
+./.git/objects/c5:
+total 28
+drwx------   2 afan004 csmajs 4096 Nov 11 22:30 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  110 Nov 11 17:42 24bbaba450b03d3aef315a41b8210b30dd5e44
+-r--------   1 afan004 csmajs  166 Nov 11 22:30 623d221db69550d2a4c5901291bc7e24ed88c3
+-r--------   1 afan004 csmajs  177 Nov  8 15:09 8292f7c57c8fdc4bbd56ce0c4f6a7978840bbf
+-r--------   1 afan004 csmajs  210 Nov  8 15:52 91574ef399d684453b1239065d84f383c9b6d1
+-r--------   1 afan004 csmajs   88 Oct 21 23:48 fd51657da74960cf428e1303217217753f520f
+
+./.git/objects/c8:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  163 Oct 21 23:24 02c264907d43955ee41602c346aeb10d7b6076
+
+./.git/objects/cb:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  151 Nov  8 15:09 0897fe9844d33a7806ba9fc1248eec8f1e3760
+
+./.git/objects/d1:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 18:30 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 2078 Nov 11 18:30 9fe5290a89e7ae9e5dca26913bcb80621d3742
+
+./.git/objects/d5:
+total 16
+drwx------   2 afan004 csmajs 4096 Oct 21 14:56 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 4033 Oct 21 14:56 29106e2918264f35ef5ef9a5294b0007870ce3
+-r--------   1 afan004 csmajs  152 Oct 21 14:56 d0d1ca0cab2268bf7e233468d7f616b487e0f5
+
+./.git/objects/d9:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 00:39 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   81 Nov 11 00:39 8aaa5e4d6c3382d9c5870ee0c4a20d4b14f979
+
+./.git/objects/df:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:50 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  211 Nov  8 15:50 f90a7d03b6f4953ae211128836c66068442317
+
+./.git/objects/e4:
+total 16
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  743 Oct 21 23:24 b8508e255166bd3bc093c9ddfa57a8f183388c
+-r--------   1 afan004 csmajs  165 Oct 21 23:24 f0b2e934ade6aea74fabcef23f1843b9a8ef5a
+
+./.git/objects/e5:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 11 19:14 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  156 Nov  8 16:01 114975716325db4a1abc77629d9e9d9c5cb422
+-r--------   1 afan004 csmajs  111 Nov 11 19:14 d770bc70c4ad0c4be4fdbf6a63a90100225934
+
+./.git/objects/e6:
+total 20
+drwx------   2 afan004 csmajs 4096 Nov  8 15:09 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  151 Oct 21 23:24 1dd37d9660c8902f117dd172fe85ab42c3eec4
+-r--------   1 afan004 csmajs  152 Nov  8 15:09 4789883ee38a859db3f352c616673aec7e9a9d
+-r--------   1 afan004 csmajs  173 Oct 21 20:36 8ae8fb99e588aa5fd8ca838b5f6a061632519e
+
+./.git/objects/e9:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs   82 Nov 11 17:41 e5754906ba0bd74e558cbeb7f4ca40a56676e8
+
+./.git/objects/eb:
+total 16
+drwx------   2 afan004 csmajs 4096 Nov 10 00:41 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 1138 Nov 10 00:41 e5a43e965f47d8b8d0c090dcb279f53ae179a8
+-r--------   1 afan004 csmajs  161 Oct 21 23:24 f13fefad650606c9f5ed0784deb4051b3fb2b6
+
+./.git/objects/ee:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 17:41 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  188 Nov 11 17:41 428be94e3ed98d8dc68ac8fbb4e5700b3b6d07
+
+./.git/objects/f1:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 10 00:41 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  177 Nov 10 00:41 38f6abd21f8b9b09fd7d73ba7bd4e08b71cce3
+
+./.git/objects/f3:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:51 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  226 Nov  8 15:51 f9909960e9f42ba9aa355c82b85124b7f12a85
+
+./.git/objects/f4:
+total 16
+drwx------   2 afan004 csmajs 4096 Oct 21 23:24 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  359 Oct 21 23:24 09f6f3c8e9153989242f2ddf776cc7f8ccfd24
+-r--------   1 afan004 csmajs  164 Oct 21 23:23 4e28bf3f39fd3d9edc708514581c819d7ceaf0
+
+./.git/objects/f5:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 23:07 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 2338 Nov 11 23:07 80c9425a89a104504c44a18bec69789c93fa83
+
+./.git/objects/f6:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov 11 19:28 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs 2153 Nov 11 19:28 34d867d836b51f01b6ead63788eb765a1f27cc
+
+./.git/objects/f8:
+total 16
+drwx------   2 afan004 csmajs 4096 Oct 21 23:55 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  831 Oct 21 23:24 77cb0153ad72d9112cf92a71e0233d03f64451
+-r--------   1 afan004 csmajs  151 Oct 21 23:55 dd239ed218981da31f4f6bc1409db2d801eb32
+
+./.git/objects/f9:
+total 12
+drwx------   2 afan004 csmajs 4096 Oct 20 00:08 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  163 Oct 20 00:08 8df697bb41e13b52f122334e207c7e8dc1ceb7
+
+./.git/objects/fd:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 15:50 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  272 Nov  8 15:50 503d017a9e5dd99affbcfb33d44630df71294a
+
+./.git/objects/fe:
+total 12
+drwx------   2 afan004 csmajs 4096 Nov  8 16:09 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+-r--------   1 afan004 csmajs  156 Nov  8 16:09 3bce28932817ebc5a4c6ad80f7e5386b8f20ab
+
+./.git/objects/info:
+total 8
+drwx------   2 afan004 csmajs 4096 Oct 19 16:18 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+
+./.git/objects/pack:
+total 8
+drwx------   2 afan004 csmajs 4096 Oct 19 16:18 .
+drwx------ 120 afan004 csmajs 4096 Nov 11 23:10 ..
+
+./.git/refs:
+total 20
+drwx------ 5 afan004 csmajs 4096 Nov  8 15:50 .
+drwx------ 8 afan004 csmajs 4096 Nov 11 23:10 ..
+drwx------ 2 afan004 csmajs 4096 Nov 11 23:10 heads
+drwx------ 3 afan004 csmajs 4096 Oct 19 16:31 remotes
+-rw------- 1 afan004 csmajs   41 Nov  8 15:50 stash
+drwx------ 2 afan004 csmajs 4096 Oct 21 23:55 tags
+
+./.git/refs/heads:
+total 8
+drwx------ 2 afan004 csmajs 4096 Nov 11 23:10 .
+drwx------ 5 afan004 csmajs 4096 Nov  8 15:50 ..
+-rw------- 1 afan004 csmajs   41 Nov 11 19:28 ls
+-rw------- 1 afan004 csmajs   41 Nov 11 23:10 master
+
+./.git/refs/remotes:
+total 12
+drwx------ 3 afan004 csmajs 4096 Oct 19 16:31 .
+drwx------ 5 afan004 csmajs 4096 Nov  8 15:50 ..
+drwx------ 2 afan004 csmajs 4096 Nov 11 23:10 origin
+
+./.git/refs/remotes/origin:
+total 8
+drwx------ 2 afan004 csmajs 4096 Nov 11 23:10 .
+drwx------ 3 afan004 csmajs 4096 Oct 19 16:31 ..
+-rw------- 1 afan004 csmajs   41 Oct 21 23:49 exec
+-rw------- 1 afan004 csmajs   41 Nov 11 19:28 ls
+-rw------- 1 afan004 csmajs   41 Nov 11 23:10 master
+
+./.git/refs/tags:
+total 8
+drwx------ 2 afan004 csmajs 4096 Oct 21 23:55 .
+drwx------ 5 afan004 csmajs 4096 Nov  8 15:50 ..
+-rw------- 1 afan004 csmajs   41 Oct 21 23:55 hw0
+
+./src:
+total 92
+drwx------ 3 afan004 csmajs  4096 Nov 11 23:15 .
+drwx------ 6 afan004 csmajs  4096 Nov 11 23:09 ..
+-rwx------ 1 afan004 csmajs 39749 Nov 11 23:08 a.out
+-rw------- 1 afan004 csmajs  3182 Nov 11 18:31 cp.cpp
+drwx------ 3 afan004 csmajs  4096 Nov  8 16:00 .git
+-rw------- 1 afan004 csmajs 13546 Nov 11 22:57 ls.cpp
+-rw------- 1 afan004 csmajs   241 Nov 11 23:15 Makefile
+-rw------- 1 afan004 csmajs  1853 Nov  8 16:03 rshell.cpp
+-rw------- 1 afan004 csmajs 11587 Nov 11 19:28 Timer.h
+
+./src/.git:
+total 12
+drwx------ 3 afan004 csmajs 4096 Nov  8 16:00 .
+drwx------ 3 afan004 csmajs 4096 Nov 11 23:15 ..
+drwx------ 5 afan004 csmajs 4096 Nov  8 16:00 objects
+
+./src/.git/objects:
+total 20
+drwx------ 5 afan004 csmajs 4096 Nov  8 16:00 .
+drwx------ 3 afan004 csmajs 4096 Nov  8 16:00 ..
+drwx------ 2 afan004 csmajs 4096 Nov  8 15:12 0c
+drwx------ 2 afan004 csmajs 4096 Nov  8 15:58 34
+drwx------ 2 afan004 csmajs 4096 Nov  8 15:58 f3
+
+./src/.git/objects/0c:
+total 12
+drwx------ 2 afan004 csmajs 4096 Nov  8 15:12 .
+drwx------ 5 afan004 csmajs 4096 Nov  8 16:00 ..
+-r-------- 1 afan004 csmajs  177 Nov  8 15:12 7f57d7f63e99b12c4b8a2a7797fcdf6a92a146
+
+./src/.git/objects/34:
+total 12
+drwx------ 2 afan004 csmajs 4096 Nov  8 15:58 .
+drwx------ 5 afan004 csmajs 4096 Nov  8 16:00 ..
+-r-------- 1 afan004 csmajs  274 Nov  8 15:58 aeb6719d4c7c8ccf207511b1ca46714336a5cb
+
+./src/.git/objects/f3:
+total 12
+drwx------ 2 afan004 csmajs 4096 Nov  8 15:58 .
+drwx------ 5 afan004 csmajs 4096 Nov  8 16:00 ..
+-r-------- 1 afan004 csmajs  226 Nov  8 15:58 f9909960e9f42ba9aa355c82b85124b7f12a85
+
+./tests:
+total 180
+drwx------ 2 afan004 csmajs  4096 Nov 11 23:15 .
+drwx------ 6 afan004 csmajs  4096 Nov 11 23:09 ..
+-rw------- 1 afan004 csmajs 98304 Nov 11 23:15 ls.script
+-rw------- 1 afan004 csmajs 69319 Oct 21 23:42 rshell.script
+~/cs100/rshell
+afan004@hammer $ /bin/ls -alR[K[K[Ko
+total 56
+drwx------ 2 afan004  4096 Nov 11 23:15 bin
+-rw------- 1 afan004 34593 Oct 21 23:42 LICENSE
+-rw------- 1 afan004   241 Nov 11 23:04 Makefile
+-rw------- 1 afan004   630 Nov 11 23:09 README.md
+drwx------ 3 afan004  4096 Nov 11 23:15 src
+drwx------ 2 afan004  4096 Nov 11 23:15 tests
+~/cs100/rshell
+afan004@hammer $ exit
+exit
+
+Script done on Tue 11 Nov 2014 11:17:03 PM PST
