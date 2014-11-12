@@ -18,4 +18,4 @@ Bugs with LS:
 1.Some colors may not work.
 2.Not correctly printed.
 3.does not work with user defined directories, and paths.
-4.
+4. Not alphabetical.

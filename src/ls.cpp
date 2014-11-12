@@ -135,21 +135,21 @@ void printL( struct stat &buf)
 void print(struct stat buf, dirent *direntp)
 {
 
-	if(buf.st_mode & S_IXUSR)
+	if(buf.st_mode & S_IXUSR) //executable
 	{
 		cout << "\033[38;5;34m" << direntp->d_name << "\033[0;00m" << " ";
 	}
 	else if(buf.st_mode & S_IFDIR)
 	{
-		cout << "\033[38;5;32m" << direntp->d_name << "\33[0;00m" << " ";
+		cout << "\033[38;5;32m" << direntp->d_name << "\033[0;00m" << " ";
 	}
-	else if(direntp->d_name[0] == '.' && (buf.st_mode & S_IFDIR))
+	else if(direntp->d_name[0] == '.' && (buf.st_mode & S_IFDIR))//blue words
 	{
 		cout << "\033[47m\033[38;5;32m" << direntp->d_name << "\033[0;00m" << " ";		
 	}
 	else if(direntp->d_name[0] == '.' && (buf.st_mode & S_IXUSR))
 	{
-		cout << "\033[47m\033[38;5;32m" << direntp->d_name << "\033[0;00m" << " ";
+		cout << "\033[47m\033[38;5;34m" << direntp->d_name << "\033[0;00m" << " ";
 	}
 	else if(direntp->d_name[0] == '.')//gray background
 	{
@@ -183,6 +183,9 @@ int aflags(string dirName)
 		char *path = new char[dirName.length()+1];
 	//	cout << "line 160" << endl;
 		strcpy(path,dirName.c_str());
+		strcat(path, "/");
+		strcat(path, direntp->d_name);
+
 		if(stat(path, &buf) == -1)
 		{
 			perror("stat did not work ln 32");
@@ -215,10 +218,10 @@ int lflags(string dirName)
 		{
 			perror("readdir failed");
 		}
-		struct stat buf;
+		struct stat buf;//declares stat
 		char *path = new char[dirName.length()+100];
 
-		strcpy(path,dirName.c_str());
+		strcpy(path,dirName.c_str());//shows next path
 		strcat(path, "/");
 		strcat(path, direntp->d_name);
 		if(stat(path, &buf) == -1)
@@ -259,7 +262,7 @@ int lflags(string dirName)
 		 struct tm *time= localtime(&t);
 		 char timebuffer[100];
 
-		 strftime(timebuffer, 100, "%h %d %R", time);
+		 strftime(timebuffer, 100, "%h %d %R", time);//prints current time
 		 cout << timebuffer  << " ";
 		print(buf,direntp);
 	}
@@ -280,7 +283,7 @@ int noflags(string dirName)
 	}
 	DIR *dirp;
 	dirent *direntp;
-	cout << "line 140" << endl;
+//	cout << "line 140" << endl;
 	if(!(dirp = opendir(dirName.c_str())))
 	{
 		perror("opendir error line 141");
@@ -292,8 +295,10 @@ int noflags(string dirName)
 			perror("readdir failed");
 		}
 		struct stat buf;
-		char *path = new char[dirName.length()+1];
-		strcpy(path,dirName.c_str());
+		char *path = new char[dirName.length()+1];//creates a new char array
+		strcpy(path,dirName.c_str());//appends
+		strcat(path,"/");
+		strcat(path, direntp->d_name);
 		if(stat(path, &buf) == -1)
 		{
 			perror("stat did not work ln 32");
@@ -302,7 +307,7 @@ int noflags(string dirName)
 		{
 			continue;
 		}
-         print(buf,direntp);
+         print(buf,direntp);//outputs with color
 
 	}	
 	cout << endl;
@@ -359,7 +364,7 @@ int rflags(string dirName)
 		print(buf,direntp);
 
 
-		if(S_ISDIR(buf.st_mode))
+		if(S_ISDIR(buf.st_mode))//later used for recursive
 		{
 			directory.push_back(direntp->d_name);
 		}
@@ -397,6 +402,8 @@ int alflag(string dirName)
 		char *path = new char[dirName.length()+100];
 
 		strcpy(path,dirName.c_str());
+		strcat(path, "/");
+		strcat(path, direntp->d_name);
 		if(stat(path, &buf) == -1)
 		{
 			perror("stat did not work ln 32");
@@ -528,7 +535,7 @@ int rlflags(string dirName)
 			perror("readdir failed");
 		}
 		struct stat buf;
-		char *path = new char[dirName.length()+100];
+		char *path = new char[dirName.length()+100];//adds 100 to the char array
 
 		strcpy(path,dirName.c_str());
 		strcat(path,"/");
@@ -687,6 +694,7 @@ int main(int argc, char *argv[])
 	bool lflag = false;
 	bool rflag = false;
 	bool aflag = false;
+	bool badflag = false;
 	vector<char*>v;
 	string directoryName = "";
 	vector<string> files;
@@ -727,45 +735,52 @@ int main(int argc, char *argv[])
 			lflag = true;
 		}
 		else if(strcmp(v.at(a), "-alR") == 0 || (strcmp(v.at(a), "-aRl") == 0) || (strcmp(v.at(a), "-Ral") == 0) || (strcmp(v.at(a), "-Rla") == 0) ||
-		(strcmp(v.at(a), "-lRa") == 0) || (strcmp(v.at(a), "laR") == 0))
+		(strcmp(v.at(a), "-lRa") == 0) || (strcmp(v.at(a), "-laR") == 0))
 		{
 			rflag = true;
 			lflag = true;
 			aflag = true;
 		}
-			
+		else
+		{
+
+			badflag = true;
+		}
 	
 	}
-
-	if(!aflag && !rflag && !lflag)
+	if(badflag)
+	{
+		cout << "Invalid Flags!";
+	}
+	else if(!aflag && !rflag && !lflag)
 	{
 		noflags(directoryName);
 	}
-	if(lflag && !aflag && !rflag)
+	else if(lflag && !aflag && !rflag)
 	{
 		lflags(directoryName);
 	}
-	if(aflag && !lflag && !rflag)
+	else if(aflag && !lflag && !rflag)
 	{
 		aflags(directoryName);
 	}
-	if(!aflag && !lflag && rflag)
+	else if(!aflag && !lflag && rflag)
 	{
 		rflags(directoryName);
 	}
-	if(lflag && aflag && !rflag)
+	else if(lflag && aflag && !rflag)
 	{
 		alflag(directoryName);
 	}
-	if(aflag && rflag && !lflag)
+	else if(aflag && rflag && !lflag)
 	{
 		aRflags(directoryName);
 	}
-	if(rflag && lflag && !aflag)
+	else if(rflag && lflag && !aflag)
 	{
 		rlflags(directoryName);
 	}
-	if(rflag && lflag && aflag)
+	else if(rflag && lflag && aflag)
 	{
 		allflags(directoryName);
 	}
