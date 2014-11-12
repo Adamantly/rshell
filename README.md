@@ -11,3 +11,9 @@ Bugs:
 4. Unable to use the command "finger"
 5. Unable to use quotes in command
 6. Unable to echo after certain spaces
+
+Bugs with LS:
+1.Some colors may not work.
+2.Not correctly printed.
+3.does not work with user defined directories, and paths.
+4.
