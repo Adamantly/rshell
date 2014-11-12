@@ -139,6 +139,18 @@ void print(struct stat buf, dirent *direntp)
 	{
 		cout << "\033[38;5;34m" << direntp->d_name << "\033[0;00m" << " ";
 	}
+	else if(buf.st_mode & S_IFDIR)
+	{
+		cout << "\033[38;5;32m" << direntp->d_name << "\33[0;00m" << " ";
+	}
+	else if(direntp->d_name[0] == '.' && (buf.st_mode & S_IFDIR))
+	{
+		cout << "]033[47m\033[38;5;32m" << direntp->d_name << "\033[0;00m" << " ";		
+	}
+	else if(direntp->d_name[0] == '.')//gray background
+	{
+		cout << "\033[47m" << direntp->d_name << "\033[0;00m" << " ";
+	}
 	else
 	{
 		cout << direntp->d_name << " ";
@@ -146,13 +158,13 @@ void print(struct stat buf, dirent *direntp)
 }
 int aflags(string dirName)
 {
-//if((strcmp(dirName.c_str(),"")) == 0)
-//	{
-//		dirName = ".";
-//	}
+	if((strcmp(dirName.c_str(),"")) == 0)
+	{
+		dirName = ".";
+	}
 	DIR *dirp;
 	dirent *direntp;
-	cout << "line 140" << endl;
+//	cout << "line 140" << endl;
 	if(!(dirp = opendir(dirName.c_str())))
 	{
 		perror("opendir error line 141");
@@ -165,7 +177,7 @@ int aflags(string dirName)
 		}
 		struct stat buf;
 		char *path = new char[dirName.length()+1];
-		cout << "line 160" << endl;
+	//	cout << "line 160" << endl;
 		strcpy(path,dirName.c_str());
 		if(stat(path, &buf) == -1)
 		{
@@ -174,7 +186,7 @@ int aflags(string dirName)
 	cout << direntp->d_name << " ";
 	}	
 
-	cout << "line 168" << endl;
+//	cout << "line 168" << endl;
 
 	cout << endl;
 	if(closedir(dirp) == -1)
@@ -326,7 +338,7 @@ int rflags(string dirName)
 			perror("readdir failed");
 		}
 		struct stat buf;
-		char *path = new char[dirName.length()+1];
+		char *path = new char[dirName.length()+100];
 //		cout << "line 160" << endl;
 		strcpy(path,dirName.c_str());
 		strcat(path,"/");
@@ -334,6 +346,10 @@ int rflags(string dirName)
 		if(stat(path, &buf) == -1)
 		{
 			perror("stat did not work ln 32");
+		}
+		if(direntp->d_name[0] == '.')
+		{
+			continue;
 		}
 
 	cout << direntp->d_name << " ";
@@ -344,7 +360,6 @@ int rflags(string dirName)
 		}
 	}	
 
-//	cout << "line 168" << endl;
 	for(unsigned p = 0; p < directory.size();p++)
 	{
 		rflags(dirName + "/" + directory.at(p));
