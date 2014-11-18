@@ -10,7 +10,8 @@
 #include<fcntl.h>
 using namespace std;
 void doPipes(char** leftpart, char** rightpart);
-void noPipes(char **arg2);
+void Dups(char **arg2);
+void normal(char ** arg);
 //test
 void login()
 {
@@ -28,6 +29,9 @@ void login()
 
 
 }
+//void fixparse(string &str)
+//{
+//}
 void check(char** arg) //looks for pipes
 {
 		bool piping = false;
@@ -54,9 +58,10 @@ void check(char** arg) //looks for pipes
 				left[i] = arg[i];
 			}
 			int end = 0;
-			for(int i = splitting + 1; arg[i] != '\0';i++, end++)
+			for(int h = splitting + 1; arg[h] != '\0';h++)
 			{
-				right[end] = arg[i];
+				right[end] = arg[h];
+				end++;
 			}
 			left[splitting] = '\0';
 			right[end] = '\0';
@@ -65,7 +70,7 @@ void check(char** arg) //looks for pipes
 		}
 		else
 		{
-			noPipes(arg);
+			normal(arg);
 		}
 		delete []left;
 		delete []right;
@@ -85,6 +90,7 @@ void doPipes(char** leftpart, char** rightpart)
 			}
 			else if(pid == 0)
 			{
+				normal(leftpart);
 				if(dup2(fd[1],1) == -1)
 				{
 					perror("Error with dup2");
@@ -99,8 +105,8 @@ void doPipes(char** leftpart, char** rightpart)
 				}
 				exit(1);
 			}
-			int savestate = dup(0);
-			if((savestate) == -1)
+			int savestdin;
+			if((savestdin = dup(0)) == -1)
 			{
 				perror("Error with dup (141)");
 			}
@@ -112,38 +118,25 @@ void doPipes(char** leftpart, char** rightpart)
 			{
 				perror("Error with close.(149)");
 			}
-			if(wait(0) == -1)//change this later
+			if(wait(0) == -1)
 			{
 				perror("Error in wait (153)");
 			}
 
 			check(rightpart);
 
-			dup2(savestate,0);
+			dup2(savestdin,0);
 }
-void noPipes(char **arg2)
+void Dups(char **arg2)
 {
-		int forkvar = fork();//uses pid to identify processes
-		if(forkvar == -1)
-		{
-			perror("Error with fork (130)");
-		}
-		if(forkvar)//parent process which runs 
-		{
-			wait(0);
-		}	
-		else if(forkvar == 0)//child process which lets us run exec
-		{
 
-		//Function here
-			
 			for(int i = 0; arg2[i] != '\0';i++)
 			{
 				int fd;
 				if(!strcmp(arg2[i], ">"))
 				{
 					arg2[i] = NULL;
-					if(((fd = open(arg2[i+1],O_CREAT | O_WRONLY | O_TRUNC, 0666))) == -1)
+					if( -1 == (fd = open(arg2[i+1],O_CREAT | O_WRONLY | O_TRUNC, 0666)))
 					{
 						perror("There is an error with open(150)");
 					}
@@ -160,7 +153,7 @@ void noPipes(char **arg2)
 					{
 						perror("There is an error with open(150)");
 					}
-					if(dup2(fd,1) == -1)
+					if((dup2(fd,1)) == -1)
 					{
 						perror("Error with dup2 (153)");
 					}
@@ -168,36 +161,54 @@ void noPipes(char **arg2)
 				}
 				else if(!strcmp(arg2[i],"<"))
 				{
-					arg2[i] = '\0';
+					arg2[i] = NULL;
 					if((fd = open(arg2[i+1],O_RDONLY)) == -1)
 					{
 						perror("Error with open (175)");
 					}
-					if(dup2(fd,0))
+					if(dup2(fd,0) == -1)
 					{
 						perror("Error with dup2 (180)");
 					}
 						break;
 				}
-			}
-
-
-			
-			if(execvp(arg2[0], arg2) == -1)//takes in the argument from array.
-			{
-				perror("execvp did not run");
-			}
-		//	delete[] arg2;
-			exit(1);//exits when fails
-			
 		}
+			
+/*		if(execvp(arg2[0], arg2) == -1)//takes in the argument from array.
+		{
+				perror("execvp did not run");
+				exit(1);//exits when fails	
+		}
+		
 		else
 		{
 			perror("Fork failed");//error flag when forking fails
 			exit(1);
 		}
 	
+*/
 
+}
+void normal(char ** arg)
+{
+		int forkvar = fork();//uses pid to identify processes
+		if(forkvar == -1)
+		{
+			perror("Error with fork (130)");
+		}
+		else if(forkvar == 0)//child process which lets us run exec
+		{
+			Dups(arg);
+			if((execvp(arg[0],arg)) == -1)
+			{
+				perror("error execvp in normal");
+			}
+			exit(1);
+		}
+		if(wait(0) == -1)
+		{
+			perror("Error in wait 210");
+		}
 
 }
 int main(int argc, char *argv[])
@@ -205,7 +216,7 @@ int main(int argc, char *argv[])
 	bool nonstop = true;
 	while(nonstop)
 	{
-		 char token[1024] = {0};
+		char token[1024] = {0};
 		login();
 		cin.getline(token,128);
 		if(strcmp(token,"exit") == 0)
@@ -236,21 +247,25 @@ int main(int argc, char *argv[])
 		argument[position] = NULL;//ends the strtok with a null to make sure it doesn't seg fault
 		////////////////////////////////////////////
 		
+	//	bool bprocess = false;
 
-		bool backgroundprocess = false;
+		//bprocess = process;
 
-	/*	for(int i = 0;i < argc ;i++)
-		{
-			if(strcmp(token,"&"))
-			{
-				backgroundprocess = true;
-				argument[i] = '\0';
-			}
-		}
-*/
-		check(argument);
-
-}
+	//	int forkvar = fork();//uses pid to identify processes
+	//	if(forkvar == -1)
+	//	{
+	//		perror("Error with fork (130)");
+	//	}
+	//	if(forkvar)//parent process which runs 
+	//	{
+	//		wait(0);
+	//	}	
+	//	else if(forkvar == 0)//child process which lets us run exec
+	//	{
+			check(argument);
+			delete []argument;
+	//	}
+	}
 	return 0;
 }
 
