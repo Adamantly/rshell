@@ -136,7 +136,7 @@ void Dups(char **arg2)
 				if(!strcmp(arg2[i], ">"))
 				{
 					arg2[i] = NULL;
-					if( -1 == (fd = open(arg2[i+1],O_CREAT | O_WRONLY | O_TRUNC, 0666)))
+					if( -1 == (fd = open(arg2[i+1],O_CREAT | O_WRONLY | O_TRUNC)))
 					{
 						perror("There is an error with open(150)");
 					}
@@ -149,7 +149,7 @@ void Dups(char **arg2)
 				else if(!strcmp(arg2[i],">>"))
 				{
 					arg2[i] = NULL;
-					if((open(arg2[i+1],O_CREAT | O_WRONLY | O_APPEND, 0666)) == -1)
+					if((open(arg2[i+1],O_CREAT | O_WRONLY | O_APPEND)) == -1)
 					{
 						perror("There is an error with open(150)");
 					}
@@ -216,14 +216,14 @@ bool backprocesses(char **arg,int n, bool e)
 		}
 		else if (!e) 
 		{
-		 char* c = arg[n];
-		 int length = strlen(arg[n])-1;
-		 if(c[length] == '&')
-		 {
-		 	process = true;
-			c[length] = '\0';
-			arg[n] = c;
-		 }
+			 char* c = arg[n];
+		 	int length = strlen(arg[n])-1;
+		 	if(c[length] == '&')
+		 	{
+		 		process = true;
+				c[length] = '\0';
+				arg[n] = c;
+			}
 		}
 
 	return process;
