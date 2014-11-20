@@ -20,3 +20,10 @@ Bugs with LS:
 3. does not work with user defined directories, and paths.
 4. Not alphabetical.
 5. Invalid flags runs ls with no flags.
+
+Bugs with Rshell(v2)
+===========
+1. Prompt is incorrectly outputed after using '&' character for background processes.
+2. Append(>>)  does not currently work.
+3. If there are no spaces between piping or i/o symbols, it will not work.
+
