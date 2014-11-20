@@ -136,7 +136,7 @@ void Dups(char **arg2)
 				if(!strcmp(arg2[i], ">"))
 				{
 					arg2[i] = NULL;
-					if( -1 == (fd = open(arg2[i+1],O_CREAT | O_WRONLY | O_TRUNC)))
+					if( -1 == (fd = open(arg2[i+1],O_CREAT | O_WRONLY | O_TRUNC, 0666)))
 					{
 						perror("There is an error with open(150)");
 					}
@@ -149,11 +149,11 @@ void Dups(char **arg2)
 				else if(!strcmp(arg2[i],">>"))
 				{
 					arg2[i] = NULL;
-					if((open(arg2[i+1],O_CREAT | O_WRONLY | O_APPEND)) == -1)
+					if((fd = open(arg2[i+1],O_CREAT | O_WRONLY | O_APPEND, 0666)) == -1)
 					{
 						perror("There is an error with open(150)");
 					}
-					if((dup2(fd,1)) == -1)
+					if(dup2(fd,1) == -1)
 					{
 						perror("Error with dup2 (153)");
 					}
