@@ -26,4 +26,5 @@ Bugs with Rshell(v2)
 1. Prompt is incorrectly outputed after using '&' character for background processes.
 2. Append(>>)  does not currently work.
 3. If there are no spaces between piping or i/o symbols, it will not work.
-
+4. If you try to append to a non existent file, the program will bug and not work anymore.
+5. if you run anything with background permissions, the program will stop printing out the prompt.
