@@ -9,9 +9,9 @@
 #include<sys/wait.h>
 #include<fcntl.h>
 using namespace std;
-void doPipes(char** leftpart, char** rightpart);
+void doPipes(char** leftpart, char** rightpart,bool b);
 void Dups(char **arg2);
-void normal(char ** arg);
+void normal(char ** arg, bool b);
 //test
 void login()
 {
@@ -32,7 +32,7 @@ void login()
 //void fixparse(string &str)
 //{
 //}
-void check(char** arg) //looks for pipes
+void check(char** arg,bool b) //looks for pipes
 {
 		bool piping = false;
 		int splitting = 0;
@@ -66,17 +66,17 @@ void check(char** arg) //looks for pipes
 			left[splitting] = '\0';
 			right[end] = '\0';
 			
-			doPipes(left,right);
+			doPipes(left,right,b);
 		}
 		else
 		{
-			normal(arg);
+			normal(arg,b);
 		}
 		delete []left;
 		delete []right;
 
 }
-void doPipes(char** leftpart, char** rightpart)
+void doPipes(char** leftpart, char** rightpart, bool b)
 {
 			int fd[2];
 			if(pipe(fd) == -1)
@@ -90,7 +90,7 @@ void doPipes(char** leftpart, char** rightpart)
 			}
 			else if(pid == 0)
 			{
-				normal(leftpart);
+				Dups(leftpart);
 				if(dup2(fd[1],1) == -1)
 				{
 					perror("Error with dup2");
@@ -123,7 +123,7 @@ void doPipes(char** leftpart, char** rightpart)
 				perror("Error in wait (153)");
 			}
 
-			check(rightpart);
+			check(rightpart,b);
 
 			dup2(savestdin,0);
 }
@@ -174,22 +174,10 @@ void Dups(char **arg2)
 				}
 		}
 			
-/*		if(execvp(arg2[0], arg2) == -1)//takes in the argument from array.
-		{
-				perror("execvp did not run");
-				exit(1);//exits when fails	
-		}
-		
-		else
-		{
-			perror("Fork failed");//error flag when forking fails
-			exit(1);
-		}
 	
-*/
 
 }
-void normal(char ** arg)
+void normal(char ** arg,bool b)
 {
 		int forkvar = fork();//uses pid to identify processes
 		if(forkvar == -1)
@@ -205,23 +193,58 @@ void normal(char ** arg)
 			}
 			exit(1);
 		}
-		if(wait(0) == -1)
+		if(!b)
 		{
-			perror("Error in wait 210");
+			
+			if(wait(0) == -1)
+			{
+				perror("Error in wait 210");
+			}
+		}
+}
+bool backprocesses(char **arg,int n, bool e)
+{
+	bool process;
+	if(n > 0)
+	{
+		n--;
+	}
+		if(!strcmp(arg[n],"&") && !e)
+		{
+			process = true;
+			arg[n] = '\0';
+		}
+		else if (!e) 
+		{
+		 char* c = arg[n];
+		 int length = strlen(arg[n])-1;
+		 if(c[length] == '&')
+		 {
+		 	process = true;
+			c[length] = '\0';
+			arg[n] = c;
+		 }
 		}
 
+	return process;
 }
 int main(int argc, char *argv[])
 {
 	bool nonstop = true;
 	while(nonstop)
 	{
+		bool empty = false;
+		bool back = false;
 		char token[1024] = {0};
 		login();
 		cin.getline(token,128);
 		if(strcmp(token,"exit") == 0)
 		{	
 			exit(0);//if user typed exit, it exits the program.
+		}
+		if(!strcmp(token,""))
+		{
+			empty = false;
 		}
 		for(int i = 0;i< 1024; i++)
 		{
@@ -235,36 +258,23 @@ int main(int argc, char *argv[])
 		argument = new char *[1024];//creates array of pointers
 
 		unsigned position = 0;//counts when it gets to end of line using cstring;
-						
+		int num = 0;				
 	         
+
 		char *cmptoken = strtok(token, " ");
 		while( cmptoken != NULL)
 		{
 			argument[position] = cmptoken;
 			position = position + 1;
+			num++;
 			cmptoken = strtok(NULL," ");//continues parsing the line
 		}
+		back = backprocesses(argument,num,empty);
 		argument[position] = NULL;//ends the strtok with a null to make sure it doesn't seg fault
 		////////////////////////////////////////////
 		
-	//	bool bprocess = false;
-
-		//bprocess = process;
-
-	//	int forkvar = fork();//uses pid to identify processes
-	//	if(forkvar == -1)
-	//	{
-	//		perror("Error with fork (130)");
-	//	}
-	//	if(forkvar)//parent process which runs 
-	//	{
-	//		wait(0);
-	//	}	
-	//	else if(forkvar == 0)//child process which lets us run exec
-	//	{
-			check(argument);
+			check(argument,back);
 			delete []argument;
-	//	}
 	}
 	return 0;
 }
