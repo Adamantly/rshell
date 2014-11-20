@@ -1,0 +1,72 @@
+Script started on Thu 20 Nov 2014 12:38:42 AM PST
+~
+afan004@hammer $ cd cs100/rshell
+~/cs100/rshell
+afan004@hammer $ make
+g++ -Wall -Werror -ansi -pedantic src/rshell.cpp -o ./bin/rshell
+g++ -Wall -Werror -ansi -pedantic src/cp.cpp -o ./bin/cp
+g++ -Wall -Werror -ansi -pedantic src/ls.cpp -o ./bin/ls
+~/cs100/rshell
+afan004@hammer $ bin/rshell 
+afan004@hammer.cs.ucr.edu$echo H "hello" > test.txt
+afan004@hammer.cs.ucr.edu$ls
+bin  LICENSE  Makefile	README.md  src	tests  test.txt
+afan004@hammer.cs.ucr.edu$cat test.txt
+"hello"
+afan004@hammer.cs.ucr.edu$cat < f tests.txt
+Error with open (175): No such file or directory
+Error with dup2 (180): Bad file descriptor
+
+
+echo "L this is appended to test.txt >> test.txt
+echo "this is appended to test.txt >> test.txt
+ls
+ls
+ls
+ls
+exit
+exit
+exit
+exit
+ls
+ls
+^C
+~/cs100/rshell
+afan004@hammer $ bin/rshell.cpp[K[K[K[K
+afan004@hammer.cs.ucr.edu$echo >>  "This is appended to test.txt test    " >> test.txt
+afan004@hammer.cs.ucr.edu$ls
+bin  LICENSE  Makefile	README.md  src	tests  test.txt
+afan004@hammer.cs.ucr.edu$cat test.txt
+"hello"
+"This is appended to test.txt "
+afan004@hammer.cs.ucr.edu$cat test.txt | tail -1
+"This is appended to test.txt "
+afan004@hammer.cs.ucr.edu$cat tex st.txt|tail-1
+cat: test.txt|tail-1: No such file or directory
+afan004@hammer.cs.ucr.edu$cat < existingInputFile | tr A-Z a-z | tee newOutputFile1 | tr a-z A-Z > newOutputFile2 &
+Error with open (175): No such file or directory
+Error with dup2 (180): Bad file descriptor
+ls
+exit
+^C
+~/cs100/rshell
+afan004@hammer $ bin/rshell.cpp[K[K[K[K
+afan004@hammer.cs.ucr.edu$cat < test.txt | tr A-Z a-z } | tee newoutP    OutputFile1 1 | tr a-z A-z > newOutputFile2 &
+afan004@hammer.cs.ucr.edu$ls
+afan004@hammer.cs.ucr.edu$bin	 Makefile	 newOutputFile2  src	test.txt
+LICENSE  newOutputFile1  README.md	 tests
+cat newou  OutputFile2 | cat newOutputFile1
+"hello"
+"this is appended to test.txt "
+afan004@hammer.cs.ucr.edu$ca t at newOup tputFile2
+afan004@hammer.cs.ucr.edu$"HELLO"
+"THIS IS APPENDED TO TEST.TXT "
+cat newOup tputFile1
+afan004@hammer.cs.ucr.edu$"hello"
+"this is appended to test.txt "
+exit
+~/cs100/rshell
+afan004@hammer $ exit
+exit
+
+Script done on Thu 20 Nov 2014 12:51:35 AM PST
