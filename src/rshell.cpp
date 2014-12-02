@@ -4,16 +4,18 @@
 #include<string.h>
 #include<cstring>
 #include<stdio.h>
+#include<errno.h>
 #include<cstdlib>
 #include<sys/types.h>
 #include<sys/wait.h>
 #include<fcntl.h>
 #include<signal.h>
 using namespace std;
-void doPipes(char** leftpart, char** rightpart,bool b);
+void doPipes(char** leftpart, char** rightpart,bool b, char **parse);
 void Dups(char **arg2);
-void normal(char ** arg, bool b);
-//test
+void normal(char ** arg, bool b, char **parse);
+void exec(char **, char **);
+pid_t pid1;
 void login()
 {
 		char username[128];
@@ -30,7 +32,7 @@ void login()
 
 
 }
-void check(char** arg,bool b) //looks for pipes
+void check(char** arg,bool b, char **parse) //looks for pipes
 {
 		bool piping = false;
 		int splitting = 0;
@@ -64,17 +66,17 @@ void check(char** arg,bool b) //looks for pipes
 			left[splitting] = '\0';
 			right[end] = '\0';
 			
-			doPipes(left,right,b);
+			doPipes(left,right,b,parse);
 		}
 		else
 		{
-			normal(arg,b);
+			normal(arg,b,parse);
 		}
 		delete []left;
 		delete []right;
 
 }
-void doPipes(char** leftpart, char** rightpart, bool b)
+void doPipes(char** leftpart, char** rightpart, bool b, char **parse)
 {
 			int fd[2];
 			if(pipe(fd) == -1)
@@ -97,11 +99,12 @@ void doPipes(char** leftpart, char** rightpart, bool b)
 				{
 					perror("Error with close");
 				}
-				if(execvp(leftpart[0],leftpart) == -1)
-				{
-					perror("Execvp wrong in piping");
-				}
-				exit(1);
+				exec(parse,leftpart);
+			//	if(exec(parse,leftpart) == -1)
+			//	{
+			//		perror("Execvp wrong in piping");
+			//	}
+			//	exit(1);
 			}
 			int savestdin;
 			if((savestdin = dup(0)) == -1)
@@ -121,7 +124,7 @@ void doPipes(char** leftpart, char** rightpart, bool b)
 				perror("Error in wait (153)");
 			}
 
-			check(rightpart,b);
+			check(rightpart,b,parse);
 
 			if(dup2(savestdin,0) == -1)
 			{
@@ -179,7 +182,7 @@ void Dups(char **arg2)
 	
 
 }
-void normal(char ** arg,bool b)
+void normal(char **arg,bool b,char **parse)
 {
 		int forkvar = fork();//uses pid to identify processes
 		if(forkvar == -1)
@@ -189,14 +192,17 @@ void normal(char ** arg,bool b)
 		else if(forkvar == 0)//child process which lets us run exec
 		{
 			Dups(arg);
-			if((execvp(arg[0],arg)) == -1)
-			{
-				perror("error execvp in normal");
-			}
+			//if((execvp(arg[0],arg)) == -1)
+			//{
+			//	perror("error execvp in normal");
+			//}/
+			//exit(1);
+			exec(parse,arg);
 			exit(1);
 		}
 		if(!b)
 		{
+			pid1 = forkvar;
 			
 			if(wait(0) == -1)
 			{
@@ -234,13 +240,51 @@ void ctrlc(int signum)
 {
 	signal(SIGINT,SIG_IGN);
 }
-//void exec(
+void exec(char **path, char **argument)
+{
+	for(int p = 0; path[p] != '\0';p++)
+	{
+		char copy[1000] = {0};
+		strcpy(copy,path[p]);
+		if(copy[strlen(copy) - 1] != '/')
+		{
+			strcat(copy,"/");
+		}
+		strcat(copy,argument[0]);
+	
+		char *newargs[1000];
+		newargs[0] = copy;
+		for(int h = 1;argument[h] != '\0';h++)
+		{
+			newargs[h] = argument[h];
+		}
+		if(execv(newargs[0],newargs) == -1);
+		else
+		return;
+	}
+	if(errno == -1)
+	{
+		perror("Error with execv");
+		exit(1);
+	}
+}	
 int main(int argc, char *argv[])
 {
 	bool nonstop = true;
 	signal(SIGINT,ctrlc);
 	char *path = getenv("PATH");
 	char *parse_array[150];
+	parse_array[0] = strtok(path,":");
+//	for(int i = 1 ; parse_array[i] != '\0';i++)
+//	{
+///		parse_array[i] = strtok(NULL, " ");
+//	}
+	int l =0;
+	while(parse_array[l] != NULL)
+	{
+		l++;
+		parse_array[l] = strtok(NULL,":");
+	}
 	while(nonstop)
 	{
 		bool empty = false;
@@ -294,12 +338,13 @@ int main(int argc, char *argv[])
 			{
 				chdir(argument[1]);
 			}
+			continue;
 		}
 		back = backprocesses(argument,num,empty);
 		argument[position] = NULL;//ends the strtok with a null to make sure it doesn't seg fault
 		////////////////////////////////////////////
 		
-			check(argument,back);
+			check(argument,back,parse_array);
 			delete []argument;
 	}
 	return 0;
