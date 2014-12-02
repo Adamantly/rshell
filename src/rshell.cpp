@@ -234,9 +234,13 @@ void ctrlc(int signum)
 {
 	signal(SIGINT,SIG_IGN);
 }
+//void exec(
 int main(int argc, char *argv[])
 {
 	bool nonstop = true;
+	signal(SIGINT,ctrlc);
+	char *path = getenv("PATH");
+	char *parse_array[150];
 	while(nonstop)
 	{
 		bool empty = false;
@@ -248,7 +252,6 @@ int main(int argc, char *argv[])
 		{	
 			exit(0);//if user typed exit, it exits the program.
 		}
-		signal(SIGINT,ctrlc);
 		if(!strcmp(token,""))
 		{
 			empty = false;
@@ -260,7 +263,10 @@ int main(int argc, char *argv[])
 				token[i] = '\0'; //places null terminating char at the end.
 			}
 		}
-
+		if(!strcmp(token,""))
+		{
+			continue;
+		}
 		char **argument;
 		argument = new char *[1024];//creates array of pointers
 
@@ -275,6 +281,19 @@ int main(int argc, char *argv[])
 			position = position + 1;
 			num++;
 			cmptoken = strtok(NULL," ");//continues parsing the line
+		}
+
+		if(!strcmp(argument[0],"cd") )
+		{
+			if( num == 1)
+			{
+				char *h = getenv("HOME");
+				chdir(h);
+			}
+			else
+			{
+				chdir(argument[1]);
+			}
 		}
 		back = backprocesses(argument,num,empty);
 		argument[position] = NULL;//ends the strtok with a null to make sure it doesn't seg fault
