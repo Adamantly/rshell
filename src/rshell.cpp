@@ -8,6 +8,7 @@
 #include<sys/types.h>
 #include<sys/wait.h>
 #include<fcntl.h>
+#include<signal.h>
 using namespace std;
 void doPipes(char** leftpart, char** rightpart,bool b);
 void Dups(char **arg2);
@@ -29,9 +30,6 @@ void login()
 
 
 }
-//void fixparse(string &str)
-//{
-//}
 void check(char** arg,bool b) //looks for pipes
 {
 		bool piping = false;
@@ -125,7 +123,11 @@ void doPipes(char** leftpart, char** rightpart, bool b)
 
 			check(rightpart,b);
 
-			dup2(savestdin,0);
+			if(dup2(savestdin,0) == -1)
+			{
+				perror("Error in dup2");
+			}
+			
 }
 void Dups(char **arg2)
 {
@@ -228,6 +230,10 @@ bool backprocesses(char **arg,int n, bool e)
 
 	return process;
 }
+void ctrlc(int signum)
+{
+	signal(SIGINT,SIG_IGN);
+}
 int main(int argc, char *argv[])
 {
 	bool nonstop = true;
@@ -242,6 +248,7 @@ int main(int argc, char *argv[])
 		{	
 			exit(0);//if user typed exit, it exits the program.
 		}
+		signal(SIGINT,ctrlc);
 		if(!strcmp(token,""))
 		{
 			empty = false;
