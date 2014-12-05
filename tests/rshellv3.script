@@ -1,0 +1,94 @@
+Script started on Thu 04 Dec 2014 10:39:01 PM PST
+~
+afan004@hammer $ cd cs100/rshell/src
+~/cs100/rshell/src
+afan004@hammer $ ls
+[0m[01;32ma.out[0m*  cp.cpp  ls.cpp  rshell.cpp  Timer.h
+[m~/cs100/rshell/src
+afan004@hammer $ make
+make: *** No targets specified and no makefile found.  Stop.
+~/cs100/rshell/src
+afan004@hammer $ cd ..
+~/cs100/rshell
+afan004@hammer $ make
+mkdir bin
+g++ -Wall -Werror -ansi -pedantic src/rshell.cpp -o ./bin/rshell
+g++ -Wall -Werror -ansi -pedantic src/cp.cpp -o ./bin/cp
+g++ -Wall -Werror -ansi -pedantic src/ls.cpp -o ./bin/ls
+~/cs100/rshell
+afan004@hammer $ bin/rshell 
+afan004@hammer.cs.ucr.edu$echo "hello world" < test.cpp
+Error with open (175): No such file or directory
+Error with dup2 (180): Bad file descriptor
+"hello world"
+afan004@hammer.cs.ucr.edu$echo "hello word" >?  test.cpp
+afan004@hammer.cs.ucr.edu$ls
+bin  LICENSE  Makefile	README.md  src	test.cpp  tests
+afan004@hammer.cs.ucr.edu$cat test.cpp
+"hello word"
+afan004@hammer.cs.ucr.edu$echo "this is the last    next lni  ine" >> test.cpp
+afan004@hammer.cs.ucr.edu$ls
+bin  LICENSE  Makefile	README.md  src	test.cpp  tests
+afan004@hammer.cs.ucr.edu$cat test.cpp
+"hello word"
+"this is the next line"
+afan004@hammer.cs.ucr.edu$cat test.cpp | head -1
+"hello word"
+afan004@hammer.cs.ucr.edu$cat test.cpp | head    tail -1
+"this is the next line"
+afan004@hammer.cs.ucr.edu$ls -a
+.  ..  bin  .git  LICENSE  Makefile  README.md	src  test.cpp  tests
+afan004@hammer.cs.ucr.edu$ls -l
+total 56
+drwx------ 2 afan004 csmajs  4096 Dec  4 22:37 bin
+-rw------- 1 afan004 csmajs 34593 Nov 20 01:17 LICENSE
+-rw------- 1 afan004 csmajs   241 Nov 20 01:17 Makefile
+-rw------- 1 afan004 csmajs  1063 Nov 20 01:17 README.md
+drwx------ 2 afan004 csmajs  4096 Dec  4 22:36 src
+-rw------- 1 afan004 csmajs    37 Dec  4 22:43 test.cpp
+drwx------ 2 afan004 csmajs  4096 Dec  4 22:37 tests
+afan004@hammer.cs.ucr.edu$ls    cat
+l
+l
+s
+s
+r
+r
+k
+k
+p
+p
+i
+i
+^Cafan004@hammer.cs.ucr.edu$ls
+bin  LICENSE  Makefile	README.md  src	test.cpp  tests
+afan004@hammer.cs.ucr.edu$^C^C^C^C^C^C^C^C^C
+afan004@hammer.cs.ucr.edu$^C
+afan004@hammer.cs.ucr.edu$^C
+afan004@hammer.cs.ucr.edu$^C
+afan004@hammer.cs.ucr.edu$^C
+^C
+^C
+^C
+afan004@hammer.cs.ucr.edu$^C
+afan004@hammer.cs.ucr.edu$^C
+afan004@hammer.cs.ucr.edu$^C
+afan004@hammer.cs.ucr.edu$ls
+bin  LICENSE  Makefile	README.md  src	test.cpp  tests
+afan004@hammer.cs.ucr.edu$cd ..
+afan004@hammer.cs.ucr.edu$ls
+a.out  cp.cpp  firstrepo  hw0  lab  rshell  rshell-1  rshell.cpp
+afan004@hammer.cs.ucr.edu$cd ..   hw   rshell
+afan004@hammer.cs.ucr.edu$ls
+bin  LICENSE  Makefile	README.md  src	test.cpp  tests
+afan004@hammer.cs.ucr.edu$cd src
+afan004@hammer.cs.ucr.edu$ls
+a.out  cp.cpp  ls.cpp  rshell.cpp  Timer.h
+afan004@hammer.cs.ucr.edu$pwd
+/home/csmajs/afan004/cs100/rshell/src
+afan004@hammer.cs.ucr.edu$exit
+~/cs100/rshell
+afan004@hammer $ exit
+exit
+
+Script done on Thu 04 Dec 2014 10:53:09 PM PST
