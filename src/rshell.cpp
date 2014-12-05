@@ -271,7 +271,6 @@ void exec(char **path, char **argument)
 int main(int argc, char *argv[])
 {
 	bool nonstop = true;
-	signal(SIGINT,ctrlc);
 	char *path = getenv("PATH");
 	char *parse_array[150];
 	parse_array[0] = strtok(path,":");
@@ -283,6 +282,8 @@ int main(int argc, char *argv[])
 	}
 	while(nonstop)
 	{
+		
+	signal(SIGINT,ctrlc);
 		bool empty = false;
 		bool back = false;
 		char token[1024] = {0};
