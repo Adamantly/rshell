@@ -28,3 +28,7 @@ Bugs with Rshell(v2)
 3. If there are no spaces between piping or i/o symbols, it will not work.
 4. If you try to append to a non existent file, the program will bug and not work anymore.
 5. if you run anything with background permissions, the program will stop printing out the bash prompt.
+
+Bugs with Rshell(v3)
+=======================
+1. Still unable to pipe without spaces
