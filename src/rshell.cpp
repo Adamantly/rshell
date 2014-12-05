@@ -275,10 +275,6 @@ int main(int argc, char *argv[])
 	char *path = getenv("PATH");
 	char *parse_array[150];
 	parse_array[0] = strtok(path,":");
-//	for(int i = 1 ; parse_array[i] != '\0';i++)
-//	{
-///		parse_array[i] = strtok(NULL, " ");
-//	}
 	int l =0;
 	while(parse_array[l] != NULL)
 	{
